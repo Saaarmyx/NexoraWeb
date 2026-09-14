@@ -5,7 +5,7 @@
 const products = [
   {
     slug: 'cloud',
-    name: 'Nexora Cloud',
+    name: 'NEXA CLOUD',
     description:
       'Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora y accede a lo que necesitas desde cualquier dispositivo.',
     availability: 'Disponible próximamente',
@@ -15,7 +15,7 @@ const products = [
   },
   {
     slug: 'os',
-    name: 'Nexora OS',
+    name: 'NEXA',
     description:
       'Un sistema operativo diseñado para funcionar en conjunto con todo tu ecosistema. Más simple, más rápido y construido alrededor de ti.',
     availability: 'En desarrollo',
@@ -25,27 +25,27 @@ const products = [
   },
   {
     slug: 'connect',
-    name: 'Nexora Connect',
+    name: 'NCONNECT',
     description:
       'Conecta tus dispositivos Nexora de forma instantánea. Comparte archivos, continúa tareas y mantén todos tus dispositivos sincronizados.',
     availability: 'Disponible próximamente',
     image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
     theme: 'light',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'code',
-    name: 'Nexora Code',
+    name: 'NCODE',
     description:
       'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
     availability: 'En desarrollo',
     image: '/images/iphone_18_pro__gez8o055n1ui_large_2x.jpg',
     theme: 'dark',
-    featured: false,
+    featured: true,
   },
   {
     slug: 'photos',
-    name: 'Nexora Photos',
+    name: 'NEXORA Photos',
     description:
       'Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.',
     availability: 'En desarrollo',

@@ -1,14 +1,21 @@
 import Card from '../atoms/Card/Card'
 import Button from '../atoms/Button/Button'
-
 import './LaunchHero.css'
 
-function LaunchHero({ description, buttonText, buttonTo = '/products', image }) {
+function LaunchHero({ description, buttonText, buttonTo = '/products', image, video }) {
   return (
-    <Card
-      className="launch-hero-card"
-      style={image ? { '--launch-hero-image': `url('${image}')` } : undefined}
-    >
+    <Card className="launch-hero-card">
+      {video && <video className="launch-hero-video" src={video} autoPlay muted playsInline />}
+
+      {!video && image && (
+        <div
+          className="launch-hero-image"
+          style={{
+            backgroundImage: `url('${image}')`,
+          }}
+        />
+      )}
+
       <div className="launch-hero-content">
         <p className="launch-hero-description">{description}</p>
 

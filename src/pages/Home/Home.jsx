@@ -30,9 +30,9 @@ function Home() {
         }
         buttonText="Explorar Nexora"
         buttonTo="/products"
-        image="/images/hero_lanzamientos.png"
+        video="/videos/hero_lanzamientos.mp4"
+        // image="/images/launch_hero__f65y4ofawsii_large_2x.jpg"
       />
-
       {featuredProducts.map((product) => (
         <ProductHero
           key={product.slug}
@@ -45,7 +45,7 @@ function Home() {
         />
       ))}
 
-      <section className="section">
+      {/* <section className="section">
         <div className="container">
           <div className="section-heading">
             <span className="eyebrow">ECOSISTEMA</span>
@@ -54,14 +54,14 @@ function Home() {
 
           <FeatureGrid items={pillars} />
         </div>
-      </section>
+      </section> */}
 
-      <CtaSection
+      {/* <CtaSection
         title="Explora todos los productos Nexora."
         description="Un catálogo pensado para crecer contigo, producto por producto."
         buttonText="Ver productos"
         buttonTo="/products"
-      />
+      /> */}
     </>
   )
 }
