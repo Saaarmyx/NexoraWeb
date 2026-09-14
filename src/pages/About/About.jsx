@@ -1,5 +1,4 @@
 import FeatureGrid from '../../components/FeatureGrid/FeatureGrid'
-import CtaSection from '../../components/CtaSection/CtaSection'
 
 import values from '../../data/values'
 
@@ -14,20 +13,14 @@ function About() {
             <h1>Construimos tecnología que simplemente funciona.</h1>
 
             <p>
-              Nexora Labs desarrolla productos y experiencias diseñadas para hacer que la
-              tecnología sea más simple, intuitiva y conectada.
+              Nexora Labs desarrolla productos y experiencias diseñadas para hacer que la tecnología
+              sea más simple, intuitiva y conectada.
             </p>
           </div>
 
           <FeatureGrid items={values} />
         </div>
       </section>
-
-      <CtaSection
-        title="Conoce el ecosistema Nexora."
-        buttonText="Ver ecosistema"
-        buttonTo="/ecosystem"
-      />
     </>
   )
 }

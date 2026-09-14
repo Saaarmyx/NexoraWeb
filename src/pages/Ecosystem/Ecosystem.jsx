@@ -1,5 +1,4 @@
 import FeatureGrid from '../../components/FeatureGrid/FeatureGrid'
-import CtaSection from '../../components/CtaSection/CtaSection'
 
 import pillars from '../../data/pillars'
 
@@ -22,13 +21,6 @@ function Ecosystem() {
           <FeatureGrid items={pillars} />
         </div>
       </section>
-
-      <CtaSection
-        title="Empieza con Nexora Cloud."
-        description="El punto de partida del ecosistema: tus archivos, sincronizados en todos tus dispositivos."
-        buttonText="Ver productos"
-        buttonTo="/products"
-      />
     </>
   )
 }

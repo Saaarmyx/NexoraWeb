@@ -2,7 +2,6 @@ import Hero from '../../components/Hero/Hero'
 import LaunchHero from '../../components/LaunchHero/LaunchHero'
 import ProductHero from '../../components/ProductHero/ProductHero'
 import FeatureGrid from '../../components/FeatureGrid/FeatureGrid'
-import CtaSection from '../../components/CtaSection/CtaSection'
 
 import products from '../../data/products'
 import pillars from '../../data/pillars'
@@ -55,13 +54,6 @@ function Home() {
           <FeatureGrid items={pillars} />
         </div>
       </section> */}
-
-      {/* <CtaSection
-        title="Explora todos los productos Nexora."
-        description="Un catálogo pensado para crecer contigo, producto por producto."
-        buttonText="Ver productos"
-        buttonTo="/products"
-      /> */}
     </>
   )
 }
