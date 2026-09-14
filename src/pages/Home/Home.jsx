@@ -12,13 +12,13 @@ function Home() {
 
   return (
     <>
-      <Hero
+      {/* <Hero
         eyebrow="Nexora Labs"
         title="Un ecosistema, no una lista de apps."
         description="Nexora conecta tus dispositivos, archivos y servicios en una sola experiencia, diseñada para ser simple desde el primer momento."
         buttonText="Conocer el ecosistema"
         buttonTo="/ecosystem"
-      />
+      /> */}
 
       <LaunchHero
         description={
