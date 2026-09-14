@@ -2,8 +2,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
   gap: var(--spacing-lg);
-
-  padding-bottom: var(--spacing-3xl);
 }
 
 .products-grid-item {

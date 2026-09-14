@@ -4,16 +4,6 @@
 
 const products = [
   {
-    slug: 'cloud',
-    name: 'NEXA CLOUD',
-    description:
-      'Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora y accede a lo que necesitas desde cualquier dispositivo.',
-    availability: 'Disponible próximamente',
-    image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
-    theme: 'light',
-    featured: true,
-  },
-  {
     slug: 'os',
     name: 'NEXA',
     description:
@@ -21,7 +11,37 @@ const products = [
     availability: 'En desarrollo',
     image: '/images/iphone_18_pro__gez8o055n1ui_large_2x.jpg',
     theme: 'dark',
+    featured: false,
+  },
+  {
+    slug: 'code',
+    name: 'NCODE',
+    description:
+      'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
+    availability: 'Primera Beta Disponible',
+    image: '/images/iphone_18_pro__gez8o055n1ui_large_2x.jpg',
+    theme: 'dark',
     featured: true,
+  },
+  {
+    slug: 'photos',
+    name: 'NPHOTOS',
+    description:
+      'Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.',
+    availability: 'En desarrollo',
+    image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
+    theme: 'light',
+    featured: true,
+  },
+  {
+    slug: 'cloud',
+    name: 'NEXA CLOUD',
+    description:
+      'Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora y accede a lo que necesitas desde cualquier dispositivo.',
+    availability: 'Disponible próximamente',
+    image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
+    theme: 'light',
+    featured: false,
   },
   {
     slug: 'connect',
@@ -30,26 +50,6 @@ const products = [
       'Conecta tus dispositivos Nexora de forma instantánea. Comparte archivos, continúa tareas y mantén todos tus dispositivos sincronizados.',
     availability: 'Disponible próximamente',
     image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
-    theme: 'light',
-    featured: false,
-  },
-  {
-    slug: 'code',
-    name: 'NCODE',
-    description:
-      'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
-    availability: 'En desarrollo',
-    image: '/images/iphone_18_pro__gez8o055n1ui_large_2x.jpg',
-    theme: 'dark',
-    featured: true,
-  },
-  {
-    slug: 'photos',
-    name: 'NEXORA Photos',
-    description:
-      'Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.',
-    availability: 'En desarrollo',
-    image: '/images/apple_watch_ultra_4__gxnawbn95nm2_large_2x.jpg',
     theme: 'light',
     featured: false,
   },

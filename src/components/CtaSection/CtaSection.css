@@ -1,6 +1,5 @@
 .cta-section {
   width: 100%;
-  padding: var(--spacing-md) var(--spacing-xl) var(--spacing-2xl);
 
   display: flex;
   justify-content: center;
@@ -10,7 +9,6 @@
 
 .cta-section-card {
   width: 100%;
-  max-width: var(--container-max-width);
 
   padding: var(--spacing-3xl) var(--spacing-xl);
 
