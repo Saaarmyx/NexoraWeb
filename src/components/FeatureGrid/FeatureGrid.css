@@ -1,0 +1,37 @@
+.feature-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--spacing-md);
+}
+
+.feature-grid-item {
+  padding: var(--spacing-xl);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.feature-grid-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+
+  color: var(--color-primary);
+}
+
+.feature-grid-title {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-heading);
+}
+
+.feature-grid-description {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-body);
+  line-height: var(--line-height-base);
+}

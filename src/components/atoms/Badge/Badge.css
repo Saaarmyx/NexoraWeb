@@ -1,0 +1,24 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: var(--spacing-3xs) var(--spacing-sm);
+
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.badge--neutral {
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-hover);
+}
+
+.badge--accent {
+  color: var(--color-primary);
+  background-color: var(--color-primary-alpha-10);
+}

@@ -1,0 +1,125 @@
+/* Nexora - Core */
+
+@import './fonts.css';
+@import './reset.css';
+@import './tokens.css';
+
+/* Estructura global*/
+
+#root {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
+
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-base);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  flex: 1;
+
+  width: 100%;
+  min-width: 0;
+}
+
+/* Contenedores*/
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+
+  margin-inline: auto;
+
+  padding-inline: var(--container-padding-x);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--spacing-lg);
+}
+
+.section {
+  width: 100%;
+}
+
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+
+  max-width: 40rem;
+
+  padding-block: var(--spacing-3xl);
+}
+
+.section-heading h1,
+.section-heading h2 {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text-heading);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+}
+
+.section-heading p {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-body);
+  line-height: var(--line-height-base);
+}
+
+.eyebrow {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 48rem) {
+  .section-heading {
+    padding-block: var(--spacing-2xl);
+  }
+
+  .section-heading h1,
+  .section-heading h2 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .section-heading p {
+    font-size: var(--font-size-md);
+  }
+}
+
+/* Elementos globales */
+
+button,
+a {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Responsive basico */
+
+@media (max-width: 48rem) {
+  .container {
+    padding-inline: var(--spacing-md);
+
+    gap: var(--spacing-md);
+  }
+}
