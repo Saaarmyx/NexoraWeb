@@ -1,7 +1,7 @@
-import Hero from '../../components/Hero/Hero'
-import LaunchHero from '../../components/LaunchHero/LaunchHero'
-import ProductHero from '../../components/ProductHero/ProductHero'
-import FeatureGrid from '../../components/FeatureGrid/FeatureGrid'
+import Hero from '../../components/shared/Hero/Hero'
+import LaunchHero from '../../components/shared/LaunchHero/LaunchHero'
+import ProductHero from '../../components/product/ProductHero/ProductHero'
+import FeatureGrid from '../../components/shared/FeatureGrid/FeatureGrid'
 
 import products from '../../data/products'
 import pillars from '../../data/pillars'
@@ -11,14 +11,6 @@ function Home() {
 
   return (
     <>
-      {/* <Hero
-        eyebrow="Nexora Labs"
-        title="Un ecosistema, no una lista de apps."
-        description="Nexora conecta tus dispositivos, archivos y servicios en una sola experiencia, diseñada para ser simple desde el primer momento."
-        buttonText="Conocer el ecosistema"
-        buttonTo="/ecosystem"
-      /> */}
-
       <LaunchHero
         description={
           <>
@@ -41,19 +33,10 @@ function Home() {
           availability={product.availability}
           image={product.image}
           imageAlt={product.name}
+          buttonText="Descubrir"
+          buttonTo={`/products/${product.slug}`}
         />
       ))}
-
-      {/* <section className="section">
-        <div className="container">
-          <div className="section-heading">
-            <span className="eyebrow">ECOSISTEMA</span>
-            <h2>Diseñado para funcionar en conjunto.</h2>
-          </div>
-
-          <FeatureGrid items={pillars} />
-        </div>
-      </section> */}
     </>
   )
 }

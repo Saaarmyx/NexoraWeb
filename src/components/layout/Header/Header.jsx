@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { FiMenu, FiSearch, FiX, FiUser } from 'react-icons/fi'
+import { FiMenu, FiX, FiUser } from 'react-icons/fi'
+import { FaTelegramPlane } from 'react-icons/fa'
 
 import './Header.css'
 
@@ -23,10 +24,11 @@ const navLinks = [
   },
 ]
 
+const telegramChannelUrl = 'https://t.me/+UvoqqOtxA-03YzE5'
+
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const location = useLocation()
 
@@ -48,17 +50,10 @@ function Header() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false)
-    setIsSearchOpen(false)
   }, [location.pathname])
-
-  const handleSearchToggle = () => {
-    setIsSearchOpen((current) => !current)
-    setIsMobileMenuOpen(false)
-  }
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen((current) => !current)
-    setIsSearchOpen(false)
   }
 
   return (
@@ -83,15 +78,15 @@ function Header() {
         </nav>
 
         <div className="header-right">
-          <button
-            type="button"
+          <a
+            href={telegramChannelUrl}
             className="header-action"
-            aria-label={isSearchOpen ? 'Cerrar búsqueda' : 'Abrir búsqueda'}
-            aria-expanded={isSearchOpen}
-            onClick={handleSearchToggle}
+            aria-label="Canal de Telegram de Nexora"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            {isSearchOpen ? <FiX className="header-icon" /> : <FiSearch className="header-icon" />}
-          </button>
+            <FaTelegramPlane className="header-icon" />
+          </a>
 
           <button
             type="button"
@@ -116,21 +111,6 @@ function Header() {
           </button>
         </div>
       </div>
-
-      {isSearchOpen && (
-        <div className="header-mobile-card-wrapper">
-          <div className="header-search-inner">
-            <FiSearch className="header-icon" />
-
-            <input
-              type="search"
-              placeholder="Buscar en Nexora..."
-              aria-label="Buscar en Nexora"
-              autoFocus
-            />
-          </div>
-        </div>
-      )}
 
       {isMobileMenuOpen && (
         <div className="header-mobile-card-wrapper">

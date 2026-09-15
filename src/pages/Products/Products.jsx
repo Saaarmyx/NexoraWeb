@@ -1,5 +1,5 @@
-import ProductFeatured from '../../components/ProductFeatured/ProductFeatured'
-import ProductCard from '../../components/ProductCard/ProductCard'
+import ProductFeatured from '../../components/product/ProductFeatured/ProductFeatured'
+import ProductCard from '../../components/product/ProductCard/ProductCard'
 
 import products from '../../data/products'
 

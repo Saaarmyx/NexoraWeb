@@ -1,5 +1,5 @@
-import Card from '../atoms/Card/Card'
-import Button from '../atoms/Button/Button'
+import Card from '../../atoms/Card/Card'
+import Button from '../../atoms/Button/Button'
 
 import './CtaSection.css'
 

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import Button from '../../atoms/Button/Button'
 
 import './ComingSoonHero.css'
 
@@ -22,9 +22,9 @@ function ComingSoonHero({
               <p>{description}</p>
             </div>
 
-            <Link to={buttonTo} className="coming-soon-hero-button">
+            <Button to={buttonTo} variant="primary" className="coming-soon-hero-button">
               {buttonText}
-            </Link>
+            </Button>
           </div>
         </div>
       </div>

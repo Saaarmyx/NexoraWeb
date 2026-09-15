@@ -1,4 +1,4 @@
-import ComingSoonHero from '../../components/ComingSoonHero/ComingSoonHero'
+import ComingSoonHero from '../../components/shared/ComingSoonHero/ComingSoonHero'
 
 function ComingSoon() {
   return (

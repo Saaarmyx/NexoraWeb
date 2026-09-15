@@ -11,14 +11,14 @@ const products = [
     availability: 'En desarrollo',
     image: '/images/banner_ncloud.png',
     theme: 'light',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'ncode',
     name: 'NCODE',
     description:
       'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
-    availability: 'En desarrollo',
+    availability: 'En beta',
     image: '/images/banner_ncode.png',
     theme: 'dark',
     featured: true,

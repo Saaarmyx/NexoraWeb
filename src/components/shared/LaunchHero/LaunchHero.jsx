@@ -1,8 +1,9 @@
-import Card from '../atoms/Card/Card'
-import Button from '../atoms/Button/Button'
+import Card from '../../atoms/Card/Card'
+import Button from '../../atoms/Button/Button'
+
 import './LaunchHero.css'
 
-function LaunchHero({ description, buttonText, buttonTo = '/products', image, video }) {
+function LaunchHero({ description, buttonText, buttonTo = '/launches', image, video }) {
   return (
     <Card className="launch-hero-card">
       {video && <video className="launch-hero-video" src={video} autoPlay muted playsInline />}

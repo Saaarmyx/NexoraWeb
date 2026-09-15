@@ -1,135 +1,132 @@
-import Button from '../../components/atoms/Button/Button'
+import { useEffect } from 'react'
+
+import Card from '../../components/atoms/Card/Card'
+import products from '../../data/products'
 
 import './NCode.css'
 
 function NCode() {
+  const product = products.find((item) => item.slug === 'ncode')
+
+  useEffect(() => {
+    const theme = product?.theme || 'light'
+
+    document.body.dataset.theme = theme
+
+    return () => {
+      document.body.dataset.theme = 'light'
+    }
+  }, [product?.theme])
+
   return (
     <section className="section ncode-page">
       <div className="container">
         <section className="ncode-hero">
-          <div className="ncode-hero-content">
-            <span className="ncode-hero-label">NEXORA</span>
+          <video
+            className="ncode-hero-video"
+            src="/videos/ncode.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+          />
 
-            <h1 className="ncode-hero-title">NCode</h1>
+          <div className="ncode-hero-overlay">
+            <div className="ncode-hero-content">
+              <span className="ncode-hero-label">NEXORA</span>
 
-            <p className="ncode-hero-description">
-              Un espacio para crear, desarrollar y llevar tus ideas del código a la realidad.
-            </p>
+              <h1 className="ncode-hero-title">NCODE</h1>
 
-            <div className="ncode-hero-actions">
-              <Button href="#" variant="primary">
-                Comenzar
-              </Button>
+              <p className="ncode-hero-description">Programar nunca fue tan fácil.</p>
             </div>
           </div>
+        </section>
 
-          <div className="ncode-hero-visual">
-            <div className="ncode-editor">
-              <div className="ncode-editor-header">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+        <section className="ncode-section">
+          <Card variant="surface" radius="2xl" className="ncode-featured-card">
+            <div className="ncode-card-header">
+              <span className="ncode-section-label">LO DESTACADO</span>
 
-              <div className="ncode-editor-body">
-                <div className="ncode-editor-sidebar"></div>
+              <h2 className="ncode-section-title">Todo lo que necesitas para crear.</h2>
+            </div>
 
-                <div className="ncode-editor-code">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
+            <div className="ncode-slider">
+              <div className="ncode-slider-track">
+                <div className="ncode-slide">
+                  <img src="/images/airpods_5__egy9fho2f48y_xlarge_2x.jpg" alt="NCode" />
+                </div>
+
+                <div className="ncode-slide">
+                  <img src="/images/airpods_5__egy9fho2f48y_xlarge_2x.jpg" alt="NCode" />
+                </div>
+
+                <div className="ncode-slide">
+                  <img src="/images/airpods_5__egy9fho2f48y_xlarge_2x.jpg.jpg" alt="NCode" />
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
         </section>
 
-        <section className="ncode-intro">
-          <div className="ncode-intro-content">
-            <span className="ncode-section-label">NCode</span>
+        <section className="ncode-section">
+          <Card variant="surface" radius="2xl" className="ncode-text-card">
+            <span className="ncode-section-label">CREA</span>
 
-            <h2 className="ncode-section-title">Crear debería sentirse simple.</h2>
+            <h2 className="ncode-section-title">Convierte tus ideas en código.</h2>
 
             <p className="ncode-section-description">
-              NCode está diseñado para reducir la distancia entre una idea y aquello que quieres
-              construir.
+              Escribe, estructura y acelera el desarrollo de tu aplicación dentro de un entorno
+              unificado. Aprovecha el autocompletado inteligente, la navegación rápida por archivos
+              y la organización modular para transformar conceptos complejos en módulos limpios sin
+              desviarte de tu flujo de trabajo.
             </p>
-          </div>
+          </Card>
         </section>
 
-        <section className="ncode-feature">
-          <div className="ncode-feature-visual">
-            <div className="ncode-terminal">
-              <div className="ncode-terminal-header">
-                <span>Terminal</span>
-              </div>
+        <section className="ncode-section">
+          <Card variant="surface" radius="2xl" className="ncode-text-card">
+            <span className="ncode-section-label">SIMULA</span>
 
-              <div className="ncode-terminal-body">
-                <span>$ ncode start</span>
-                <span>Starting project...</span>
-                <span>Ready.</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="ncode-feature-content">
-            <span className="ncode-section-label">FLUJO</span>
-
-            <h2 className="ncode-section-title">Todo lo que necesitas para construir.</h2>
+            <h2 className="ncode-section-title">Mira cómo funciona antes de terminar.</h2>
 
             <p className="ncode-section-description">
-              Un entorno pensado para que puedas concentrarte en tu proyecto y no en la herramienta.
+              Visualiza cambios en la interfaz y el comportamiento de la lógica en tiempo real con
+              simulación interactiva. Renderiza componentes al instante, prueba distintos estados de
+              ejecución y valida la respuesta del sistema en múltiples entornos sin necesidad de
+              compilar todo el proyecto en cada iteración.
             </p>
-          </div>
+          </Card>
         </section>
 
-        <section className="ncode-feature ncode-feature--reverse">
-          <div className="ncode-feature-visual">
-            <div className="ncode-project">
-              <div className="ncode-project-sidebar">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+        <section className="ncode-section">
+          <Card variant="surface" radius="2xl" className="ncode-text-card">
+            <span className="ncode-section-label">DEPURA</span>
 
-              <div className="ncode-project-content">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-
-          <div className="ncode-feature-content">
-            <span className="ncode-section-label">PROYECTOS</span>
-
-            <h2 className="ncode-section-title">Tu trabajo, en un solo lugar.</h2>
+            <h2 className="ncode-section-title">Encuentra el problema. Resuélvelo.</h2>
 
             <p className="ncode-section-description">
-              Organiza tus proyectos y mantén todo aquello que necesitas para crear siempre cerca.
+              Aísla errores rápidamente con un depurador integrado de alta precisión. Inspecciona la
+              pila de llamadas, rastrea fugas de memoria y monitorea variables en puntos de
+              interrupción estratégicos para comprender el origen de cualquier fallo y mantener la
+              estabilidad de la aplicación.
             </p>
-          </div>
+          </Card>
         </section>
 
-        <section className="ncode-closing">
-          <div className="ncode-closing-content">
-            <span className="ncode-section-label">NCODE</span>
+        <section className="ncode-section">
+          <Card variant="surface" radius="2xl" className="ncode-text-card">
+            <span className="ncode-section-label">OPTIMIZA</span>
 
-            <h2 className="ncode-closing-title">Construye lo que imaginas.</h2>
+            <h2 className="ncode-section-title">Mejora tu proyecto mientras crece.</h2>
 
-            <p className="ncode-closing-description">
-              NCode es el comienzo de una nueva forma de crear dentro de Nexora.
+            <p className="ncode-section-description">
+              Analiza métricas de rendimiento en vivo para identificar cuellos de botella antes de
+              que afecten a tus usuarios. Supervisa el consumo de recursos, refactoriza módulos
+              críticos con sugerencias automáticas y asegura que la arquitectura permanezca ágil y
+              escalable con el paso del tiempo.
             </p>
-
-            <Button href="#" variant="primary">
-              Abrir NCode
-            </Button>
-          </div>
+          </Card>
         </section>
       </div>
     </section>

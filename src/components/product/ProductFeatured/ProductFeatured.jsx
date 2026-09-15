@@ -1,4 +1,4 @@
-import Button from '../atoms/Button/Button'
+import Button from '../../atoms/Button/Button'
 import './ProductFeatured.css'
 
 function ProductFeatured({ product }) {

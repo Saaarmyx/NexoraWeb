@@ -1,4 +1,4 @@
-import Card from '../atoms/Card/Card'
+import Card from '../../atoms/Card/Card'
 
 import './FeatureGrid.css'
 
