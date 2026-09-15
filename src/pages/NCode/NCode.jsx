@@ -1,47 +1,25 @@
-import { useEffect } from 'react'
+import products from '../../data/products'
+import useProductTheme from '../../hooks/useProductTheme'
 
 import Card from '../../components/atoms/Card/Card'
-import products from '../../data/products'
+import VideoHero from '../../components/shared/VideoHero/VideoHero'
 
 import './NCode.css'
 
 function NCode() {
   const product = products.find((item) => item.slug === 'ncode')
 
-  useEffect(() => {
-    const theme = product?.theme || 'light'
-
-    document.body.dataset.theme = theme
-
-    return () => {
-      document.body.dataset.theme = 'light'
-    }
-  }, [product?.theme])
+  useProductTheme(product?.theme)
 
   return (
     <section className="section ncode-page">
       <div className="container">
-        <section className="ncode-hero">
-          <video
-            className="ncode-hero-video"
-            src="/videos/ncode.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            aria-hidden="true"
-          />
-
-          <div className="ncode-hero-overlay">
-            <div className="ncode-hero-content">
-              <span className="ncode-hero-label">NEXORA</span>
-
-              <h1 className="ncode-hero-title">NCODE</h1>
-
-              <p className="ncode-hero-description">Programar nunca fue tan fácil.</p>
-            </div>
-          </div>
-        </section>
+        <VideoHero
+          video="/videos/ncode.mp4"
+          label="NEXORA"
+          title="NCODE"
+          description="Programar nunca fue tan fácil."
+        />
 
         <section className="ncode-section">
           <Card variant="surface" radius="2xl" className="ncode-featured-card">
