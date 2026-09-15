@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { FiMenu, FiSearch, FiX } from 'react-icons/fi'
+import { FiMenu, FiSearch, FiX, FiUser } from 'react-icons/fi'
 
 import './Header.css'
 
@@ -14,8 +14,12 @@ const navLinks = [
     to: '/ecosystem',
   },
   {
-    label: 'Compañía',
+    label: 'Empresa',
     to: '/about',
+  },
+  {
+    label: 'Soporte',
+    to: '/support',
   },
 ]
 
@@ -91,6 +95,14 @@ function Header() {
 
           <button
             type="button"
+            className="header-action header-action--account"
+            aria-label="Abrir cuenta"
+          >
+            <FiUser className="header-icon" />
+          </button>
+
+          <button
+            type="button"
             className="header-action header-action--mobile-toggle"
             aria-label={isMobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={isMobileMenuOpen}
@@ -132,6 +144,10 @@ function Header() {
                 {link.label}
               </Link>
             ))}
+
+            <button type="button" className="header-mobile-link header-mobile-account">
+              Cuenta
+            </button>
           </nav>
         </div>
       )}

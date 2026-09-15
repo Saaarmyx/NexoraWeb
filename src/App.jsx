@@ -7,6 +7,7 @@ import Home from './pages/Home/Home'
 import Products from './pages/Products/Products'
 import Ecosystem from './pages/Ecosystem/Ecosystem'
 import About from './pages/About/About'
+import ComingSoon from './pages/ComingSoon/ComingSoon'
 
 function App() {
   return (
@@ -17,8 +18,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
-          <Route path="/ecosystem" element={<Ecosystem />} />
-          <Route path="/about" element={<About />} />
+          {/* <Route path="/ecosystem" element={<Ecosystem />} />
+          <Route path="/about" element={<About />} /> */}
+
+          <Route path="*" element={<ComingSoon />} />
         </Routes>
       </main>
 
