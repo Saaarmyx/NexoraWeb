@@ -81,7 +81,6 @@ main {
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
   color: var(--color-primary);
-  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 

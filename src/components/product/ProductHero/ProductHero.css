@@ -45,7 +45,6 @@
   font-size: clamp(var(--font-size-5xl), 8vw, var(--font-size-7xl));
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  letter-spacing: -0.025em;
 }
 
 .product-hero-description {

@@ -40,14 +40,6 @@
   gap: var(--spacing-sm);
 }
 
-.video-hero-label {
-  color: var(--color-white-75);
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.1em;
-}
-
 .video-hero-title {
   margin: 0;
   color: var(--color-white);
@@ -60,7 +52,8 @@
 .video-hero-description {
   max-width: 680px;
   margin: 0;
-  color: var(--color-white-90);
+  color: var(--color-text-body);
+  font-family: var(--font-family-base);
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-compact);
