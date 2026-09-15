@@ -15,6 +15,9 @@ como una single-page app con rutas propias por sección, sin TypeScript y sin fr
 
 ## Estructura del proyecto
 
+La aplicación expone módulos por responsabilidad. Los archivos `index.js` funcionan como puntos
+de entrada estables para evitar imports profundos y permitir mover componentes internamente.
+
 ```text
 NexoraWeb/
 ├── public/
@@ -25,6 +28,7 @@ NexoraWeb/
 │
 ├── src/
 │   ├── components/
+│   │   ├── ui/              # API pública de componentes básicos reutilizables
 │   │   ├── atoms/           # componentes genéricos reutilizables en todo el proyecto
 │   │   │   ├── Badge/         # etiqueta de estado/disponibilidad
 │   │   │   ├── Button/        # botón (renderiza <Link>, <a> o <button> según props)
@@ -45,7 +49,14 @@ NexoraWeb/
 │   │       ├── FeatureGrid/       # grilla de tarjetas icono + título + descripción
 │   │       ├── Hero/               # hero genérico con eyebrow/título/CTA
 │   │       └── LaunchHero/          # banner de lanzamiento controlado por props (video o imagen)
+│   │   ├── sections/         # API pública de las secciones compartidas
 │   │
+│   ├── app/
+│   │   └── routes.jsx        # configuración central de rutas
+│   │
+│   ├── features/
+│   │   ├── products/         # catálogo y API de componentes de productos
+│   │   └── ncode/            # página y contenido específico de NCode
 │   ├── pages/
 │   │   ├── Home/            # "/"
 │   │   ├── Products/         # "/products"
@@ -65,7 +76,7 @@ NexoraWeb/
 │   │   ├── fonts.css             # @font-face de Gliker
 │   │   └── reset.css               # reset base
 │   │
-│   ├── App.jsx               # BrowserRouter, Header, Routes, Footer, estado de tema
+│   ├── App.jsx               # composición global: BrowserRouter, Header, rutas y Footer
 │   └── main.jsx                # punto de entrada, monta <App /> y estilos base
 │
 ├── index.html
@@ -76,30 +87,35 @@ NexoraWeb/
 
 ## Componentes
 
-- **atoms/**: bloques mínimos, genéricos y sin conocimiento de negocio (`Button`, `Card`,
-  `Badge`). Se usan desde `product/` y `shared/`, nunca al revés.
+- **ui/**: punto de entrada público para bloques mínimos, genéricos y sin conocimiento de negocio
+  (`Button`, `Card`, `Badge`). Los archivos internos todavía viven en `atoms/` como detalle de
+  implementación.
 - **layout/**: piezas que envuelven toda la aplicación y se renderizan una sola vez desde
   `App.jsx` (`Header`, `Footer`).
-- **product/**: componentes que reciben un objeto `product` de `data/products.js` y saben cómo
-  mostrarlo (`ProductCard`, `ProductFeatured`, `ProductHero`).
-- **shared/**: secciones de página reutilizables entre distintas rutas, sin acoplarse a un
+- **features/products/**: fuente de datos y API de componentes que reciben un objeto `product`
+  (`ProductCard`, `ProductFeatured`, `ProductHero`).
+- **features/ncode/**: composición y contenido de la página dedicada de NCode.
+- **sections/**: punto de entrada para secciones reutilizables entre rutas, sin acoplarse a un
   producto concreto (`Hero`, `LaunchHero`, `FeatureGrid`, `CtaSection`, `ComingSoonHero`).
+- **app/**: configuración de navegación separada de la composición global de `App.jsx`.
 
 ## Páginas
 
-| Ruta                | Página       | Descripción                                                        |
-| -------------------- | ------------ | -------------------------------------------------------------------- |
-| `/`                    | `Home`         | Lanzamiento destacado + spotlight de cada producto `featured`         |
-| `/products`             | `Products`       | Producto destacado + grilla con el resto del catálogo                  |
-| `/products/ncode`         | `NCode`            | Página dedicada del producto NCode, con su propio tema                  |
-| `/ecosystem`                | `Ecosystem`           | Pilares que explican cómo funciona el ecosistema Nexora                   |
-| `/about`                        | `About`                 | Compañía: misión y valores                                                  |
-| `*` (cualquier otra ruta)          | `ComingSoon`               | Placeholder de video para secciones aún no construidas                        |
+| Ruta                      | Página       | Descripción                                                   |
+| ------------------------- | ------------ | ------------------------------------------------------------- |
+| `/`                       | `Home`       | Lanzamiento destacado + spotlight de cada producto `featured` |
+| `/products`               | `Products`   | Producto destacado + grilla con el resto del catálogo         |
+| `/products/ncode`         | `NCode`      | Página dedicada del producto NCode, con su propio tema        |
+| `/ecosystem`              | `Ecosystem`  | Pilares que explican cómo funciona el ecosistema Nexora       |
+| `/about`                  | `About`      | Compañía: misión y valores                                    |
+| `/support`                | `ComingSoon` | Placeholder de soporte                                        |
+| `*` (cualquier otra ruta) | `ComingSoon` | Placeholder de video para secciones aún no construidas        |
 
 ## Sistema de productos
 
-`src/data/products.js` es la fuente única de verdad del catálogo. Tanto `Home` como `Products`
-leen de ahí para no duplicar información entre páginas. Cada producto tiene:
+`src/features/products/data/products.js` es la fuente única de verdad del catálogo. `Home`,
+`Products` y NCode acceden a los productos a través de `features/products`. El archivo
+`src/data/products.js` solo conserva una reexportación de compatibilidad. Cada producto tiene:
 
 - `slug` — identificador usado en la URL (`/products/:slug`) y como `key` en listas.
 - `name` — nombre mostrado del producto.
@@ -110,7 +126,7 @@ leen de ahí para no duplicar información entre páginas. Cada producto tiene:
 - `featured` — si es `true`, el producto aparece en el spotlight de `Home` y en el catálogo de
   `Products`.
 
-`NCode` obtiene su propio producto buscándolo por `slug` en ese mismo archivo:
+`NCode` obtiene su propio producto buscándolo por `slug` en ese mismo catálogo:
 
 ```js
 const product = products.find((item) => item.slug === 'ncode')
@@ -126,7 +142,7 @@ página:
 
 - En `Home`, `ProductHero` recibe `theme={product.theme}` y aplica la clase
   `product-hero-card--{theme}` correspondiente.
-- En `NCode`, un `useEffect` lee `product.theme` y lo escribe en `document.body.dataset.theme`
+- En `features/ncode/NCodePage.jsx`, un `useEffect` lee `product.theme` y lo escribe en `document.body.dataset.theme`
   mientras la página está montada, restaurándolo a `'light'` al desmontarse.
 - El tema general del sitio (claro/oscuro, controlado desde el `Header`) se guarda aparte, en
   `localStorage` bajo la clave `nexora-theme`, y también se aplica sobre `document.body.dataset.theme`
@@ -161,8 +177,10 @@ npm run lint              # oxlint sobre el proyecto
 - JavaScript puro, sin TypeScript.
 - Componentes en PascalCase, cada uno en su propia carpeta junto a su `.css`.
 - No existe `App.css`: los estilos de `App.jsx` viven en `src/styles/base.css`.
-- Los átomos (`atoms/`) son genéricos y no conocen la lógica de una página o producto concreto.
-- Los datos (`data/`) están separados de los componentes de UI.
+- Los componentes básicos se consumen desde `components/ui` y las secciones desde
+  `components/sections`; se evitan imports profundos desde las páginas.
+- Los datos específicos de una funcionalidad viven junto a ella en `features/`; los datos
+  transversales (`pillars`, `values`) permanecen en `data/`.
 - Los assets viven en `public/`, nunca en `src/assets/`.
 
 ## Principios
