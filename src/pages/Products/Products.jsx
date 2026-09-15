@@ -1,38 +1,33 @@
-import Card from '../../components/atoms/Card/Card'
-import Badge from '../../components/atoms/Badge/Badge'
+import ProductFeatured from '../../components/ProductFeatured/ProductFeatured'
+import ProductCard from '../../components/ProductCard/ProductCard'
 
 import products from '../../data/products'
 
 import './Products.css'
 
 function Products() {
-  const featuredProducts = products.filter((product) => product.featured)
+  const featuredProduct = products.find((product) => product.featured)
+
+  const catalogProducts = products.filter(
+    (product) => product.featured && product.slug !== featuredProduct?.slug,
+  )
+
   return (
-    <section className="section">
+    <section className="section products-page">
       <div className="container">
-        <div className="section-heading">
-          <h1>PRODUCTOS</h1>
+        {featuredProduct && (
+          <section className="products-section">
+            <ProductFeatured product={featuredProduct} />
+          </section>
+        )}
 
-          <p>Descubre los productos que forman parte del ecosistema Nexora.</p>
-        </div>
-
-        <div className="products-grid">
-          {featuredProducts.map((product) => (
-            <Card key={product.slug} variant="surface" radius="xl" className="products-grid-item">
-              <div className="products-grid-media">
-                <img src={product.image} alt={product.name} className="products-grid-image" />
-              </div>
-
-              <div className="products-grid-body">
-                <h2 className="products-grid-title">{product.name}</h2>
-
-                <p className="products-grid-description">{product.description}</p>
-
-                <Badge className="products-grid-availability">{product.availability}</Badge>
-              </div>
-            </Card>
-          ))}
-        </div>
+        <section className="products-section">
+          <div className="products-grid">
+            {catalogProducts.map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   )
