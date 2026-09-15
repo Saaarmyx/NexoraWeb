@@ -4,44 +4,45 @@
 
 const products = [
   {
-    slug: 'os',
-    name: 'NEXA',
+    slug: 'cloud',
+    name: 'NEXA CLOUD',
     description:
-      'Un sistema operativo diseñado para funcionar en conjunto con todo tu ecosistema. Más simple, más rápido y construido alrededor de ti.',
+      'Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora y accede a lo que necesitas desde cualquier dispositivo.',
     availability: 'En desarrollo',
-    image: '/images/iphone_18_pro__gez8o055n1ui_large_2x.jpg',
-    theme: 'dark',
-    featured: false,
+    image: '/images/banner_ncloud.png',
+    theme: 'light',
+    featured: true,
   },
   {
-    slug: 'code',
+    slug: 'ncode',
     name: 'NCODE',
     description:
       'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
-    availability: 'Primera Beta Disponible',
-    image: '/images/iphone_18_pro__gez8o055n1ui_large_2x.jpg',
+    availability: 'En desarrollo',
+    image: '/images/banner_ncode.png',
     theme: 'dark',
     featured: true,
   },
+
   {
     slug: 'photos',
     name: 'NPHOTOS',
     description:
       'Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.',
-    availability: 'En desarrollo',
-    image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
+    availability: 'Disponible próximamente',
+    image: '/images/banner_nphotos.png',
     theme: 'light',
     featured: true,
   },
   {
-    slug: 'cloud',
-    name: 'NEXA CLOUD',
+    slug: 'os',
+    name: 'NEXA',
     description:
-      'Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora y accede a lo que necesitas desde cualquier dispositivo.',
+      'Un sistema operativo diseñado para funcionar en conjunto con todo tu ecosistema. Más simple, más rápido y construido alrededor de ti.',
     availability: 'Disponible próximamente',
-    image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
-    theme: 'light',
-    featured: false,
+    image: '/images/banner_nexa.png',
+    theme: 'dark',
+    featured: true,
   },
   {
     slug: 'connect',
@@ -49,9 +50,9 @@ const products = [
     description:
       'Conecta tus dispositivos Nexora de forma instantánea. Comparte archivos, continúa tareas y mantén todos tus dispositivos sincronizados.',
     availability: 'Disponible próximamente',
-    image: '/images/iphone_duo__f65y4ofawsii_large_2x.jpg',
+    image: '/images/banner_nconnect.png',
     theme: 'light',
-    featured: false,
+    featured: true,
   },
 ]
 
