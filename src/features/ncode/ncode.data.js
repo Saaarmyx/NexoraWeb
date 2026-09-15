@@ -1,0 +1,67 @@
+export const ncodeHero = {
+  video: '/videos/ncode/ncode-hero.mp4',
+  label: 'NEXORA',
+  title: 'NCODE',
+  description: 'Programar nunca fue tan fácil.',
+}
+
+export const ncodeFeatures = {
+  title: 'TODO LO QUE NECESITAS PARA CREAR',
+  description:
+    'Un entorno pensado para acompañarte desde la primera línea de código hasta el resultado final.',
+  images: [
+    {
+      src: '/images/ncode/airpods_5__egy9fho2f48y_xlarge_2x.png',
+      alt: 'NCode',
+      title: 'CREA',
+      description: 'Convierte tus ideas en código.',
+    },
+    {
+      src: '/images/ncode/airpods_5__egy9fho2f48y_xlarge_2x.png',
+      alt: 'NCode',
+      title: 'SIMULA',
+      description: 'Comprueba cómo funciona antes de terminar.',
+    },
+    {
+      src: '/images/ncode/airpods_5__egy9fho2f48y_xlarge_2x.png',
+      alt: 'NCode',
+      title: 'DEPURA',
+      description: 'Encuentra el problema y resuélvelo.',
+    },
+  ],
+}
+
+export const ncodeThemes = {
+  title: 'MIRALO A TU MANERA',
+  description: 'Personaliza tu espacio de trabajo y adapta el editor a tu forma de crear.',
+  variants: [
+    {
+      name: 'Claro',
+      color: '#F5F5F7',
+      image: '/images/ncode/ncode-light.png',
+      alt: 'NCode en tema claro',
+    },
+    {
+      name: 'Oscuro',
+      color: '#141417',
+      image: '/images/ncode/ncode-dark.png',
+      alt: 'NCode en tema oscuro',
+    },
+    {
+      name: 'Azul',
+      color: '#2563EB',
+      image: '/images/ncode/ncode-blue.png',
+      alt: 'NCode en tema azul',
+    },
+  ],
+}
+export const ncodePerformance = {
+  title: 'RENDIMIENTO',
+  description:
+    'NCode está diseñado para que tus proyectos se sientan rápidos desde el primer momento. Trabaja con proyectos grandes, ejecuta múltiples tareas y mantén todo tu entorno de desarrollo funcionando con fluidez.',
+  subtitle: 'PARA RENDIRSE A SUS PIES',
+  secondaryDescription:
+    'Todo está pensado para que el editor se adapte a tu forma de trabajar y no al revés. Menos esperas, menos interrupciones y más tiempo concentrado en crear.',
+  video: '/videos/ncode/ncode-performance.mp4',
+  videoAlt: 'NCode en funcionamiento',
+}
