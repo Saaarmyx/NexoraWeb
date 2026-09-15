@@ -28,7 +28,6 @@
   font-weight: var(--font-weight-extrabold);
   color: var(--color-text-heading);
   line-height: var(--line-height-tight);
-  letter-spacing: -0.02em;
 }
 
 .cta-section-description {

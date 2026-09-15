@@ -69,25 +69,6 @@
   line-height: var(--line-height-base);
 }
 
-.coming-soon-hero-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: var(--button-height-md);
-  padding-inline: var(--spacing-lg);
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  text-decoration: none;
-  transition: background-color var(--transition-fast);
-}
-
-.coming-soon-hero-button:hover {
-  background-color: var(--color-primary-hover);
-}
-
 @media (max-width: 48rem) {
   .coming-soon-hero {
     min-height: calc(60vh - var(--header-height-mobile));

@@ -154,15 +154,12 @@
 
 /* Tema claro */
 
-:root,
 body,
 body[data-theme='light'] {
   --color-bg-app: #f5f5f7;
-
   --color-bg-surface: #ffffff;
   --color-bg-surface-elevated: #ffffff;
   --color-bg-surface-translucent: rgba(255, 255, 255, 0.82);
-
   --color-bg-hover: rgba(0, 0, 0, 0.03);
   --color-bg-active: rgba(0, 0, 0, 0.06);
 
@@ -183,46 +180,13 @@ body[data-theme='light'] {
   --shadow-overlay: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Tema oscuro automatico */
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --color-bg-app: #0a0a0c;
-
-    --color-bg-surface: #141417;
-    --color-bg-surface-elevated: #1c1c21;
-    --color-bg-surface-translucent: rgba(20, 20, 23, 0.82);
-
-    --color-bg-hover: rgba(255, 255, 255, 0.05);
-    --color-bg-active: rgba(255, 255, 255, 0.08);
-
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #d2d2d7;
-    --color-text-heading: #ffffff;
-    --color-text-body: #a1a1a6;
-    --color-text-muted: #6e6e73;
-    --color-text-link: var(--color-primary);
-
-    --color-light-border: rgba(255, 255, 255, 0.1);
-    --color-border-hover: rgba(255, 255, 255, 0.2);
-
-    --shadow-card-subtle: 0 2px 10px rgba(0, 0, 0, 0.4);
-    --shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.6);
-    --shadow-card-active: 0 4px 14px rgba(0, 0, 0, 0.7);
-    --shadow-surface: 0 4px 20px rgba(0, 0, 0, 0.6);
-    --shadow-overlay: 0 20px 40px rgba(0, 0, 0, 0.8);
-  }
-}
-
-/* Tema oscuro forzado*/
+/* DARK */
 
 body[data-theme='dark'] {
   --color-bg-app: #0a0a0c;
-
   --color-bg-surface: #141417;
   --color-bg-surface-elevated: #1c1c21;
   --color-bg-surface-translucent: rgba(20, 20, 23, 0.82);
-
   --color-bg-hover: rgba(255, 255, 255, 0.05);
   --color-bg-active: rgba(255, 255, 255, 0.08);
 
@@ -238,7 +202,7 @@ body[data-theme='dark'] {
 
   --shadow-card-subtle: 0 2px 10px rgba(0, 0, 0, 0.4);
   --shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.6);
-  --shadow-card-active: 0 4px 14px rgba(0, 0, 0, 0.7);
+  --shadow-card-active: 0 4px 14px rgba(255, 255, 255, 0.2);
   --shadow-surface: 0 4px 20px rgba(0, 0, 0, 0.6);
   --shadow-overlay: 0 20px 40px rgba(0, 0, 0, 0.8);
 }

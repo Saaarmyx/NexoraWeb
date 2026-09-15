@@ -6,7 +6,7 @@
   height: var(--button-height-md);
   max-width: var(--button-max-width);
   padding: 0 var(--spacing-lg);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   font-family: var(--font-family-base);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);

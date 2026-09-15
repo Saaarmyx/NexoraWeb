@@ -1,10 +1,8 @@
 .product-hero {
   width: 100%;
   padding-inline: var(--spacing-xl);
-
   display: flex;
   justify-content: center;
-
   box-sizing: border-box;
   margin-top: var(--spacing-md);
 }
@@ -12,15 +10,11 @@
 .product-hero-card {
   width: 100%;
   max-width: var(--container-max-width);
-
   padding: var(--spacing-2xl) var(--spacing-xl) 0;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   overflow: hidden;
-
   text-align: center;
   box-sizing: border-box;
 }
@@ -38,36 +32,30 @@
 .product-hero-header {
   width: 100%;
   max-width: 720px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: var(--spacing-xs);
 }
 
 .product-hero-title {
+  margin: 0;
   color: inherit;
-
   font-family: var(--font-family-heading);
-  font-size: clamp(var(--font-size-7xl), 8vw, var(--font-size-7xl));
+  font-size: clamp(var(--font-size-5xl), 8vw, var(--font-size-7xl));
   font-weight: var(--font-weight-bold);
-
   line-height: var(--line-height-tight);
   letter-spacing: -0.025em;
 }
 
 .product-hero-description {
   max-width: 600px;
-
+  margin: 0;
   color: inherit;
-
   font-family: var(--font-family-base);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-regular);
-
   line-height: var(--line-height-compact);
-
   opacity: 0.75;
 }
 
@@ -80,41 +68,37 @@
   background-color: var(--color-white-10);
 }
 
+.product-hero-button {
+  margin-top: var(--spacing-sm);
+}
+
 .product-hero-media {
   width: 50%;
-
   display: flex;
   justify-content: center;
   align-items: flex-end;
-
   margin-top: var(--spacing-xl);
 }
 
 .product-hero-image {
   max-width: 100%;
   height: auto;
-
   object-fit: contain;
   display: block;
 }
 
-/* Layout alternativo: imagen de fondo en vez de media contenida */
+/* Layout alternativo: imagen de fondo */
 
 .product-hero-card--background {
   min-height: 32rem;
-
   padding-bottom: var(--spacing-2xl);
-
   justify-content: flex-end;
-
   background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.55) 100%),
     var(--product-hero-image);
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
   color: var(--color-white);
 }
 
@@ -139,5 +123,15 @@
 
   .product-hero-description {
     font-size: var(--font-size-sm);
+  }
+
+  .product-hero-media {
+    width: 75%;
+    margin-top: var(--spacing-lg);
+  }
+
+  .product-hero-card--background {
+    min-height: 28rem;
+    padding-bottom: var(--spacing-xl);
   }
 }

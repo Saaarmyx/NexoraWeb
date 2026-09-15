@@ -51,7 +51,6 @@
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  letter-spacing: -0.02em;
 }
 
 .product-featured-description {
