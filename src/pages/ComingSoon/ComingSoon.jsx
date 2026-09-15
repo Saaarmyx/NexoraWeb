@@ -1,9 +1,9 @@
-import ComingSoonHero from '../../components/shared/ComingSoonHero/ComingSoonHero'
+import { ComingSoonHero } from '../../components/sections'
 
 function ComingSoon() {
   return (
     <ComingSoonHero
-      video="/videos/coming-soon.mp4"
+      video="/videos/landing/coming-soon.mp4"
       title="Estamos trabajando en esto."
       description="Esta parte de Nexora llegará pronto."
       buttonText="Volver al inicio"

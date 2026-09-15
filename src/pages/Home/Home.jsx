@@ -1,10 +1,5 @@
-import Hero from '../../components/shared/Hero/Hero'
-import LaunchHero from '../../components/shared/LaunchHero/LaunchHero'
-import ProductHero from '../../components/product/ProductHero/ProductHero'
-import FeatureGrid from '../../components/shared/FeatureGrid/FeatureGrid'
-
-import products from '../../data/products'
-import pillars from '../../data/pillars'
+import { LaunchHero } from '../../components/sections'
+import { ProductHero, products } from '../../features/products'
 
 function Home() {
   const featuredProducts = products.filter((product) => product.featured)
@@ -21,8 +16,8 @@ function Home() {
         }
         buttonText="Explorar Nexora"
         buttonTo="/products"
-        video="/videos/hero_lanzamientos.mp4"
-        // image="/images/launch_hero__f65y4ofawsii_large_2x.jpg"
+        video="/videos/landing/hero_lanzamientos.mp4"
+        // image="/images/hero/launch_hero__f65y4ofawsii_large_2x.jpg"
       />
       {featuredProducts.map((product) => (
         <ProductHero

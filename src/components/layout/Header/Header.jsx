@@ -27,7 +27,7 @@ const navLinks = [
 const telegramChannelUrl = 'https://t.me/+UvoqqOtxA-03YzE5'
 
 function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(() => window.scrollY > 10)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const location = useLocation()
@@ -41,19 +41,17 @@ function Header() {
       passive: true,
     })
 
-    handleScroll()
-
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [])
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false)
-  }, [location.pathname])
-
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen((current) => !current)
+  }
+
+  const handleNavigation = () => {
+    setIsMobileMenuOpen(false)
   }
 
   return (
@@ -120,12 +118,17 @@ function Header() {
                 key={link.to}
                 to={link.to}
                 className={`header-mobile-link ${location.pathname === link.to ? 'is-active' : ''}`}
+                onClick={handleNavigation}
               >
                 {link.label}
               </Link>
             ))}
 
-            <button type="button" className="header-mobile-link header-mobile-account">
+            <button
+              type="button"
+              className="header-mobile-link header-mobile-account"
+              onClick={handleNavigation}
+            >
               Cuenta
             </button>
           </nav>

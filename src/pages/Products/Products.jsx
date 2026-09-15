@@ -1,16 +1,11 @@
-import ProductFeatured from '../../components/product/ProductFeatured/ProductFeatured'
-import ProductCard from '../../components/product/ProductCard/ProductCard'
-
-import products from '../../data/products'
+import { ProductCard, ProductFeatured, products } from '../../features/products'
 
 import './Products.css'
 
 function Products() {
   const featuredProduct = products.find((product) => product.featured)
 
-  const catalogProducts = products.filter(
-    (product) => product.featured && product.slug !== featuredProduct?.slug,
-  )
+  const catalogProducts = products.filter((product) => product.slug !== featuredProduct?.slug)
 
   return (
     <section className="section products-page">

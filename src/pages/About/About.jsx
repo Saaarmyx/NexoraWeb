@@ -1,4 +1,4 @@
-import FeatureGrid from '../../components/shared/FeatureGrid/FeatureGrid'
+import { FeatureGrid } from '../../components/sections'
 
 import values from '../../data/values'
 

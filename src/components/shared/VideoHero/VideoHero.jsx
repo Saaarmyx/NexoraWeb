@@ -1,6 +1,6 @@
 import './VideoHero.css'
 
-function VideoHero({ video, label, title, description }) {
+function VideoHero({ video, title, description }) {
   return (
     <section className="video-hero">
       <video
@@ -15,8 +15,6 @@ function VideoHero({ video, label, title, description }) {
 
       <div className="video-hero-overlay">
         <div className="video-hero-content">
-          {label && <span className="video-hero-label">{label}</span>}
-
           <h1 className="video-hero-title">{title}</h1>
 
           {description && <p className="video-hero-description">{description}</p>}
