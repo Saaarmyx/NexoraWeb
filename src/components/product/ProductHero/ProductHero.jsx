@@ -1,6 +1,7 @@
 import Card from '../../atoms/Card/Card'
 import Badge from '../../atoms/Badge/Badge'
 import Button from '../../atoms/Button/Button'
+import isProductAvailable from '../../../utils/productAvailability'
 
 import './ProductHero.css'
 
@@ -14,7 +15,6 @@ function ProductHero({
   imageAlt,
   buttonText = 'Descubrir',
   buttonTo,
-  featured = true,
 }) {
   const isBackground = layout === 'background'
 
@@ -32,18 +32,16 @@ function ProductHero({
 
           {availability && <Badge className="product-hero-availability">{availability}</Badge>}
 
-          {buttonTo &&
-            availability !== 'Disponible próximamente' &&
-            availability !== 'En desarrollo' && (
-              <Button
-                to={buttonTo}
-                variant="secondary"
-                className="product-hero-button"
-                disabled={!featured}
-              >
-                {buttonText}
-              </Button>
-            )}
+          {buttonTo && (
+            <Button
+              to={buttonTo}
+              variant="secondary"
+              className="product-hero-button"
+              disabled={!isProductAvailable(availability)}
+            >
+              {buttonText}
+            </Button>
+          )}
         </div>
 
         {!isBackground && (

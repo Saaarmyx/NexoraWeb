@@ -1,5 +1,6 @@
 import Button from '../../atoms/Button/Button'
 import getProductPath from '../../../utils/productRoutes'
+import isProductAvailable from '../../../utils/productAvailability'
 import './ProductFeatured.css'
 
 function ProductFeatured({ product }) {
@@ -23,7 +24,11 @@ function ProductFeatured({ product }) {
         </div>
 
         <div className="product-featured-actions">
-          <Button to={getProductPath(product)} variant="primary" disabled={!product.featured}>
+          <Button
+            to={getProductPath(product)}
+            variant="primary"
+            disabled={!isProductAvailable(product.availability)}
+          >
             Descubrir
           </Button>
         </div>

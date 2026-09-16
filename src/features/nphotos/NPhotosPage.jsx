@@ -17,7 +17,7 @@ import {
 } from './nphotos.data'
 
 function NPhotosPage() {
-  const product = products.find((item) => item.slug === 'photos')
+  const product = products.find((item) => item.slug === 'nphotos')
 
   useProductTheme(product?.theme)
 

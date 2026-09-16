@@ -1,5 +1,5 @@
 function getProductPath(product) {
-  return product.slug === 'photos' ? '/products/nphotos' : `/products/${product.slug}`
+  return `/products/${product.slug}`
 }
 
 export default getProductPath

@@ -2,6 +2,7 @@ import Card from '../../atoms/Card/Card'
 import Button from '../../atoms/Button/Button'
 import Badge from '../../atoms/Badge/Badge'
 import getProductPath from '../../../utils/productRoutes'
+import isProductAvailable from '../../../utils/productAvailability'
 
 import './ProductCard.css'
 
@@ -27,7 +28,7 @@ function ProductCard({ product }) {
           to={productPath}
           variant="secondary"
           className="product-card-button"
-          disabled={!product.featured}
+          disabled={!isProductAvailable(product.availability)}
         >
           Descubrir
         </Button>

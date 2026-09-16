@@ -31,7 +31,6 @@ function Home() {
             imageAlt={product.name}
             buttonText="Descubrir"
             buttonTo={getProductPath(product)}
-            featured={product.featured}
           />
         ))}
       </div>

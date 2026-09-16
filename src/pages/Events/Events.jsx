@@ -5,6 +5,7 @@ import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
 import getProductPath from '../../utils/productRoutes'
+import isProductAvailable from '../../utils/productAvailability'
 
 import './Events.css'
 
@@ -57,7 +58,11 @@ function Events() {
                         <p>{product.description}</p>
                       </div>
 
-                      <Button to={productPath} variant="secondary">
+                      <Button
+                        to={productPath}
+                        variant="secondary"
+                        disabled={!isProductAvailable(product.availability)}
+                      >
                         Más información
                       </Button>
                     </div>
