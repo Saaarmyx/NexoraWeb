@@ -18,7 +18,6 @@ function Home() {
           buttonText="Explorar Nexora"
           buttonTo="/products"
           video="/videos/landing/hero_lanzamientos.mp4"
-          // image="/images/hero/launch_hero__f65y4ofawsii_large_2x.jpg"
         />
         {featuredProducts.map((product) => (
           <ProductHero

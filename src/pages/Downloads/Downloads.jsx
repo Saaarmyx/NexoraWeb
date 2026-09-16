@@ -40,7 +40,7 @@ function Downloads() {
               href="https://discord.gg/XnMBBBa26k"
               variant="secondary"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               DISCORD
             </Button>
@@ -48,7 +48,7 @@ function Downloads() {
               href="https://t.me/+UvoqqOtxA-03YzE5"
               variant="secondary"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               TELEGRAM
             </Button>
@@ -91,7 +91,12 @@ function Downloads() {
             <p>{selectedProduct.description}</p>
 
             {downloadUrl ? (
-              <Button href={downloadUrl} variant="primary" target="_blank" rel="noreferrer">
+              <Button
+                href={downloadUrl}
+                variant="primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 DESCARGAR
               </Button>
             ) : (

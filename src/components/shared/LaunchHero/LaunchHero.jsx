@@ -6,7 +6,16 @@ import './LaunchHero.css'
 function LaunchHero({ description, buttonText, buttonTo = '/launches', image, video }) {
   return (
     <Card className="launch-hero-card">
-      {video && <video className="launch-hero-video" src={video} autoPlay muted playsInline />}
+      {video && (
+        <video
+          className="launch-hero-video"
+          src={video}
+          autoPlay
+          muted
+          playsInline
+          aria-hidden="true"
+        />
+      )}
 
       {!video && image && (
         <div

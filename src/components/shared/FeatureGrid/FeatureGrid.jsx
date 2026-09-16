@@ -7,7 +7,7 @@ function FeatureGrid({ items }) {
     <div className="feature-grid">
       {items.map(({ icon: Icon, title, description }) => (
         <Card key={title} variant="flat" radius="xl" className="feature-grid-item">
-          {Icon && <Icon className="feature-grid-icon" />}
+          {Icon && <Icon className="feature-grid-icon" aria-hidden="true" />}
 
           <h3 className="feature-grid-title">{title}</h3>
 

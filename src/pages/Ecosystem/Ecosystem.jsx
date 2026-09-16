@@ -11,7 +11,7 @@ function Ecosystem() {
     <section className="section ecosystem-page">
       <div className="container">
         <VideoHero
-          video="/videos/landing/hero_lanzamientos.mp4"
+          video="/videos/nconnect/nconnect-hero.mp4"
           title="TODO CONECTADO"
           description="Un ecosistema que entiende cómo te mueves y hace que cada producto funcione mejor junto a los demás."
         />
