@@ -21,8 +21,10 @@ const downloadLinks = {
 }
 
 function Downloads() {
-  const [selectedSlug, setSelectedSlug] = useState('ncode')
-  const selectedProduct = products.find((product) => product.slug === selectedSlug) || products[0]
+  const featuredProducts = products.filter((product) => product.featured)
+  const [selectedSlug, setSelectedSlug] = useState(() => featuredProducts[0]?.slug)
+  const selectedProduct =
+    featuredProducts.find((product) => product.slug === selectedSlug) || featuredProducts[0]
   const SelectedIcon = productIcons[selectedProduct.slug] || FiCloud
   const downloadUrl = downloadLinks[selectedProduct.slug]
 
@@ -55,7 +57,7 @@ function Downloads() {
           </div>
         </Card>
         <nav className="downloads-product-nav" aria-label="Productos Nexora">
-          {products.map((product) => {
+          {featuredProducts.map((product) => {
             const Icon = productIcons[product.slug] || FiCloud
             const isSelected = selectedProduct.slug === product.slug
 

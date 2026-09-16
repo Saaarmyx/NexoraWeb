@@ -1,10 +1,13 @@
 import Card from '../../atoms/Card/Card'
 import Button from '../../atoms/Button/Button'
 import Badge from '../../atoms/Badge/Badge'
+import getProductPath from '../../../utils/productRoutes'
 
 import './ProductCard.css'
 
 function ProductCard({ product }) {
+  const productPath = getProductPath(product)
+
   return (
     <Card variant="surface" radius="xl" className="product-card">
       <div className="product-card-media">
@@ -21,9 +24,10 @@ function ProductCard({ product }) {
         </div>
 
         <Button
-          to={`/products/${product.slug}`}
+          to={productPath}
           variant="secondary"
           className="product-card-button"
+          disabled={!product.featured}
         >
           Descubrir
         </Button>

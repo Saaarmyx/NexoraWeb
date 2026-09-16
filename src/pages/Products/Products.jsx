@@ -5,7 +5,9 @@ import './Products.css'
 function Products() {
   const featuredProduct = products.find((product) => product.featured)
 
-  const catalogProducts = products.filter((product) => product.slug !== featuredProduct?.slug)
+  const catalogProducts = products.filter(
+    (product) => product.featured && product.slug !== featuredProduct?.slug,
+  )
 
   return (
     <section className="section products-page">

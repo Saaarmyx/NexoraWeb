@@ -1,5 +1,6 @@
 import { LaunchHero } from '../../components/sections'
 import { ProductHero, products } from '../../features/products'
+import getProductPath from '../../utils/productRoutes'
 
 function Home() {
   const featuredProducts = products.filter((product) => product.featured)
@@ -29,7 +30,8 @@ function Home() {
             image={product.image}
             imageAlt={product.name}
             buttonText="Descubrir"
-            buttonTo={`/products/${product.slug}`}
+            buttonTo={getProductPath(product)}
+            featured={product.featured}
           />
         ))}
       </div>

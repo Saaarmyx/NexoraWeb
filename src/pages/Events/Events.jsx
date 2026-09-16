@@ -4,6 +4,7 @@ import { products } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
+import getProductPath from '../../utils/productRoutes'
 
 import './Events.css'
 
@@ -41,8 +42,7 @@ function Events() {
 
             <div className="events-launch-grid">
               {launchProducts.map((product) => {
-                const productPath =
-                  product.slug === 'ncode' ? `/products/${product.slug}` : '/products'
+                const productPath = getProductPath(product)
 
                 return (
                   <article className="events-launch-card" key={product.slug}>

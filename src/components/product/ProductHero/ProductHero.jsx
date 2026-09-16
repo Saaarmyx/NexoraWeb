@@ -14,6 +14,7 @@ function ProductHero({
   imageAlt,
   buttonText = 'Descubrir',
   buttonTo,
+  featured = true,
 }) {
   const isBackground = layout === 'background'
 
@@ -34,7 +35,12 @@ function ProductHero({
           {buttonTo &&
             availability !== 'Disponible próximamente' &&
             availability !== 'En desarrollo' && (
-              <Button to={buttonTo} variant="secondary" className="product-hero-button">
+              <Button
+                to={buttonTo}
+                variant="secondary"
+                className="product-hero-button"
+                disabled={!featured}
+              >
                 {buttonText}
               </Button>
             )}

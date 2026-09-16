@@ -1,4 +1,5 @@
 import Button from '../../atoms/Button/Button'
+import getProductPath from '../../../utils/productRoutes'
 import './ProductFeatured.css'
 
 function ProductFeatured({ product }) {
@@ -22,7 +23,7 @@ function ProductFeatured({ product }) {
         </div>
 
         <div className="product-featured-actions">
-          <Button to={`/products/${product.slug}`} variant="primary">
+          <Button to={getProductPath(product)} variant="primary" disabled={!product.featured}>
             Descubrir
           </Button>
         </div>
