@@ -31,6 +31,73 @@ main {
   min-width: 0;
 }
 
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-enter-header {
+  from {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header-wrapper {
+  animation: page-enter-header 700ms var(--ease-out, ease-out) both;
+}
+
+.footer-wrapper {
+  animation: page-enter 700ms var(--ease-out, ease-out) 160ms both;
+}
+
+.page-transition {
+  animation: page-enter 700ms var(--ease-out, ease-out) both;
+}
+
+.page-transition .container > *,
+.page-transition .coming-soon-hero {
+  animation: page-enter 700ms var(--ease-out, ease-out) both;
+}
+
+.page-transition .container > :nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.page-transition .container > :nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.page-transition .container > :nth-child(4) {
+  animation-delay: 260ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .header-wrapper,
+  .footer-wrapper,
+  .page-transition,
+  .page-transition .container > *,
+  .page-transition .coming-soon-hero {
+    animation: none;
+  }
+}
+
 /* Contenedores*/
 
 .container {

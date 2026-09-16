@@ -1,19 +1,29 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, useLocation } from 'react-router-dom'
 
 import AppRoutes from './app/routes'
 import Header from './components/layout/Header/Header'
 import Footer from './components/layout/Footer/Footer'
 
-function App() {
+function AppShell() {
+  const location = useLocation()
+
   return (
-    <BrowserRouter>
+    <>
       <Header />
 
-      <main>
+      <main key={location.pathname} className="page-transition">
         <AppRoutes />
       </main>
 
       <Footer />
+    </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppShell />
     </BrowserRouter>
   )
 }
