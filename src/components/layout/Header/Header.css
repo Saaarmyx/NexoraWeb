@@ -169,24 +169,3 @@
 .header-mobile-account {
   cursor: pointer;
 }
-
-.header-search-inner {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-
-.header-search-inner input {
-  width: 100%;
-  padding: var(--spacing-xs) 0;
-  color: var(--color-text-primary);
-  background: transparent;
-  border: 0;
-  outline: 0;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-md);
-}
-
-.header-search-inner input::placeholder {
-  color: var(--color-text-muted);
-}
