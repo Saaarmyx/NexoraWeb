@@ -25,7 +25,7 @@ const products = [
     description:
       'Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.',
     availability: 'Disponible próximamente',
-    image: '/images/products/banner_nphotos.png',
+    image: '/images/nphotos/banner_nphotos.png',
     theme: 'light',
     featured: true,
   },

@@ -1,0 +1,228 @@
+.downloads-header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(16rem, 0.9fr);
+  gap: var(--spacing-3xl);
+  align-items: end;
+  padding-block: var(--spacing-xl);
+}
+
+.downloads-header h1,
+.downloads-product-card-content h2,
+.downloads-community-card h2 {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: 0.98;
+}
+
+.downloads-header h1 {
+  font-size: clamp(var(--font-size-4xl), 7vw, var(--font-size-7xl));
+}
+
+.downloads-header p {
+  max-width: 28rem;
+  margin: 0 0 var(--spacing-xs);
+  color: var(--color-text-body);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-compact);
+}
+
+.downloads-product-nav {
+  width: 100%;
+  padding: var(--spacing-xs);
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--spacing-2xs);
+  overflow-x: auto;
+  background-color: var(--color-bg-surface);
+  border: var(--border-width-thin) solid var(--color-light-border);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-surface);
+}
+
+.downloads-product-tab {
+  min-width: 8.5rem;
+  min-height: 7.5rem;
+  padding: var(--spacing-md) var(--spacing-sm);
+  display: flex;
+  flex: 1 0 8.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  color: var(--color-text-body);
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.downloads-product-tab:hover {
+  color: var(--color-text-heading);
+  background-color: var(--color-bg-hover);
+}
+
+.downloads-product-tab.is-selected {
+  color: var(--color-white);
+  background-color: var(--color-text-heading);
+  box-shadow: var(--shadow-card-active);
+}
+
+.downloads-product-tab-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.downloads-product-card {
+  width: 100%;
+  min-height: 34rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  overflow: hidden;
+}
+
+.downloads-product-card-media {
+  min-width: 0;
+  min-height: 34rem;
+  overflow: hidden;
+  background-color: var(--color-bg-app);
+}
+
+.downloads-product-card-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.downloads-product-card-content {
+  min-width: 0;
+  padding: var(--spacing-3xl);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.downloads-product-card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  display: grid;
+  place-items: center;
+  color: var(--color-primary);
+  background-color: var(--color-primary-alpha-10);
+  border-radius: var(--radius-lg);
+}
+
+.downloads-product-card-icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.downloads-product-card-content h2 {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+}
+
+.downloads-product-card-content p {
+  max-width: 32rem;
+  margin: 0 0 var(--spacing-md);
+  color: var(--color-text-body);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-compact);
+}
+
+.downloads-community-card {
+  width: 100%;
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+.downloads-community-card h2 {
+  font-size: var(--font-size-2xl);
+}
+
+.downloads-community-card p {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--color-text-body);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+}
+
+.downloads-community-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+@media (max-width: 64rem) {
+  .downloads-header {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .downloads-header p {
+    margin: 0;
+  }
+
+  .downloads-product-card {
+    grid-template-columns: 1fr;
+  }
+
+  .downloads-product-card-media {
+    min-height: 24rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .downloads-header {
+    padding-block: var(--spacing-md);
+  }
+
+  .downloads-header p {
+    font-size: var(--font-size-md);
+  }
+
+  .downloads-product-nav {
+    justify-content: flex-start;
+  }
+
+  .downloads-product-tab {
+    min-width: 7rem;
+    min-height: 6.5rem;
+    flex-basis: 7rem;
+    font-size: var(--font-size-xs);
+  }
+
+  .downloads-product-card-content {
+    padding: var(--spacing-xl);
+  }
+
+  .downloads-product-card-media {
+    min-height: 18rem;
+  }
+
+  .downloads-community-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: var(--spacing-xl);
+  }
+}

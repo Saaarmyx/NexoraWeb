@@ -166,7 +166,7 @@ body[data-theme='light'] {
   --color-text-primary: #1d1d1f;
   --color-text-secondary: #424245;
   --color-text-heading: #1d1d1f;
-  --color-text-body: #515154;
+  --color-text-body: #a1a1a6;
   --color-text-muted: #86868b;
   --color-text-link: var(--color-primary);
 

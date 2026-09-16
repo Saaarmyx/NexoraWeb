@@ -2,63 +2,37 @@ import { Link } from 'react-router-dom'
 
 import './Footer.css'
 
-// Cada enlace con `to` navega a una ruta real. Los que no tienen `to`
-// representan secciones todavía no construidas: se muestran como texto,
-// no como enlaces, para no simular navegación que no existe.
 const footerColumns = [
   {
     title: 'Descubrir',
     links: [
-      { label: 'Nexora Cloud', to: '/products' },
-      { label: 'Nexora Photos', to: '/products' },
-      { label: 'Nexora Connect', to: '/products' },
-      { label: 'Nexora Code', to: '/products' },
-      { label: 'Nexora OS', to: '/products' },
+      { label: 'NCode', to: '/products/ncode' },
+      { label: 'Productos', to: '/products' },
+      { label: 'Ecosistema', to: '/ecosystem' },
       { label: 'Dónde descargar', to: '/downloads' },
-      { label: 'Todos los productos', to: '/products' },
     ],
   },
   {
     title: 'Ecosistema',
     links: [
-      { label: 'Cómo funciona', to: '/ecosystem' },
-      { label: 'Dispositivos' },
-      { label: 'Servicios' },
-      { label: 'Compatibilidad' },
+      { label: 'Eventos', to: '/events' },
+      { label: 'Soporte', to: '/support' },
     ],
   },
   {
-    title: 'Cuenta',
+    title: 'Comunidad',
     links: [
-      { label: 'Mi cuenta Nexora' },
-      { label: 'Configuración de cuenta' },
-      { label: 'Iniciar sesión' },
+      { label: 'Discord', href: 'https://discord.gg/XnMBBBa26k' },
+      { label: 'Telegram', href: 'https://t.me/+UvoqqOtxA-03YzE5' },
     ],
   },
   {
-    title: 'Para empresas',
+    title: 'Legal',
     links: [
-      { label: 'Nexora para empresas' },
-      { label: 'Soluciones empresariales' },
-      { label: 'Contacto comercial' },
+      { label: 'Privacidad', to: '/privacy' },
+      { label: 'Accesibilidad', to: '/accessibility' },
+      { label: 'Seguridad', to: '/security' },
     ],
-  },
-  {
-    title: 'Para desarrolladores',
-    links: [{ label: 'Documentación' }, { label: 'API' }, { label: 'Recursos' }],
-  },
-  {
-    title: 'Nexora',
-    links: [
-      { label: 'Sobre Nexora', to: '/about' },
-      { label: 'Noticias' },
-      { label: 'Empleo' },
-      { label: 'Contacto' },
-    ],
-  },
-  {
-    title: 'Valores',
-    links: [{ label: 'Privacidad' }, { label: 'Accesibilidad' }, { label: 'Seguridad' }],
   },
 ]
 
@@ -79,9 +53,15 @@ function Footer() {
                     {link.label}
                   </Link>
                 ) : (
-                  <span key={link.label} className="footer-link footer-link--soon">
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="footer-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {link.label}
-                  </span>
+                  </a>
                 ),
               )}
             </div>
@@ -91,15 +71,9 @@ function Footer() {
         <div className="footer-bottom">
           <span>Nexora Labs · Copyright © {currentYear}. Todos los derechos reservados.</span>
 
-          <div className="footer-legal-links">
-            <span className="footer-legal-item footer-legal-item--soon">
-              Política de privacidad
-            </span>
-
-            <span className="footer-legal-divider">|</span>
-
-            <span className="footer-legal-item footer-legal-item--soon">Aviso legal</span>
-          </div>
+          <span className="footer-legal-note">
+            NEXORA LABS · TECNOLOGÍA QUE FUNCIONA EN CONJUNTO.
+          </span>
 
           <span className="footer-country">Colombia</span>
         </div>
