@@ -14,6 +14,7 @@ const footerColumns = [
       { label: 'Nexora Connect', to: '/products' },
       { label: 'Nexora Code', to: '/products' },
       { label: 'Nexora OS', to: '/products' },
+      { label: 'Dónde descargar', to: '/downloads' },
       { label: 'Todos los productos', to: '/products' },
     ],
   },

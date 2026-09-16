@@ -15,8 +15,8 @@ const navLinks = [
     to: '/ecosystem',
   },
   {
-    label: 'Empresa',
-    to: '/about',
+    label: 'Dónde descargar',
+    to: '/downloads',
   },
   {
     label: 'Soporte',

@@ -4,7 +4,7 @@ function ComingSoon() {
   return (
     <ComingSoonHero
       video="/videos/landing/coming-soon.mp4"
-      title="Estamos trabajando en esto."
+      title="ESTAMOS TRABAJANDO EN ESTO"
       description="Esta parte de Nexora llegará pronto."
       buttonText="Volver al inicio"
       buttonTo="/"
