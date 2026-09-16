@@ -65,23 +65,3 @@
 .product-featured-actions {
   flex-shrink: 0;
 }
-
-@media (max-width: 48rem) {
-  .product-featured-media {
-    aspect-ratio: 4 / 3;
-  }
-
-  .product-featured-content {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: var(--spacing-xl);
-  }
-
-  .product-featured-title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .product-featured-description {
-    font-size: var(--font-size-md);
-  }
-}

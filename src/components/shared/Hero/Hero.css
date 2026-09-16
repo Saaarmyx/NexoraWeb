@@ -50,17 +50,3 @@
 .hero-button {
   margin-top: var(--spacing-sm);
 }
-
-@media (max-width: 48rem) {
-  .hero {
-    padding: var(--spacing-2xl) var(--spacing-md);
-  }
-
-  .hero-title {
-    font-size: var(--font-size-5xl);
-  }
-
-  .hero-description {
-    font-size: var(--font-size-md);
-  }
-}

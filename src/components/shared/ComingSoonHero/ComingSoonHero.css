@@ -68,23 +68,3 @@
   font-size: var(--font-size-lg);
   line-height: var(--line-height-base);
 }
-
-@media (max-width: 48rem) {
-  .coming-soon-hero {
-    min-height: calc(60vh - var(--header-height-mobile));
-    padding: var(--spacing-md);
-  }
-
-  .coming-soon-hero-media {
-    min-height: calc(60vh - var(--header-height-mobile) - var(--spacing-lg));
-    border-radius: var(--radius-xl);
-  }
-
-  .coming-soon-hero-overlay {
-    padding: var(--spacing-xl);
-  }
-
-  .coming-soon-hero-content p {
-    font-size: var(--font-size-md);
-  }
-}

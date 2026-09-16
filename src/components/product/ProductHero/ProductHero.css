@@ -105,32 +105,3 @@
   color: var(--color-white);
   background-color: var(--color-white-10);
 }
-
-@media (max-width: 48rem) {
-  .product-hero {
-    padding-inline: var(--spacing-md);
-    padding-bottom: var(--spacing-lg);
-  }
-
-  .product-hero-card {
-    padding: var(--spacing-xl) var(--spacing-md) 0;
-  }
-
-  .product-hero-title {
-    font-size: var(--font-size-4xl);
-  }
-
-  .product-hero-description {
-    font-size: var(--font-size-sm);
-  }
-
-  .product-hero-media {
-    width: 75%;
-    margin-top: var(--spacing-lg);
-  }
-
-  .product-hero-card--background {
-    min-height: 28rem;
-    padding-bottom: var(--spacing-xl);
-  }
-}

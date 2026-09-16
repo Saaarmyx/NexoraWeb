@@ -58,32 +58,3 @@
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-compact);
 }
-
-@media (max-width: 64rem) {
-  .video-hero {
-    height: 600px;
-  }
-
-  .video-hero-overlay {
-    padding: var(--spacing-2xl);
-  }
-}
-
-@media (max-width: 48rem) {
-  .video-hero {
-    height: 560px;
-    border-radius: var(--radius-xl);
-  }
-
-  .video-hero-overlay {
-    padding: var(--spacing-xl);
-  }
-
-  .video-hero-title {
-    font-size: var(--font-size-6xl);
-  }
-
-  .video-hero-description {
-    font-size: var(--font-size-lg);
-  }
-}

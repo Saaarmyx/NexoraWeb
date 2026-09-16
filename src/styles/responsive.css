@@ -168,12 +168,12 @@
 
   .launch-hero-card {
     width: 100%;
-    min-height: calc(100vh - var(--header-height-mobile));
+    min-height: min(38rem, calc(100svh - var(--header-height-mobile) - var(--spacing-lg)));
     background-position: center;
   }
 
   .launch-hero-content {
-    padding: 0 var(--spacing-lg) 2.5rem;
+    padding: 0 var(--spacing-md) var(--spacing-xl);
   }
 
   .launch-hero-description {

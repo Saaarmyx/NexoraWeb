@@ -190,30 +190,3 @@
 .header-search-inner input::placeholder {
   color: var(--color-text-muted);
 }
-
-@media (max-width: 48rem) {
-  .header-wrapper {
-    padding-inline: var(--spacing-md);
-  }
-
-  .header-nav-desktop {
-    display: none;
-  }
-
-  .header-action--account {
-    display: none;
-  }
-
-  .header-action--mobile-toggle {
-    display: inline-flex;
-  }
-
-  .header-navbar {
-    height: var(--header-height-mobile);
-    padding-inline: var(--spacing-lg);
-  }
-
-  .header-mobile-card-wrapper {
-    padding-inline: var(--spacing-md);
-  }
-}

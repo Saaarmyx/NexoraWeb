@@ -42,13 +42,3 @@
 .cta-section-button {
   margin-top: var(--spacing-xs);
 }
-
-@media (max-width: 48rem) {
-  .cta-section-card {
-    padding: var(--spacing-2xl) var(--spacing-md);
-  }
-
-  .cta-section-title {
-    font-size: var(--font-size-3xl);
-  }
-}
