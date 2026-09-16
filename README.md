@@ -1,7 +1,7 @@
 # NexoraWeb
 
 Sitio web del ecosistema **Nexora Labs**: presenta los productos de Nexora (Nexora Cloud,
-NCode, NPhotos, NEXA OS, NConnect), el modelo de ecosistema conectado y la compañía. Construido
+NCode, NPhotos, NEXA OS, NConnect), el modelo de ecosistema conectado y sus lanzamientos. Construido
 como una single-page app con rutas propias por sección, sin TypeScript y sin frameworks de CSS.
 
 ## Stack
@@ -61,14 +61,13 @@ NexoraWeb/
 │   │   ├── Home/            # "/"
 │   │   ├── Products/         # "/products"
 │   │   ├── Ecosystem/         # "/ecosystem"
-│   │   ├── About/              # "/about"
 │   │   ├── ComingSoon/          # ruta comodín "*"
-│   │   └── NCode/                # "/products/ncode"
+│   │   ├── Downloads/           # "/downloads"
+│   │   ├── Events/              # "/events"
+│   │   └── Legal/               # privacidad, accesibilidad y seguridad
 │   │
-│   ├── data/                # fuente única de datos, separada de la UI
-│   │   ├── products.js       # catálogo de productos del ecosistema
-│   │   ├── pillars.js          # pilares del ecosistema (Home, Ecosystem)
-│   │   └── values.js            # valores de la compañía (About)
+│   ├── data/                # reexportaciones de compatibilidad
+│   │   └── products.js       # reexportación del catálogo del dominio
 │   │
 │   ├── styles/
 │   │   ├── tokens.css        # fuente de verdad del sistema de diseño (colores, tipografía, radios...)
@@ -106,8 +105,12 @@ NexoraWeb/
 | `/`                       | `Home`       | Lanzamiento destacado + spotlight de cada producto `featured` |
 | `/products`               | `Products`   | Producto destacado + grilla con el resto del catálogo         |
 | `/products/ncode`         | `NCode`      | Página dedicada del producto NCode, con su propio tema        |
-| `/ecosystem`              | `Ecosystem`  | Pilares que explican cómo funciona el ecosistema Nexora       |
-| `/about`                  | `About`      | Compañía: misión y valores                                    |
+| `/ecosystem`              | `Ecosystem`  | Modelo de ecosistema conectado                                |
+| `/downloads`              | `Downloads`  | Productos Nexora y disponibilidad de descargas                |
+| `/events`                 | `Events`     | Lanzamientos y novedades                                      |
+| `/privacy`                | `LegalPage`  | Privacidad                                                    |
+| `/accessibility`          | `LegalPage`  | Accesibilidad                                                 |
+| `/security`               | `LegalPage`  | Seguridad                                                     |
 | `/support`                | `ComingSoon` | Placeholder de soporte                                        |
 | `*` (cualquier otra ruta) | `ComingSoon` | Placeholder de video para secciones aún no construidas        |
 
@@ -144,9 +147,6 @@ página:
   `product-hero-card--{theme}` correspondiente.
 - En `features/ncode/NCodePage.jsx`, un `useEffect` lee `product.theme` y lo escribe en `document.body.dataset.theme`
   mientras la página está montada, restaurándolo a `'light'` al desmontarse.
-- El tema general del sitio (claro/oscuro, controlado desde el `Header`) se guarda aparte, en
-  `localStorage` bajo la clave `nexora-theme`, y también se aplica sobre `document.body.dataset.theme`
-  desde `App.jsx`.
 
 ## Assets
 
@@ -155,7 +155,7 @@ tal cual desde la raíz del sitio. Se referencian con rutas absolutas directamen
 `data/products.js`, por ejemplo:
 
 ```jsx
-<img src="/images/banner_ncode.png" alt="NCode" />
+<img src="/images/ncode/banner_ncode.png" alt="NCode" />
 ```
 
 No se importan como módulos de JS ni se mueven a `src/assets/`.
@@ -179,8 +179,8 @@ npm run lint              # oxlint sobre el proyecto
 - No existe `App.css`: los estilos de `App.jsx` viven en `src/styles/base.css`.
 - Los componentes básicos se consumen desde `components/ui` y las secciones desde
   `components/sections`; se evitan imports profundos desde las páginas.
-- Los datos específicos de una funcionalidad viven junto a ella en `features/`; los datos
-  transversales (`pillars`, `values`) permanecen en `data/`.
+- Los datos específicos de una funcionalidad viven junto a ella en `features/`; el catálogo
+  mantiene una reexportación de compatibilidad en `data/products.js`.
 - Los assets viven en `public/`, nunca en `src/assets/`.
 
 ## Principios
