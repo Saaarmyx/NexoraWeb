@@ -38,7 +38,6 @@
   font-size: clamp(var(--font-size-4xl), 6vw, var(--font-size-6xl));
   font-weight: var(--font-weight-bold);
   line-height: 0.95;
-  letter-spacing: -0.04em;
 }
 
 .text-image-card-description,
@@ -60,7 +59,6 @@
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  letter-spacing: -0.02em;
 }
 
 .text-image-card-media {

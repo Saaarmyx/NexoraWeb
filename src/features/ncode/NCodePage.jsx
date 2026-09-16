@@ -1,8 +1,14 @@
 import { products } from '../products'
 import useProductTheme from '../../hooks/useProductTheme'
-import { CollageCard, DetailCard, TextImageCard, VideoHero } from '../../components/sections'
+import {
+  CollageCard,
+  DetailCard,
+  TextImageCard,
+  VideoHero,
+  ProductLinksCard,
+} from '../../components/sections'
 
-import { ncodeFeatures, ncodeHero, ncodePerformance, ncodeThemes } from './ncode.data'
+import { ncodeFeatures, ncodeHero, ncodeLinks, ncodePerformance, ncodeThemes } from './ncode.data'
 
 function NCodePage() {
   const product = products.find((item) => item.slug === 'ncode')
@@ -20,6 +26,7 @@ function NCodePage() {
 
         <DetailCard {...ncodeThemes} />
         <TextImageCard {...ncodePerformance} />
+        <ProductLinksCard {...ncodeLinks} />
       </div>
     </section>
   )

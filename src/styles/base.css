@@ -84,21 +84,6 @@ main {
   text-transform: uppercase;
 }
 
-@media (max-width: 48rem) {
-  .section-heading {
-    padding-block: var(--spacing-2xl);
-  }
-
-  .section-heading h1,
-  .section-heading h2 {
-    font-size: var(--font-size-4xl);
-  }
-
-  .section-heading p {
-    font-size: var(--font-size-md);
-  }
-}
-
 /* Elementos globales */
 
 button,
@@ -108,14 +93,4 @@ a {
 
 button:disabled {
   cursor: not-allowed;
-}
-
-/* Responsive basico */
-
-@media (max-width: 48rem) {
-  .container {
-    padding-inline: var(--spacing-md);
-
-    gap: var(--spacing-md);
-  }
 }

@@ -11,7 +11,7 @@ export const ncodeFeatures = {
     'Un entorno pensado para acompañarte desde la primera línea de código hasta el resultado final.',
   images: [
     {
-      src: '/images/ncode/airpods_5__egy9fho2f48y_xlarge_2x.png',
+      src: '/images/ncode/ncode-crea.png',
       alt: 'NCode',
       title: 'CREA',
       description: 'Convierte tus ideas en código.',
@@ -64,4 +64,26 @@ export const ncodePerformance = {
     'Todo está pensado para que el editor se adapte a tu forma de trabajar y no al revés. Menos esperas, menos interrupciones y más tiempo concentrado en crear.',
   video: '/videos/ncode/ncode-performance.mp4',
   videoAlt: 'NCode en funcionamiento',
+}
+
+export const ncodeLinks = {
+  title: 'NCODE',
+  description: 'Todo lo que necesitas para empezar a crear.',
+  links: [
+    {
+      label: 'Discord',
+      href: 'https://discord.gg/XnMBBBa26k',
+      icon: 'discord',
+    },
+    {
+      label: 'Telegram',
+      href: 'https://t.me/+UvoqqOtxA-03YzE5',
+      icon: 'telegram',
+    },
+    {
+      label: 'Descargar',
+      href: 'https://github.com/Saaarmyx/NexoraCode/releases',
+      icon: 'download',
+    },
+  ],
 }

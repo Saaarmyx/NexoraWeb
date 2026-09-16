@@ -15,7 +15,7 @@ const products = [
     description:
       'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
     availability: 'En beta',
-    image: '/images/products/banner_ncode.png',
+    image: '/images/ncode/banner_ncode.png',
     theme: 'dark',
     featured: true,
   },

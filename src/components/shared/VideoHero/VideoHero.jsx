@@ -8,7 +8,6 @@ function VideoHero({ video, title, description }) {
         src={video}
         autoPlay
         muted
-        loop
         playsInline
         aria-hidden="true"
       />

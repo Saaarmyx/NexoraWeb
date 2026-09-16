@@ -35,7 +35,6 @@ function TextImageCard({
           className="text-image-card-video"
           autoPlay
           muted
-          loop
           playsInline
           aria-label={videoAlt}
         />
