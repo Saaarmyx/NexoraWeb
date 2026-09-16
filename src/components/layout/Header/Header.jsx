@@ -7,10 +7,6 @@ import './Header.css'
 
 const navLinks = [
   {
-    label: 'NCode',
-    to: '/products/ncode',
-  },
-  {
     label: 'Productos',
     to: '/products',
   },

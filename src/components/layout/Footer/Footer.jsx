@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom'
+import { products } from '../../../features/products'
+import getProductPath from '../../../utils/productRoutes'
 
 import './Footer.css'
+
+const featuredProductLinks = products
+  .filter((product) => product.featured)
+  .map((product) => ({
+    label: product.name,
+    to: getProductPath(product),
+  }))
 
 const footerColumns = [
   {
     title: 'Descubrir',
     links: [
-      { label: 'NCode', to: '/products/ncode' },
+      ...featuredProductLinks,
       { label: 'Productos', to: '/products' },
       { label: 'Ecosistema', to: '/ecosystem' },
       { label: 'Dónde descargar', to: '/downloads' },
