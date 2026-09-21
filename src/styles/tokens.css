@@ -53,6 +53,12 @@
   --color-os-accent: #111827;
   --color-qr-accent: #8b5cf6;
 
+  /* Nuevos productos (Fase 2) */
+  --color-files-accent: #22c55e;
+  --color-calculator-accent: #eab308;
+  --color-recorder-accent: #d946ef;
+  --color-passwords-accent: #4f46e5;
+
   /* Tipografía */
 
   --font-family-base:

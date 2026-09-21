@@ -5,6 +5,10 @@ const productMotifIcons = {
   ncloud: 'cloud',
   nconnect: 'share',
   os: 'chip',
+  nfiles: 'file',
+  ncalculator: 'calculator',
+  nrecorder: 'record',
+  npasswords: 'lock',
 }
 
 function getProductIconName(slug) {

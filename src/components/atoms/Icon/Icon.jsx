@@ -10,6 +10,10 @@ import {
   faShareNodes,
   faQrcode,
   faMicrochip,
+  faFile,
+  faCalculator,
+  faMicrophone,
+  faLock,
   faDownload,
 } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord, faTelegramPlane } from '@fortawesome/free-brands-svg-icons'
@@ -27,6 +31,10 @@ const glyphs = {
   share: faShareNodes,
   qr: faQrcode,
   chip: faMicrochip,
+  file: faFile,
+  calculator: faCalculator,
+  record: faMicrophone,
+  lock: faLock,
   download: faDownload,
   discord: faDiscord,
   telegram: faTelegramPlane,
