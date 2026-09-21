@@ -1,7 +1,7 @@
 # NexoraWeb
 
 Sitio web del ecosistema **Nexora Labs**: presenta los productos de Nexora (Nexora Cloud,
-NCode, NPhotos, NEXA OS, NConnect), el modelo de ecosistema conectado y sus lanzamientos. Construido
+NCode, NPhotos, NQR, NEXA OS, NConnect), el modelo de ecosistema conectado y sus lanzamientos. Construido
 como una single-page app con rutas propias por sección, sin TypeScript y sin frameworks de CSS.
 
 ## Stack
@@ -44,11 +44,16 @@ NexoraWeb/
 │   │   │   └── ProductHero/       # spotlight de un producto individual (Home)
 │   │   │
 │   │   └── shared/           # secciones reutilizables entre páginas, no ligadas a un producto
+│   │       ├── CollageCard/       # tarjeta collage de imágenes con título + descripción
 │   │       ├── ComingSoonHero/  # hero de video para rutas todavía no construidas
 │   │       ├── CtaSection/       # banner de llamada a la acción genérico
+│   │       ├── DetailCard/        # tarjeta de detalle con variantes (imagen + color)
 │   │       ├── FeatureGrid/       # grilla de tarjetas icono + título + descripción
 │   │       ├── Hero/               # hero genérico con eyebrow/título/CTA
-│   │       └── LaunchHero/          # banner de lanzamiento controlado por props (video o imagen)
+│   │       ├── LaunchHero/          # banner de lanzamiento controlado por props (video o imagen)
+│   │       ├── ProductLinksCard/   # tarjeta de enlaces de producto (comunidad, descarga)
+│   │       ├── TextImageCard/       # tarjeta texto + imagen/video
+│   │       └── VideoHero/           # hero de video para páginas de producto
 │   │   ├── sections/         # API pública de las secciones compartidas
 │   │
 │   ├── app/
@@ -56,7 +61,9 @@ NexoraWeb/
 │   │
 │   ├── features/
 │   │   ├── products/         # catálogo y API de componentes de productos
-│   │   └── ncode/            # página y contenido específico de NCode
+│   │   ├── ncode/            # página y contenido específico de NCode
+│   │   ├── nphotos/          # página y contenido específico de NPhotos
+│   │   └── nqr/              # página y contenido específico de NQR
 │   ├── pages/
 │   │   ├── Home/            # "/"
 │   │   ├── Products/         # "/products"
@@ -72,6 +79,7 @@ NexoraWeb/
 │   ├── styles/
 │   │   ├── tokens.css        # fuente de verdad del sistema de diseño (colores, tipografía, radios...)
 │   │   ├── base.css            # estructura global, contenedores, utilidades
+│   │   ├── responsive.css      # ajustes responsive globales
 │   │   ├── fonts.css             # @font-face de Gliker
 │   │   └── reset.css               # reset base
 │   │
@@ -93,9 +101,11 @@ NexoraWeb/
   `App.jsx` (`Header`, `Footer`).
 - **features/products/**: fuente de datos y API de componentes que reciben un objeto `product`
   (`ProductCard`, `ProductFeatured`, `ProductHero`).
-- **features/ncode/**: composición y contenido de la página dedicada de NCode.
+- **features/ncode/**, **features/nphotos/**, **features/nqr/**: composición y contenido de cada
+  página dedicada de producto (`NCodePage`, `NPhotosPage`, `NQRPage`), con su propio tema.
 - **sections/**: punto de entrada para secciones reutilizables entre rutas, sin acoplarse a un
-  producto concreto (`Hero`, `LaunchHero`, `FeatureGrid`, `CtaSection`, `ComingSoonHero`).
+  producto concreto (`Hero`, `LaunchHero`, `VideoHero`, `CollageCard`, `DetailCard`,
+  `TextImageCard`, `FeatureGrid`, `CtaSection`, `ProductLinksCard`, `ComingSoonHero`).
 - **app/**: configuración de navegación separada de la composición global de `App.jsx`.
 
 ## Páginas
@@ -104,7 +114,9 @@ NexoraWeb/
 | ------------------------- | ------------ | ------------------------------------------------------------- |
 | `/`                       | `Home`       | Lanzamiento destacado + spotlight de cada producto `featured` |
 | `/products`               | `Products`   | Producto destacado + grilla con el resto del catálogo         |
-| `/products/ncode`         | `NCode`      | Página dedicada del producto NCode, con su propio tema        |
+| `/products/ncode`         | `NCodePage`    | Página dedicada del producto NCode, con su propio tema        |
+| `/products/nphotos`       | `NPhotosPage`  | Página dedicada del producto NPhotos, con su propio tema      |
+| `/products/nqr`           | `NQRPage`      | Página dedicada del producto NQR (generador QR), en beta      |
 | `/ecosystem`              | `Ecosystem`  | Modelo de ecosistema conectado                                |
 | `/downloads`              | `Downloads`  | Productos Nexora y disponibilidad de descargas                |
 | `/events`                 | `Events`     | Lanzamientos y novedades                                      |
@@ -117,7 +129,8 @@ NexoraWeb/
 ## Sistema de productos
 
 `src/features/products/data/products.js` es la fuente única de verdad del catálogo. `Home`,
-`Products` y NCode acceden a los productos a través de `features/products`. El archivo
+`Products`, `Ecosystem`, `Events`, `Downloads` y las páginas dedicadas (`NCodePage`, `NPhotosPage`,
+`NQRPage`) acceden a los productos a través de `features/products`. El archivo
 `src/data/products.js` solo conserva una reexportación de compatibilidad. Cada producto tiene:
 
 - `slug` — identificador usado en la URL (`/products/:slug`) y como `key` en listas.
@@ -129,11 +142,14 @@ NexoraWeb/
 - `featured` — si es `true`, el producto aparece en el spotlight de `Home` y en el catálogo de
   `Products`.
 
-`NCode` obtiene su propio producto buscándolo por `slug` en ese mismo catálogo:
+`NCode`, `NPhotos` y `NQR` obtienen su propio producto buscándolo por `slug` en ese mismo catálogo:
 
 ```js
-const product = products.find((item) => item.slug === 'ncode')
+const product = products.find((item) => item.slug === 'nqr')
 ```
+
+NCode y NQR están en beta (`availability: 'En beta'`), por lo que `Events` los muestra como
+lanzamientos activos y `Downloads` habilita su acción (`DESCARGAR` o `ABRIR`).
 
 Para añadir un producto nuevo solo hace falta agregar un objeto más a `products.js`; ningún
 componente necesita cambiar.
@@ -145,7 +161,8 @@ página:
 
 - En `Home`, `ProductHero` recibe `theme={product.theme}` y aplica la clase
   `product-hero-card--{theme}` correspondiente.
-- En `features/ncode/NCodePage.jsx`, un `useEffect` lee `product.theme` y lo escribe en `document.body.dataset.theme`
+- En `features/ncode/NCodePage.jsx`, `features/nphotos/NPhotosPage.jsx` y
+  `features/nqr/NQRPage.jsx`, el hook `useProductTheme` lee `product.theme` y lo escribe en `document.body.dataset.theme`
   mientras la página está montada, restaurándolo a `'light'` al desmontarse.
 
 ## Assets

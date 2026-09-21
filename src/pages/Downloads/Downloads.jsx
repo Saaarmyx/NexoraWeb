@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FiCode, FiCloud, FiImage, FiMonitor, FiShare2 } from 'react-icons/fi'
+import { FiCode, FiCloud, FiImage, FiMonitor, FiShare2, FiGrid } from 'react-icons/fi'
 
 import { products } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
@@ -9,15 +9,17 @@ import Card from '../../components/atoms/Card/Card'
 import './Downloads.css'
 
 const productIcons = {
-  cloud: FiCloud,
+  ncloud: FiCloud,
   ncode: FiCode,
-  photos: FiImage,
+  nphotos: FiImage,
+  nqr: FiGrid,
   os: FiMonitor,
-  connect: FiShare2,
+  nconnect: FiShare2,
 }
 
 const downloadLinks = {
-  ncode: 'https://github.com/Saaarmyx/NexoraCode/releases',
+  ncode: 'https://github.com/Saaarmyx/NCode/releases',
+  nqr: 'https://github.com/Saaarmyx/QrGenerator/releases',
 }
 
 function Downloads() {
@@ -93,14 +95,20 @@ function Downloads() {
             <p>{selectedProduct.description}</p>
 
             {downloadUrl ? (
-              <Button
-                href={downloadUrl}
-                variant="primary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                DESCARGAR
-              </Button>
+              downloadUrl.startsWith('/') ? (
+                <Button to={downloadUrl} variant="primary">
+                  ABRIR
+                </Button>
+              ) : (
+                <Button
+                  href={downloadUrl}
+                  variant="primary"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  DESCARGAR
+                </Button>
+              )
             ) : (
               <Button variant="secondary" disabled>
                 PRÓXIMAMENTE

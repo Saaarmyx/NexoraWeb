@@ -8,6 +8,7 @@ import Events from '../pages/Events/Events'
 import LegalPage from '../pages/Legal/LegalPage'
 import NCodePage from '../features/ncode/NCodePage'
 import NPhotosPage from '../features/nphotos/NPhotosPage'
+import NQRPage from '../features/nqr/NQRPage'
 import { products } from '../features/products'
 import getProductPath from '../utils/productRoutes'
 
@@ -31,8 +32,12 @@ function AppRoutes() {
         element={isFeatured('ncode') ? <NCodePage /> : <ComingSoon />}
       />
       <Route
-        path={getProductPath({ slug: 'photos' })}
-        element={isFeatured('photos') ? <NPhotosPage /> : <ComingSoon />}
+        path={getProductPath({ slug: 'nphotos' })}
+        element={isFeatured('nphotos') ? <NPhotosPage /> : <ComingSoon />}
+      />
+      <Route
+        path={getProductPath({ slug: 'nqr' })}
+        element={isFeatured('nqr') ? <NQRPage /> : <ComingSoon />}
       />
       <Route path="*" element={<ComingSoon />} />
     </Routes>

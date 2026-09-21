@@ -30,6 +30,16 @@ const products = [
     featured: true,
   },
   {
+    slug: 'nqr',
+    name: 'NQR',
+    description:
+      'Genera códigos QR al instante: enlaces, textos, redes Wi-Fi y más, listos para compartir desde cualquier dispositivo.',
+    availability: 'En beta',
+    image: '/images/nqr/banner_nqr.png',
+    theme: 'light',
+    featured: true,
+  },
+  {
     slug: 'os',
     name: 'Nexa',
     description:

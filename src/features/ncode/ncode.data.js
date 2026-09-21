@@ -82,7 +82,7 @@ export const ncodeLinks = {
     },
     {
       label: 'Descargar',
-      href: 'https://github.com/Saaarmyx/NexoraCode/releases',
+      href: 'https://github.com/Saaarmyx/NCode/releases',
       icon: 'download',
     },
   ],

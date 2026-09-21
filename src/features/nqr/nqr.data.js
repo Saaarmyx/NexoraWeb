@@ -1,0 +1,84 @@
+export const nqrHero = {
+  video: '/videos/nconnect/nconnect-hero.mp4',
+  label: 'NEXORA',
+  title: 'NQR',
+  description: 'Crea y comparte códigos QR en segundos.',
+}
+
+export const nqrFeatures = {
+  title: 'TODO LO QUE NECESITAS PARA COMPARTIR',
+  description:
+    'Una herramienta pensada para convertir enlaces, textos y conexiones en códigos listos para escanear.',
+  images: [
+    {
+      src: '/images/nqr/banner_nqr.png',
+      alt: 'NQR',
+      title: 'CREA',
+      description: 'Genera códigos QR al instante desde cualquier dispositivo.',
+    },
+    {
+      src: '/images/products/banner_ncloud.png',
+      alt: 'Nexora Cloud',
+      title: 'PERSONALIZA',
+      description: 'Adapta tus códigos a lo que quieres compartir.',
+    },
+    {
+      src: '/images/products/banner_nconnect.png',
+      alt: 'NConnect',
+      title: 'COMPARTE',
+      description: 'Tus códigos viajan contigo por todo el ecosistema Nexora.',
+    },
+  ],
+}
+
+export const nqrViews = {
+  title: 'TUS CÓDIGOS, A TU MANERA',
+  description: 'NQR se adapta a lo que necesitas compartir y a cómo quieres mostrarlo.',
+  variants: [
+    {
+      name: 'Clásico',
+      color: '#111827',
+      image: '/images/nqr/banner_nqr.png',
+      alt: 'Código QR clásico de NQR',
+    },
+    {
+      name: 'Nexora',
+      color: '#e11f2f',
+      image: '/images/products/banner_ncloud.png',
+      alt: 'Código QR con estilo Nexora',
+    },
+  ],
+}
+
+export const nqrPerformance = {
+  title: 'INSTANTÁNEO',
+  description:
+    'NQR está pensado para que compartir no te haga esperar. Genera tu código y úsalo donde lo necesites, sin fricción.',
+  subtitle: 'MENOS PASOS. MÁS ALCANCE.',
+  secondaryDescription:
+    'Desde un enlace hasta una red Wi-Fi, cada código funciona al momento y se integra con el resto del ecosistema Nexora.',
+  video: '/videos/nconnect/nconnect-hero.mp4',
+  videoAlt: 'NQR dentro del ecosistema Nexora',
+}
+
+export const nqrLinks = {
+  title: 'NQR',
+  description: 'NQR ya está en beta. Únete a la comunidad para conocer las novedades.',
+  links: [
+    {
+      label: 'Discord',
+      href: 'https://discord.gg/XnMBBBa26k',
+      icon: 'discord',
+    },
+    {
+      label: 'Telegram',
+      href: 'https://t.me/+UvoqqOtxA-03YzE5',
+      icon: 'telegram',
+    },
+    {
+      label: 'Descargar',
+      href: 'https://github.com/Saaarmyx/QrGenerator/releases',
+      icon: 'download',
+    },
+  ],
+}
