@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 import useProductTheme from '../../hooks/useProductTheme'
 import { Reveal } from '../../components/ui'
@@ -8,24 +9,6 @@ import ProductArt from '../../components/illustrations/ProductArt'
 import NotFound from '../../pages/NotFound/NotFound'
 import products from './data/products'
 import { resolveSectionComponent } from './sectionRegistry'
-
-function useProductSeo(product) {
-  useEffect(() => {
-    const seo = product?.page?.seo
-
-    document.title = seo?.title || (product ? `${product.name} · Nexora` : 'Nexora')
-
-    let meta = document.querySelector('meta[name="description"]')
-
-    if (!meta) {
-      meta = document.createElement('meta')
-      meta.setAttribute('name', 'description')
-      document.head.appendChild(meta)
-    }
-
-    meta.setAttribute('content', seo?.description || product?.description || '')
-  }, [product])
-}
 
 const customComponentCache = new WeakMap()
 
@@ -112,24 +95,44 @@ function ProductPage() {
   const product = products.find((item) => item.slug === slug)
 
   useProductTheme(product?.theme, product?.accent)
-  useProductSeo(product)
+
+  const seo = product?.page?.seo
+  const title = seo?.title || (product ? `${product.name} · Nexora` : 'Nexora')
+  const description = seo?.description || product?.description || ''
+  const ogImage = seo?.ogImage || product?.image || '/icons/brand/icon.png'
+  const canonical = product ? `/products/${product.slug}` : ''
 
   if (!product) {
     return <NotFound />
   }
 
-  if (!product.page?.sections?.length) {
-    return <SoonTemplate product={product} />
-  }
-
   return (
-    <section className="section">
-      <div className="container">
-        {product.page.sections.map((section, index) => (
-          <ProductSection key={`${section.type}-${index}`} section={section} />
-        ))}
-      </div>
-    </section>
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImage} />
+      </Helmet>
+      {product.page?.sections?.length ? (
+        <section className="section">
+          <div className="container">
+            {product.page.sections.map((section, index) => (
+              <ProductSection key={`${section.type}-${index}`} section={section} />
+            ))}
+          </div>
+        </section>
+      ) : (
+        <SoonTemplate product={product} />
+      )}
+    </>
   )
 }
 

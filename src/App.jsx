@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { BrowserRouter, useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 
 import AppRoutes from './app/routes'
 import Header from './components/layout/Header/Header'
@@ -30,9 +31,11 @@ function AppShell() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppShell />
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <AppShell />
+      </BrowserRouter>
+    </HelmetProvider>
   )
 }
 
