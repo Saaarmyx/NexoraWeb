@@ -109,6 +109,11 @@
   object-fit: cover;
 }
 
+.downloads-product-card-media .product-art {
+  height: 100%;
+  min-height: 34rem;
+}
+
 .downloads-product-card-content {
   min-width: 0;
   padding: var(--spacing-3xl);

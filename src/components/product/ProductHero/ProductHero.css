@@ -93,7 +93,11 @@
   padding-bottom: var(--spacing-2xl);
   justify-content: flex-end;
   background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 40%, rgba(0, 0, 0, 0.55) 100%),
+    linear-gradient(
+      to bottom,
+      var(--color-scrim-faint) 40%,
+      var(--color-scrim-strong) 100%
+    ),
     var(--product-hero-image);
   background-size: cover;
   background-position: center;

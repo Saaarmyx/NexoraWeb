@@ -51,6 +51,7 @@
   --color-closet-accent: #8b5cf6;
   --color-bank-accent: #047857;
   --color-os-accent: #111827;
+  --color-qr-accent: #8b5cf6;
 
   /* Tipografía */
 
@@ -128,9 +129,30 @@
 
   /* Transiciones */
 
-  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --transition-fast: 0.15s var(--ease-out);
+  --transition-normal: 0.25s var(--ease-out);
   --transition-bounce: 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Motion: duraciones compartidas. Los keyframes viven en styles/motion.css. */
+
+  --motion-duration-fast: 180ms;
+  --motion-duration-base: 320ms;
+  --motion-duration-slow: 560ms;
+  --motion-duration-ambient: 2400ms;
+  --motion-stagger-step: 90ms;
+
+  /* Scrims: overlays de legibilidad sobre imagen/video.
+     Escala única; los heroes la consumen en vez de hardcodear rgba. */
+
+  --color-scrim-faint: rgba(0, 0, 0, 0.05);
+  --color-scrim-soft: rgba(0, 0, 0, 0.16);
+  --color-scrim-medium: rgba(0, 0, 0, 0.36);
+  --color-scrim-strong: rgba(0, 0, 0, 0.6);
+  --color-scrim-ink: rgba(0, 0, 0, 0.8);
+
+  --shadow-text: 0 1px 3px rgba(0, 0, 0, 0.2);
 
   /* Iconos */
 

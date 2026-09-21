@@ -1,0 +1,50 @@
+.product-art {
+  --pa-accent: var(--color-theme-accent);
+
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.product-art--tone-ink {
+  --pa-accent: var(--color-text-heading);
+}
+
+.product-art--spot {
+  aspect-ratio: 1 / 1;
+}
+
+.product-art--hero {
+  aspect-ratio: 16 / 9;
+}
+
+.product-art-scan {
+  animation: product-art-scan var(--motion-duration-ambient) var(--ease-out) infinite;
+}
+
+@keyframes product-art-scan {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 0.9;
+  }
+
+  82% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translateY(288px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-art-scan {
+    animation: none;
+    opacity: 0;
+  }
+}

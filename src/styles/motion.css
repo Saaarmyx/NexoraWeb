@@ -1,0 +1,30 @@
+/* Nexora - Motion compartido.
+   Todos los keyframes de animación viven aquí; ningún componente define los suyos. */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition:
+    opacity var(--motion-duration-slow) var(--ease-out),
+    transform var(--motion-duration-slow) var(--ease-out);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal asume la animación de entrada: desactiva page-enter en esos bloques. */
+
+.page-transition .container > .reveal {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

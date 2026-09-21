@@ -76,9 +76,9 @@
   padding: var(--spacing-xl);
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.85),
-    rgba(0, 0, 0, 0.35) 45%,
-    rgba(0, 0, 0, 0) 75%
+    var(--color-scrim-ink),
+    var(--color-scrim-medium) 45%,
+    transparent 75%
   );
 }
 

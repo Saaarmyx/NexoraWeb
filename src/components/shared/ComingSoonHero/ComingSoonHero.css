@@ -35,9 +35,9 @@
   padding: var(--spacing-3xl);
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.15),
-    rgba(0, 0, 0, 0.01) 15%,
-    rgba(0, 0, 0, 0.25)
+    var(--color-scrim-soft),
+    var(--color-scrim-faint) 15%,
+    var(--color-scrim-medium)
   );
 }
 

@@ -39,7 +39,11 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02) 35%, rgba(0, 0, 0, 0.45) 100%);
+  background: linear-gradient(
+    to bottom,
+    var(--color-scrim-faint) 35%,
+    var(--color-scrim-medium) 100%
+  );
 }
 
 .launch-hero-content {
@@ -65,7 +69,7 @@
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-compact);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: var(--shadow-text);
 }
 
 .launch-hero-desktop-break {
