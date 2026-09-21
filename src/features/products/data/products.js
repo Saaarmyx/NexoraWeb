@@ -8,6 +8,7 @@ const products = [
     image: '/images/products/banner_ncloud.png',
     theme: 'light',
     accent: 'color-cloud-accent',
+    art: { product: 'ncloud' },
     featured: false,
   },
   {
@@ -19,6 +20,7 @@ const products = [
     image: '/images/ncode/banner_ncode.png',
     theme: 'dark',
     accent: 'color-code-accent',
+    art: { product: 'ncode' },
     featured: true,
   },
   {
@@ -30,6 +32,7 @@ const products = [
     image: '/images/nphotos/banner_nphotos.png',
     theme: 'light',
     accent: 'color-photos-accent',
+    art: { product: 'nphotos' },
     featured: true,
   },
   {
@@ -53,6 +56,7 @@ const products = [
     image: '/images/products/banner_nexa.png',
     theme: 'dark',
     accent: 'color-os-accent',
+    art: { product: 'os' },
     featured: false,
   },
   {
@@ -64,6 +68,7 @@ const products = [
     image: '/images/products/banner_nconnect.png',
     theme: 'light',
     accent: 'color-share-accent',
+    art: { product: 'nconnect' },
     featured: false,
   },
 ]

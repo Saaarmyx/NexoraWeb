@@ -10,7 +10,7 @@ como una single-page app con rutas propias por sección, sin TypeScript y sin fr
 - Vite 8
 - JavaScript (sin TypeScript)
 - React Router DOM 7
-- react-icons
+- Font Awesome (iconografía, solo vía `Icon`)
 - CSS plano (sin Tailwind, sin Bootstrap, sin CSS-in-JS)
 
 ## Estructura del proyecto
@@ -96,8 +96,8 @@ NexoraWeb/
 
 - **ui/**: punto de entrada público para bloques mínimos, genéricos y sin conocimiento de negocio
   (`Button`, `Card`, `Badge`, `Icon`, `Reveal`). Los archivos internos todavía viven en `atoms/` como detalle de
-  implementación. `Icon` es el único punto de acceso a iconografía: ningún otro componente importa
-  `react-icons` directamente.
+  implementación. `Icon` es el único punto de acceso a iconografía (Font Awesome Free, solid +
+  brands): ningún otro componente importa paquetes de iconos directamente.
 - **layout/**: piezas que envuelven toda la aplicación y se renderizan una sola vez desde
   `App.jsx` (`Header`, `Footer`).
 - **features/products/**: fuente de datos y API de componentes que reciben un objeto `product`
@@ -174,19 +174,21 @@ página:
 
 ## Ilustraciones
 
-`src/components/illustrations/` es la librería de ilustraciones SVG tematizadas. Cada pieza pinta con
-`var(--color-*)` y `var(--color-theme-accent)`, por lo que responde a claro/oscuro y al producto en
-pantalla sin duplicar archivos por tema:
+`src/components/illustrations/` es la librería de ilustraciones tematizadas. Cada pieza es el icono
+Font Awesome del producto teñido con el `accent` de su propia app (leído del catálogo, así es correcto
+en cualquier página), sin fondos ni decoraciones:
 
 ```jsx
 <ProductArt product="nqr" variant="spot" tone="brand" />
 ```
 
-- `product` — motivo (`ncode`, `nphotos`, `nqr`); desconocido cae a `nqr`.
+- `product` — motivo (`ncode`, `nphotos`, `nqr`, `ncloud`, `nconnect`, `os`); desconocido cae a `nqr`.
 - `variant` — `'spot'` (1:1) o `'hero'` (16:9).
-- `tone` — `'brand'` (acento del producto) o `'ink'` (texto, monocromo).
+- `tone` — tratamiento del icono: `'brand'` (acento de su app), `'ink'` (texto), `'paper'`
+  (blanco) o `'midnight'` (atenuado).
 - `DetailCard` acepta `art: { product, variant, tone }` por variante en vez de `image`.
-- `Downloads` usa `product.art` cuando existe.
+- Las tarjetas de catálogo (`ProductHero`, `ProductFeatured`, `ProductCard`), `Ecosystem`, `Events` y
+  `Downloads` usan `product.art` cuando existe y caen a `image` si no.
 
 ## Motion
 

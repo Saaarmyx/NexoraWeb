@@ -1,5 +1,5 @@
 export const nqrHero = {
-  video: '/videos/nconnect/nconnect-hero.mp4',
+  video: '/videos/nqr/nqr-hero.mp4',
   label: 'NEXORA',
   title: 'NQR',
   description: 'Crea y comparte códigos QR en segundos.',
@@ -11,20 +11,20 @@ export const nqrFeatures = {
     'Una herramienta pensada para convertir enlaces, textos y conexiones en códigos listos para escanear.',
   images: [
     {
-      src: '/images/nqr/banner_nqr.png',
-      alt: 'NQR',
+      src: '/images/nqr/nqr-crea.png',
+      alt: 'Creación de un código QR en NQR',
       title: 'CREA',
       description: 'Genera códigos QR al instante desde cualquier dispositivo.',
     },
     {
-      src: '/images/products/banner_ncloud.png',
-      alt: 'Nexora Cloud',
+      src: '/images/nqr/nqr-personaliza.png',
+      alt: 'Personalización de un código QR en NQR',
       title: 'PERSONALIZA',
       description: 'Adapta tus códigos a lo que quieres compartir.',
     },
     {
-      src: '/images/products/banner_nconnect.png',
-      alt: 'NConnect',
+      src: '/images/nqr/nqr-comparte.png',
+      alt: 'Código QR compartido en el ecosistema Nexora',
       title: 'COMPARTE',
       description: 'Tus códigos viajan contigo por todo el ecosistema Nexora.',
     },
@@ -57,7 +57,7 @@ export const nqrPerformance = {
   subtitle: 'MENOS PASOS. MÁS ALCANCE.',
   secondaryDescription:
     'Desde un enlace hasta una red Wi-Fi, cada código funciona al momento y se integra con el resto del ecosistema Nexora.',
-  video: '/videos/nconnect/nconnect-hero.mp4',
+  video: '/videos/nqr/nqr-hero.mp4',
   videoAlt: 'NQR dentro del ecosistema Nexora',
 }
 

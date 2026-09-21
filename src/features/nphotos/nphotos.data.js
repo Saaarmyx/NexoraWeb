@@ -1,5 +1,5 @@
 export const nphotosHero = {
-  video: '/videos/nconnect/nconnect-hero.mp4',
+  video: '/videos/nphotos/nphotos-hero.mp4',
   title: 'NPHOTOS',
   description: 'Tus momentos, organizados y disponibles en todo tu ecosistema.',
 }
@@ -10,20 +10,20 @@ export const nphotosFeatures = {
     'Una biblioteca pensada para organizar tus fotos y videos y mantenerlos cerca en cada dispositivo.',
   images: [
     {
-      src: '/images/nphotos/banner_nphotos.png',
-      alt: 'NPhotos',
+      src: '/images/nphotos/nphotos-organiza.png',
+      alt: 'Organización de la biblioteca en NPhotos',
       title: 'ORGANIZA',
       description: 'Encuentra tus fotos y videos sin perder tiempo buscando.',
     },
     {
-      src: '/images/products/banner_ncloud.png',
-      alt: 'Nexora Cloud',
+      src: '/images/nphotos/nphotos-respalda.png',
+      alt: 'Respaldo de NPhotos en Nexora Cloud',
       title: 'RESPALDA',
       description: 'Tu biblioteca se mantiene conectada con Nexora Cloud.',
     },
     {
-      src: '/images/products/banner_nconnect.png',
-      alt: 'NConnect',
+      src: '/images/nphotos/nphotos-comparte.png',
+      alt: 'Recuerdos compartidos entre dispositivos Nexora',
       title: 'COMPARTE',
       description: 'Tus recuerdos viajan contigo entre tus dispositivos.',
     },
@@ -37,13 +37,13 @@ export const nphotosViews = {
     {
       name: 'Biblioteca',
       token: 'color-white',
-      image: '/images/nphotos/banner_nphotos.png',
+      art: { product: 'nphotos', variant: 'spot', tone: 'brand' },
       alt: 'Biblioteca de NPhotos',
     },
     {
       name: 'Nexora Cloud',
       token: 'color-cloud-accent',
-      image: '/images/products/banner_ncloud.png',
+      art: { product: 'nphotos', variant: 'spot', tone: 'ink' },
       alt: 'NPhotos conectado con Nexora Cloud',
     },
   ],
@@ -56,7 +56,7 @@ export const nphotosPerformance = {
   subtitle: 'MENOS BUSCAR. MÁS RECORDAR.',
   secondaryDescription:
     'Desde tu biblioteca hasta el resto del ecosistema Nexora, cada parte trabaja para que vuelvas a tus momentos sin interrupciones.',
-  video: '/videos/nconnect/nconnect-hero.mp4',
+  video: '/videos/nphotos/nphotos-hero.mp4',
   videoAlt: 'NPhotos dentro del ecosistema Nexora',
 }
 
