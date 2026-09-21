@@ -95,8 +95,9 @@ NexoraWeb/
 ## Componentes
 
 - **ui/**: punto de entrada público para bloques mínimos, genéricos y sin conocimiento de negocio
-  (`Button`, `Card`, `Badge`). Los archivos internos todavía viven en `atoms/` como detalle de
-  implementación.
+  (`Button`, `Card`, `Badge`, `Icon`, `Reveal`). Los archivos internos todavía viven en `atoms/` como detalle de
+  implementación. `Icon` es el único punto de acceso a iconografía: ningún otro componente importa
+  `react-icons` directamente.
 - **layout/**: piezas que envuelven toda la aplicación y se renderizan una sola vez desde
   `App.jsx` (`Header`, `Footer`).
 - **features/products/**: fuente de datos y API de componentes que reciben un objeto `product`
@@ -139,6 +140,10 @@ NexoraWeb/
 - `availability` — estado de disponibilidad mostrado en un `Badge`/texto (p. ej. "En beta").
 - `image` — ruta del banner en `public/images/`.
 - `theme` — `'light'` o `'dark'`; determina el tema visual de la sección/página del producto.
+- `accent` — nombre de token de acento (p. ej. `'color-qr-accent'`); se expone como
+  `--color-theme-accent` mientras la página del producto está montada.
+- `art` — ilustración del catálogo (`{ product, variant }`); los componentes la resuelven con
+  `ProductArt` en vez de un PNG.
 - `featured` — si es `true`, el producto aparece en el spotlight de `Home` y en el catálogo de
   `Products`.
 
@@ -163,7 +168,35 @@ página:
   `product-hero-card--{theme}` correspondiente.
 - En `features/ncode/NCodePage.jsx`, `features/nphotos/NPhotosPage.jsx` y
   `features/nqr/NQRPage.jsx`, el hook `useProductTheme` lee `product.theme` y lo escribe en `document.body.dataset.theme`
-  mientras la página está montada, restaurándolo a `'light'` al desmontarse.
+  mientras la página está montada, restaurándolo a `'light'` al desmontarse. El segundo argumento
+  (`product.accent`) expone el acento del producto como `--color-theme-accent` y lo retira al salir,
+  así ilustraciones y detalles heredan el color del producto sin props.
+
+## Ilustraciones
+
+`src/components/illustrations/` es la librería de ilustraciones SVG tematizadas. Cada pieza pinta con
+`var(--color-*)` y `var(--color-theme-accent)`, por lo que responde a claro/oscuro y al producto en
+pantalla sin duplicar archivos por tema:
+
+```jsx
+<ProductArt product="nqr" variant="spot" tone="brand" />
+```
+
+- `product` — motivo (`ncode`, `nphotos`, `nqr`); desconocido cae a `nqr`.
+- `variant` — `'spot'` (1:1) o `'hero'` (16:9).
+- `tone` — `'brand'` (acento del producto) o `'ink'` (texto, monocromo).
+- `DetailCard` acepta `art: { product, variant, tone }` por variante en vez de `image`.
+- `Downloads` usa `product.art` cuando existe.
+
+## Motion
+
+`src/styles/motion.css` concentra todos los keyframes; ningún componente define los suyos. Escala en
+`tokens.css`: `--motion-duration-*`, `--motion-stagger-step`, `--ease-out`.
+
+- `Reveal` (desde `components/ui`) anima la entrada on-scroll con `IntersectionObserver`; `delay`
+  en ms en pasos de `--motion-stagger-step` (90). Los bloques con `Reveal` quedan fuera del
+  `page-enter` global automáticamente.
+- Toda animación respeta `prefers-reduced-motion`.
 
 ## Assets
 
@@ -208,7 +241,10 @@ npm run lint              # oxlint sobre el proyecto
   layout, `data/` no sabe de React.
 - **Componentes pequeños**: cada componente resuelve una sola responsabilidad visual.
 - **Tokens de diseño**: todo color, radio, tipografía o espaciado nuevo debe apoyarse primero en
-  `src/styles/tokens.css` antes de hardcodear un valor.
+  `src/styles/tokens.css` antes de hardcodear un valor. Ningún hex fuera de `tokens.css`: los datos
+  (`*.data.js`) referencian colores por nombre de token (`token: 'color-primary'`), nunca con hex.
+- **Scrims**: los overlays de legibilidad sobre imagen/video usan la escala `--color-scrim-*`; no se
+  escriben gradientes `rgba()` sueltos por componente.
 - **No duplicar estilos**: si dos componentes necesitan el mismo patrón visual, ese patrón debe
   vivir en un token o en un componente compartido, no copiarse.
 - **`Card` genérico**: `Card` sigue siendo una superficie base (`variant`, `radius`,

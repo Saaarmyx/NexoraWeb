@@ -37,14 +37,14 @@ export const nqrViews = {
   variants: [
     {
       name: 'Clásico',
-      color: '#111827',
-      image: '/images/nqr/banner_nqr.png',
+      token: 'color-os-accent',
+      art: { product: 'nqr', variant: 'spot', tone: 'ink' },
       alt: 'Código QR clásico de NQR',
     },
     {
       name: 'Nexora',
-      color: '#e11f2f',
-      image: '/images/products/banner_ncloud.png',
+      token: 'color-primary',
+      art: { product: 'nqr', variant: 'spot', tone: 'brand' },
       alt: 'Código QR con estilo Nexora',
     },
   ],

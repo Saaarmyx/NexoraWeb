@@ -36,13 +36,13 @@ export const nphotosViews = {
   variants: [
     {
       name: 'Biblioteca',
-      color: '#f5f5f7',
+      token: 'color-white',
       image: '/images/nphotos/banner_nphotos.png',
       alt: 'Biblioteca de NPhotos',
     },
     {
       name: 'Nexora Cloud',
-      color: '#14b8a6',
+      token: 'color-cloud-accent',
       image: '/images/products/banner_ncloud.png',
       alt: 'NPhotos conectado con Nexora Cloud',
     },

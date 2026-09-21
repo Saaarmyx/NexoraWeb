@@ -37,19 +37,19 @@ export const ncodeThemes = {
   variants: [
     {
       name: 'Claro',
-      color: '#F5F5F7',
+      token: 'color-white',
       image: '/images/ncode/ncode-light.png',
       alt: 'NCode en tema claro',
     },
     {
       name: 'Oscuro',
-      color: '#141417',
+      token: 'color-os-accent',
       image: '/images/ncode/ncode-dark.png',
       alt: 'NCode en tema oscuro',
     },
     {
       name: 'Azul',
-      color: '#2563EB',
+      token: 'color-code-accent',
       image: '/images/ncode/ncode-blue.png',
       alt: 'NCode en tema azul',
     },

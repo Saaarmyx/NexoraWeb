@@ -7,6 +7,7 @@ const products = [
     availability: 'En desarrollo',
     image: '/images/products/banner_ncloud.png',
     theme: 'light',
+    accent: 'color-cloud-accent',
     featured: false,
   },
   {
@@ -17,6 +18,7 @@ const products = [
     availability: 'En beta',
     image: '/images/ncode/banner_ncode.png',
     theme: 'dark',
+    accent: 'color-code-accent',
     featured: true,
   },
   {
@@ -27,6 +29,7 @@ const products = [
     availability: 'Disponible próximamente',
     image: '/images/nphotos/banner_nphotos.png',
     theme: 'light',
+    accent: 'color-photos-accent',
     featured: true,
   },
   {
@@ -37,6 +40,8 @@ const products = [
     availability: 'En beta',
     image: '/images/nqr/banner_nqr.png',
     theme: 'light',
+    accent: 'color-qr-accent',
+    art: { product: 'nqr', variant: 'hero' },
     featured: true,
   },
   {
@@ -47,6 +52,7 @@ const products = [
     availability: 'Disponible próximamente',
     image: '/images/products/banner_nexa.png',
     theme: 'dark',
+    accent: 'color-os-accent',
     featured: false,
   },
   {
@@ -57,6 +63,7 @@ const products = [
     availability: 'Disponible próximamente',
     image: '/images/products/banner_nconnect.png',
     theme: 'light',
+    accent: 'color-share-accent',
     featured: false,
   },
 ]
