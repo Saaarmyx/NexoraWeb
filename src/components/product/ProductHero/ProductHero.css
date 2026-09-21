@@ -79,6 +79,11 @@
   margin-top: var(--spacing-xl);
 }
 
+.product-hero-media .product-art {
+  width: 100%;
+  height: auto;
+}
+
 .product-hero-image {
   max-width: 100%;
   height: auto;

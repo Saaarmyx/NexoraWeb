@@ -119,7 +119,8 @@
   background-color: var(--color-bg-app);
 }
 
-.events-launch-media img {
+.events-launch-media img,
+.events-launch-media .product-art {
   width: 100%;
   height: 100%;
   display: block;
@@ -127,7 +128,8 @@
   transition: transform var(--transition-normal);
 }
 
-.events-launch-media:hover img {
+.events-launch-media:hover img,
+.events-launch-media:hover .product-art {
   transform: scale(1.03);
 }
 
