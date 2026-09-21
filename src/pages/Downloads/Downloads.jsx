@@ -13,7 +13,7 @@ const productIconNames = {
   ncloud: 'cloud',
   ncode: 'code',
   nphotos: 'image',
-  nqr: 'grid',
+  nqr: 'qr',
   os: 'monitor',
   nconnect: 'share',
 }

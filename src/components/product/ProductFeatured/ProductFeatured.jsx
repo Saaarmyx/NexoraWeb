@@ -1,4 +1,5 @@
 import Button from '../../atoms/Button/Button'
+import ProductArt from '../../illustrations/ProductArt'
 import getProductPath from '../../../utils/productRoutes'
 import isProductAvailable from '../../../utils/productAvailability'
 import './ProductFeatured.css'
@@ -11,7 +12,11 @@ function ProductFeatured({ product }) {
   return (
     <article className="product-featured">
       <div className="product-featured-media">
-        <img src={product.image} alt={product.name} className="product-featured-image" />
+        {product.art ? (
+          <ProductArt product={product.art.product} variant="hero" title={product.name} />
+        ) : (
+          <img src={product.image} alt={product.name} className="product-featured-image" />
+        )}
       </div>
 
       <div className="product-featured-content">

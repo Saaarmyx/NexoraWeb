@@ -1,6 +1,7 @@
 import Card from '../../atoms/Card/Card'
 import Button from '../../atoms/Button/Button'
 import Badge from '../../atoms/Badge/Badge'
+import ProductArt from '../../illustrations/ProductArt'
 import getProductPath from '../../../utils/productRoutes'
 import isProductAvailable from '../../../utils/productAvailability'
 
@@ -12,7 +13,11 @@ function ProductCard({ product }) {
   return (
     <Card variant="surface" radius="xl" className="product-card">
       <div className="product-card-media">
-        <img src={product.image} alt={product.name} className="product-card-image" />
+        {product.art ? (
+          <ProductArt product={product.art.product} variant="spot" title={product.name} />
+        ) : (
+          <img src={product.image} alt={product.name} className="product-card-image" />
+        )}
       </div>
 
       <div className="product-card-content">

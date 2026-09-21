@@ -1,42 +1,53 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-  FiCloud,
-  FiCode,
-  FiDownload,
-  FiGrid,
-  FiImage,
-  FiMenu,
-  FiMonitor,
-  FiShare2,
-  FiUser,
-  FiX,
-} from 'react-icons/fi'
-import { FaDiscord, FaTelegramPlane } from 'react-icons/fa'
+  faBars,
+  faXmark,
+  faUser,
+  faCode,
+  faCloud,
+  faImage,
+  faDesktop,
+  faShareNodes,
+  faQrcode,
+  faMicrochip,
+  faDownload,
+} from '@fortawesome/free-solid-svg-icons'
+import { faDiscord, faTelegramPlane } from '@fortawesome/free-brands-svg-icons'
 
 import './Icon.css'
 
 const glyphs = {
-  menu: FiMenu,
-  close: FiX,
-  user: FiUser,
-  code: FiCode,
-  cloud: FiCloud,
-  image: FiImage,
-  monitor: FiMonitor,
-  share: FiShare2,
-  grid: FiGrid,
-  download: FiDownload,
-  discord: FaDiscord,
-  telegram: FaTelegramPlane,
+  menu: faBars,
+  close: faXmark,
+  user: faUser,
+  code: faCode,
+  cloud: faCloud,
+  image: faImage,
+  monitor: faDesktop,
+  share: faShareNodes,
+  qr: faQrcode,
+  chip: faMicrochip,
+  download: faDownload,
+  discord: faDiscord,
+  telegram: faTelegramPlane,
 }
 
-function Icon({ name, size = 20, className = '', ...props }) {
-  const Glyph = glyphs[name]
+function Icon({ name, size = 20, className = '', style, ...props }) {
+  const glyph = glyphs[name]
 
-  if (!Glyph) {
+  if (!glyph) {
     return null
   }
 
-  return <Glyph size={size} className={`icon ${className}`.trim()} aria-hidden="true" {...props} />
+  return (
+    <FontAwesomeIcon
+      icon={glyph}
+      className={`icon ${className}`.trim()}
+      style={{ fontSize: size, ...style }}
+      aria-hidden="true"
+      {...props}
+    />
+  )
 }
 
 export default Icon

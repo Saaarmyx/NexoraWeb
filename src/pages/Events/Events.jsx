@@ -4,6 +4,7 @@ import { products } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
+import ProductArt from '../../components/illustrations/ProductArt'
 import getProductPath from '../../utils/productRoutes'
 import isProductAvailable from '../../utils/productAvailability'
 
@@ -48,7 +49,15 @@ function Events() {
                 return (
                   <article className="events-launch-card" key={product.slug}>
                     <Link to={productPath} className="events-launch-media">
-                      <img src={product.image} alt={product.name} />
+                      {product.art ? (
+                        <ProductArt
+                          product={product.art.product}
+                          variant="hero"
+                          title={product.name}
+                        />
+                      ) : (
+                        <img src={product.image} alt={product.name} />
+                      )}
                     </Link>
 
                     <div className="events-launch-content">

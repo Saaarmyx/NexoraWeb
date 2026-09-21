@@ -29,6 +29,7 @@ function Home() {
             availability={product.availability}
             image={product.image}
             imageAlt={product.name}
+            art={product.art}
             buttonText="Descubrir"
             buttonTo={getProductPath(product)}
           />

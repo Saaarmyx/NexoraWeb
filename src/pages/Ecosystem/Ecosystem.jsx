@@ -1,6 +1,7 @@
 import { VideoHero } from '../../components/sections'
 import { products } from '../../features/products'
 import Card from '../../components/atoms/Card/Card'
+import ProductArt from '../../components/illustrations/ProductArt'
 
 import './Ecosystem.css'
 
@@ -11,7 +12,7 @@ function Ecosystem() {
     <section className="section ecosystem-page">
       <div className="container">
         <VideoHero
-          video="/videos/nconnect/nconnect-hero.mp4"
+          video="/videos/ecosystem/ecosystem-hero.mp4"
           title="TODO CONECTADO"
           description="Un ecosistema que entiende cómo te mueves y hace que cada producto funcione mejor junto a los demás."
         />
@@ -29,7 +30,15 @@ function Ecosystem() {
                   key={product.slug}
                 >
                   <div className="ecosystem-product-image-wrap">
-                    <img src={product.image} alt={product.name} />
+                    {product.art ? (
+                      <ProductArt
+                        product={product.art.product}
+                        variant="hero"
+                        title={product.name}
+                      />
+                    ) : (
+                      <img src={product.image} alt={product.name} />
+                    )}
                   </div>
 
                   <div className="ecosystem-product-copy">

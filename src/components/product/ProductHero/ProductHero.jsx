@@ -1,6 +1,7 @@
 import Card from '../../atoms/Card/Card'
 import Badge from '../../atoms/Badge/Badge'
 import Button from '../../atoms/Button/Button'
+import ProductArt from '../../illustrations/ProductArt'
 import isProductAvailable from '../../../utils/productAvailability'
 
 import './ProductHero.css'
@@ -13,6 +14,7 @@ function ProductHero({
   availability,
   image,
   imageAlt,
+  art,
   buttonText = 'Descubrir',
   buttonTo,
 }) {
@@ -46,7 +48,11 @@ function ProductHero({
 
         {!isBackground && (
           <div className="product-hero-media">
-            <img src={image} alt={imageAlt || title} className="product-hero-image" />
+            {art ? (
+              <ProductArt product={art.product} variant="hero" title={imageAlt || title} />
+            ) : (
+              <img src={image} alt={imageAlt || title} className="product-hero-image" />
+            )}
           </div>
         )}
       </Card>
