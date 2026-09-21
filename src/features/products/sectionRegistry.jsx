@@ -1,39 +1,35 @@
-// NOTA: imports directos (nunca el barrel de sections): el barrel ya tira de
-// ProductMedia → ProductArt → data/products → validateProduct → este registro.
-// Importar el barrel aquí crearía un ciclo con TDZ en dev.
-import CollageCard from '../../components/shared/CollageCard/CollageCard'
-import CtaSection from '../../components/shared/CtaSection/CtaSection'
-import DetailCard from '../../components/shared/DetailCard/DetailCard'
-import FeatureGrid from '../../components/shared/FeatureGrid/FeatureGrid'
-import Hero from '../../components/shared/Hero/Hero'
-import LaunchHero from '../../components/shared/LaunchHero/LaunchHero'
-import ProductLinksCard from '../../components/shared/ProductLinksCard/ProductLinksCard'
-import TextImageCard from '../../components/shared/TextImageCard/TextImageCard'
-import VideoHero from '../../components/shared/VideoHero/VideoHero'
 import sectionTypes from './sectionTypes'
 
-const sectionComponents = {
-  hero: VideoHero,
-  featureGrid: FeatureGrid,
-  textImage: TextImageCard,
-  detailCards: DetailCard,
-  collage: CollageCard,
-  links: ProductLinksCard,
-  cta: CtaSection,
+const componentLoaders = {
+  hero: () => import('../../components/shared/VideoHero/VideoHero'),
+  featureGrid: () => import('../../components/shared/FeatureGrid/FeatureGrid'),
+  textImage: () => import('../../components/shared/TextImageCard/TextImageCard'),
+  detailCards: () => import('../../components/shared/DetailCard/DetailCard'),
+  collage: () => import('../../components/shared/CollageCard/CollageCard'),
+  links: () => import('../../components/shared/ProductLinksCard/ProductLinksCard'),
+  cta: () => import('../../components/shared/CtaSection/CtaSection'),
 }
 
-const heroVariants = {
-  video: VideoHero,
-  launch: LaunchHero,
-  simple: Hero,
+const heroVariantLoaders = {
+  video: () => import('../../components/shared/VideoHero/VideoHero'),
+  launch: () => import('../../components/shared/LaunchHero/LaunchHero'),
+  simple: () => import('../../components/shared/Hero/Hero'),
 }
 
-function resolveSectionComponent(section) {
+async function resolveSectionComponent(section) {
   if (section.type === 'hero') {
-    return heroVariants[section.variant] || heroVariants.video
+    const loader = heroVariantLoaders[section.variant] || heroVariantLoaders.video
+    const mod = await loader()
+    return mod.default
   }
 
-  return sectionComponents[section.type] || null
+  const loader = componentLoaders[section.type]
+  if (!loader) {
+    return null
+  }
+
+  const mod = await loader()
+  return mod.default
 }
 
-export { sectionComponents, heroVariants, sectionTypes, resolveSectionComponent }
+export { sectionTypes, resolveSectionComponent }

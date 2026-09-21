@@ -1,13 +1,13 @@
 import { VideoHero } from '../../components/sections'
-import { products } from '../../features/products'
+import { getProductsSync } from '../../features/products'
 import Card from '../../components/atoms/Card/Card'
 import ProductArt from '../../components/illustrations/ProductArt'
 
 import './Ecosystem.css'
 
-const ecosystemProducts = products.filter((product) => product.featured)
-
 function Ecosystem() {
+  const products = getProductsSync()
+  const ecosystemProducts = products.filter((product) => product.featured)
   return (
     <section className="section ecosystem-page">
       <div className="container">

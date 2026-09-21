@@ -3,12 +3,7 @@ export { default as ProductFeatured } from '../../components/product/ProductFeat
 export { default as ProductHero } from '../../components/product/ProductHero/ProductHero'
 export { default as ProductLinksCard } from '../../components/shared/ProductLinksCard/ProductLinksCard'
 export { default as ProductPage } from './ProductPage'
-export { default as products } from './data/products'
+export { getProductsSync } from './data/products'
 export { productStatuses, statusMeta, getStatusMeta } from './statusMeta'
-export {
-  sectionComponents,
-  heroVariants,
-  sectionTypes,
-  resolveSectionComponent,
-} from './sectionRegistry'
+export { sectionTypes, resolveSectionComponent } from './sectionRegistry'
 export { default as validateProduct } from './validateProduct'

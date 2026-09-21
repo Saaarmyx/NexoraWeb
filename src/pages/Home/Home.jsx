@@ -1,8 +1,9 @@
 import { LaunchHero } from '../../components/sections'
-import { ProductHero, products } from '../../features/products'
+import { ProductHero, getProductsSync } from '../../features/products'
 import getProductPath from '../../utils/productRoutes'
 
 function Home() {
+  const products = getProductsSync()
   const featuredProducts = products.filter((product) => product.featured)
 
   return (

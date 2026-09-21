@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useMemo } from 'react'
+import { Suspense, lazy, useEffect, useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 
@@ -7,7 +7,8 @@ import { Reveal } from '../../components/ui'
 import { Hero } from '../../components/sections'
 import ProductArt from '../../components/illustrations/ProductArt'
 import NotFound from '../../pages/NotFound/NotFound'
-import products from './data/products'
+import ErrorBoundary from '../../components/shared/ErrorBoundary/ErrorBoundary'
+import { getProductsSync } from './data/products'
 import { resolveSectionComponent } from './sectionRegistry'
 
 const customComponentCache = new WeakMap()
@@ -32,6 +33,24 @@ function CustomSection({ loader, sectionProps }) {
 }
 
 function ProductSection({ section }) {
+  const [Component, setComponent] = useState(null)
+
+  useEffect(() => {
+    console.log('Loading section:', section.type)
+    resolveSectionComponent(section)
+      .then((comp) => {
+        console.log('Loaded section:', section.type, comp?.name)
+        setComponent(comp)
+      })
+      .catch((err) => {
+        console.error('Error loading section component:', section.type, err)
+      })
+  }, [section])
+
+  if (!Component) {
+    return <div className="section-error">Error loading section: {section.type}</div>
+  }
+
   if (section.type === 'custom') {
     const content = <CustomSection loader={section.loader} sectionProps={section.props} />
 
@@ -46,14 +65,14 @@ function ProductSection({ section }) {
     )
   }
 
-  const Component = resolveSectionComponent(section)
-
-  if (!Component) {
-    return null
+  let content
+  try {
+    console.log('Rendering section:', section.type, section.props)
+    content = <Component {...section.props} />
+  } catch (err) {
+    console.error('Error rendering section:', section.type, err)
+    content = <div className="section-error">Error rendering section: {section.type}</div>
   }
-
-  // eslint-disable-next-line react/static-components -- Component viene del registro (estable), no se crea en render
-  const content = <Component {...section.props} />
 
   if (!section.reveal) {
     return <>{content}</>
@@ -92,6 +111,8 @@ function SoonTemplate({ product }) {
 
 function ProductPage() {
   const { slug } = useParams()
+  const products = getProductsSync()
+  console.log('ProductPage: slug=', slug, 'products=', products.length, 'found=', products.find((item) => item.slug === slug)?.name)
   const product = products.find((item) => item.slug === slug)
 
   useProductTheme(product?.theme, product?.accent)
@@ -125,7 +146,9 @@ function ProductPage() {
         <section className="section">
           <div className="container">
             {product.page.sections.map((section, index) => (
-              <ProductSection key={`${section.type}-${index}`} section={section} />
+              <ErrorBoundary key={`${section.type}-${index}`}>
+                <ProductSection section={section} />
+              </ErrorBoundary>
             ))}
           </div>
         </section>

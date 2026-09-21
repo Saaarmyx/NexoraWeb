@@ -1,13 +1,15 @@
 import validateProduct from '../validateProduct'
+import { products } from './products-generated'
 
-const contentModules = import.meta.glob('../content/*.js', { eager: true })
+export function getProductsSync() {
+  return products
+}
 
-const products = Object.values(contentModules)
-  .map((module) => module.default)
-  .filter((product) => product && typeof product.slug === 'string')
-  .sort((a, b) => a.order - b.order)
+export async function getProducts() {
+  return products
+}
 
-if (import.meta.env.DEV) {
+if (import.meta.env.DEV && typeof window !== 'undefined') {
   products.forEach(validateProduct)
 }
 

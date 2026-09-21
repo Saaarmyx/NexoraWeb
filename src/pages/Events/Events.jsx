@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { products, getStatusMeta } from '../../features/products'
+import { getProductsSync, getStatusMeta } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
@@ -9,9 +9,9 @@ import getProductPath from '../../utils/productRoutes'
 
 import './Events.css'
 
-const launchProducts = products.filter((product) => product.featured)
-
 function Events() {
+  const products = getProductsSync()
+  const launchProducts = products.filter((product) => product.featured)
   return (
     <section className="section events-page">
       <div className="container">

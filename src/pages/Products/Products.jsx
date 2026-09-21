@@ -1,8 +1,9 @@
-import { ProductCard, ProductFeatured, products } from '../../features/products'
+import { ProductCard, ProductFeatured, getProductsSync } from '../../features/products'
 
 import './Products.css'
 
 function Products() {
+  const products = getProductsSync()
   const featuredProduct = products.find((product) => product.featured)
 
   const catalogProducts = products.filter(

@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
-import { products } from '../../../features/products'
+import { getProductsSync } from '../../../features/products'
 import getProductPath from '../../../utils/productRoutes'
 
 import './Footer.css'
+
+const products = getProductsSync()
 
 const featuredProductLinks = products
   .filter((product) => product.featured)

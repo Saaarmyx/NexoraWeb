@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { products, getStatusMeta } from '../../features/products'
+import { getProductsSync, getStatusMeta } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
@@ -15,6 +15,7 @@ function getPrimaryDownload(product) {
 }
 
 function Downloads() {
+  const products = getProductsSync()
   const featuredProducts = products.filter((product) => product.featured)
   const [selectedSlug, setSelectedSlug] = useState(() => featuredProducts[0]?.slug)
   const selectedProduct =
