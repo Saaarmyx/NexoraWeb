@@ -1,19 +1,18 @@
 import Card from '../../atoms/Card/Card'
 import Button from '../../atoms/Button/Button'
+import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './LaunchHero.css'
 
-function LaunchHero({ description, buttonText, buttonTo = '/launches', image, video }) {
+function LaunchHero({ description, buttonText, buttonTo = '/launches', image, video, poster }) {
   return (
     <Card className="launch-hero-card">
       {video && (
-        <video
+        <ProductMedia
+          media={{ type: 'video', src: video, poster }}
+          decorative
+          loading="eager"
           className="launch-hero-video"
-          src={video}
-          autoPlay
-          muted
-          playsInline
-          aria-hidden="true"
         />
       )}
 

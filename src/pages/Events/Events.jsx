@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom'
 
-import { products } from '../../features/products'
+import { products, getStatusMeta } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
 import ProductArt from '../../components/illustrations/ProductArt'
 import getProductPath from '../../utils/productRoutes'
-import isProductAvailable from '../../utils/productAvailability'
 
 import './Events.css'
 
@@ -45,6 +44,7 @@ function Events() {
             <div className="events-launch-grid">
               {launchProducts.map((product) => {
                 const productPath = getProductPath(product)
+                const statusMeta = getStatusMeta(product.status)
 
                 return (
                   <article className="events-launch-card" key={product.slug}>
@@ -62,7 +62,7 @@ function Events() {
 
                     <div className="events-launch-content">
                       <div className="events-launch-info">
-                        <Badge>{product.availability}</Badge>
+                        <Badge variant={statusMeta.badgeTone}>{statusMeta.label}</Badge>
                         <h3>{product.name}</h3>
                         <p>{product.description}</p>
                       </div>
@@ -70,7 +70,7 @@ function Events() {
                       <Button
                         to={productPath}
                         variant="secondary"
-                        disabled={!isProductAvailable(product.availability)}
+                        disabled={!statusMeta.canDownload}
                       >
                         Más información
                       </Button>

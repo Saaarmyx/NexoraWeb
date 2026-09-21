@@ -1,9 +1,11 @@
 import Button from '../../atoms/Button/Button'
+import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './ComingSoonHero.css'
 
 function ComingSoonHero({
   video,
+  poster,
   title = 'ESTAMOS TRABAJANDO EN ESTO',
   description = 'Esta parte de Nexora llegará pronto.',
   buttonText = 'Volver al inicio',
@@ -12,7 +14,11 @@ function ComingSoonHero({
   return (
     <section className="coming-soon-hero">
       <div className="coming-soon-hero-media">
-        <video src={video} autoPlay muted loop playsInline aria-hidden="true" />
+        <ProductMedia
+          media={{ type: 'video', src: video, poster }}
+          decorative
+          loading="eager"
+        />
 
         <div className="coming-soon-hero-overlay">
           <div className="coming-soon-hero-content">

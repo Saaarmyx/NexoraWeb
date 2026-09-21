@@ -3,12 +3,13 @@ import Button from '../../atoms/Button/Button'
 import Badge from '../../atoms/Badge/Badge'
 import ProductArt from '../../illustrations/ProductArt'
 import getProductPath from '../../../utils/productRoutes'
-import isProductAvailable from '../../../utils/productAvailability'
+import { getStatusMeta } from '../../../features/products/statusMeta'
 
 import './ProductCard.css'
 
 function ProductCard({ product }) {
   const productPath = getProductPath(product)
+  const statusMeta = getStatusMeta(product.status)
 
   return (
     <Card variant="surface" radius="xl" className="product-card">
@@ -22,7 +23,9 @@ function ProductCard({ product }) {
 
       <div className="product-card-content">
         <div className="product-card-info">
-          <Badge className="product-card-availability">{product.availability}</Badge>
+          <Badge variant={statusMeta.badgeTone} className="product-card-availability">
+            {statusMeta.label}
+          </Badge>
 
           <h3 className="product-card-title">{product.name}</h3>
 
@@ -33,7 +36,7 @@ function ProductCard({ product }) {
           to={productPath}
           variant="secondary"
           className="product-card-button"
-          disabled={!isProductAvailable(product.availability)}
+          disabled={!statusMeta.canDownload}
         >
           Descubrir
         </Button>

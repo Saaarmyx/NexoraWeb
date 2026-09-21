@@ -2,7 +2,7 @@ import Card from '../../atoms/Card/Card'
 import Badge from '../../atoms/Badge/Badge'
 import Button from '../../atoms/Button/Button'
 import ProductArt from '../../illustrations/ProductArt'
-import isProductAvailable from '../../../utils/productAvailability'
+import { getStatusMeta } from '../../../features/products/statusMeta'
 
 import './ProductHero.css'
 
@@ -11,7 +11,7 @@ function ProductHero({
   layout = 'media', // 'media' | 'background'
   title,
   description,
-  availability,
+  status,
   image,
   imageAlt,
   art,
@@ -19,6 +19,7 @@ function ProductHero({
   buttonTo,
 }) {
   const isBackground = layout === 'background'
+  const statusMeta = getStatusMeta(status)
 
   return (
     <section className="product-hero">
@@ -32,14 +33,18 @@ function ProductHero({
 
           <p className="product-hero-description">{description}</p>
 
-          {availability && <Badge className="product-hero-availability">{availability}</Badge>}
+          {status && (
+            <Badge variant={statusMeta.badgeTone} className="product-hero-availability">
+              {statusMeta.label}
+            </Badge>
+          )}
 
           {buttonTo && (
             <Button
               to={buttonTo}
               variant="secondary"
               className="product-hero-button"
-              disabled={!isProductAvailable(availability)}
+              disabled={!statusMeta.canDownload}
             >
               {buttonText}
             </Button>

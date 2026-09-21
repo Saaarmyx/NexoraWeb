@@ -1,13 +1,15 @@
 import Button from '../../atoms/Button/Button'
 import ProductArt from '../../illustrations/ProductArt'
 import getProductPath from '../../../utils/productRoutes'
-import isProductAvailable from '../../../utils/productAvailability'
+import { getStatusMeta } from '../../../features/products/statusMeta'
 import './ProductFeatured.css'
 
 function ProductFeatured({ product }) {
   if (!product) {
     return null
   }
+
+  const statusMeta = getStatusMeta(product.status)
 
   return (
     <article className="product-featured">
@@ -21,7 +23,7 @@ function ProductFeatured({ product }) {
 
       <div className="product-featured-content">
         <div className="product-featured-info">
-          <span className="product-featured-availability">{product.availability}</span>
+          <span className="product-featured-availability">{statusMeta.label}</span>
 
           <h2 className="product-featured-title">{product.name}</h2>
 
@@ -32,7 +34,7 @@ function ProductFeatured({ product }) {
           <Button
             to={getProductPath(product)}
             variant="primary"
-            disabled={!isProductAvailable(product.availability)}
+            disabled={!statusMeta.canDownload}
           >
             Descubrir
           </Button>

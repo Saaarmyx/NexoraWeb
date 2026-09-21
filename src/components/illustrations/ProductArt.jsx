@@ -1,16 +1,8 @@
 import Icon from '../atoms/Icon/Icon'
+import { productMotifIcons } from './productMotifs'
 import products from '../../features/products/data/products'
 
 import './ProductArt.css'
-
-const motifIcons = {
-  ncode: 'code',
-  nphotos: 'image',
-  nqr: 'qr',
-  ncloud: 'cloud',
-  nconnect: 'share',
-  os: 'chip',
-}
 
 const toneColors = {
   brand: null,
@@ -26,7 +18,7 @@ function ProductArt({
   title,
   className = '',
 }) {
-  const iconName = motifIcons[product] || motifIcons.nqr
+  const iconName = productMotifIcons[product] || productMotifIcons.nqr
   const productEntry = products.find((item) => item.slug === product)
   const accentToken = productEntry?.accent || 'color-theme-accent'
   const color = toneColors[tone] || `var(--${accentToken})`

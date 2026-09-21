@@ -1,4 +1,5 @@
 import Card from '../../atoms/Card/Card'
+import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './CollageCard.css'
 
@@ -17,7 +18,7 @@ function CollageCard({ title, description, images = [] }) {
             key={`${image.src}-${index}`}
             className={`collage-card-item collage-card-item--${index + 1}`}
           >
-            <img src={image.src} alt={image.alt || ''} />
+            <ProductMedia media={{ type: 'image', src: image.src, alt: image.alt }} />
 
             <div className="collage-card-item-overlay">
               <div className="collage-card-item-content">

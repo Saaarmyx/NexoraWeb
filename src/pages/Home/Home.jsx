@@ -26,7 +26,7 @@ function Home() {
             theme={product.theme}
             title={product.name}
             description={product.description}
-            availability={product.availability}
+            status={product.status}
             image={product.image}
             imageAlt={product.name}
             art={product.art}

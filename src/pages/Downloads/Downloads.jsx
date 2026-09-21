@@ -1,26 +1,17 @@
 import { useState } from 'react'
 
-import { products } from '../../features/products'
+import { products, getStatusMeta } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
 import Icon from '../../components/atoms/Icon/Icon'
 import ProductArt from '../../components/illustrations/ProductArt'
+import { getProductIconName } from '../../components/illustrations/productMotifs'
 
 import './Downloads.css'
 
-const productIconNames = {
-  ncloud: 'cloud',
-  ncode: 'code',
-  nphotos: 'image',
-  nqr: 'qr',
-  os: 'monitor',
-  nconnect: 'share',
-}
-
-const downloadLinks = {
-  ncode: 'https://github.com/Saaarmyx/NCode/releases',
-  nqr: 'https://github.com/Saaarmyx/QrGenerator/releases',
+function getPrimaryDownload(product) {
+  return (product.downloads || []).find((download) => download.href) || null
 }
 
 function Downloads() {
@@ -28,8 +19,9 @@ function Downloads() {
   const [selectedSlug, setSelectedSlug] = useState(() => featuredProducts[0]?.slug)
   const selectedProduct =
     featuredProducts.find((product) => product.slug === selectedSlug) || featuredProducts[0]
-  const selectedIconName = productIconNames[selectedProduct.slug] || 'cloud'
-  const downloadUrl = downloadLinks[selectedProduct.slug]
+  const selectedIconName = getProductIconName(selectedProduct.slug)
+  const statusMeta = getStatusMeta(selectedProduct.status)
+  const downloadUrl = getPrimaryDownload(selectedProduct)?.href || null
 
   return (
     <section className="section downloads-page">
@@ -61,7 +53,7 @@ function Downloads() {
         </Card>
         <nav className="downloads-product-nav" aria-label="Productos Nexora">
           {featuredProducts.map((product) => {
-            const iconName = productIconNames[product.slug] || 'cloud'
+            const iconName = getProductIconName(product.slug)
             const isSelected = selectedProduct.slug === product.slug
 
             return (
@@ -97,7 +89,7 @@ function Downloads() {
               <Icon name={selectedIconName} />
             </div>
 
-            <Badge>{selectedProduct.availability}</Badge>
+            <Badge variant={statusMeta.badgeTone}>{statusMeta.label}</Badge>
 
             <h2>{selectedProduct.name}</h2>
 

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import Card from '../../atoms/Card/Card'
-import ProductArt from '../../illustrations/ProductArt'
+import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './DetailCard.css'
 
@@ -20,12 +20,9 @@ function DetailCard({ title, description, variants = [] }) {
 
       {currentVariant && (
         <div className="detail-card-preview">
-          {currentVariant.art ? (
-            <ProductArt
-              product={currentVariant.art.product}
-              variant={currentVariant.art.variant || 'spot'}
-              tone={currentVariant.art.tone || 'brand'}
-              title={currentVariant.alt}
+          {currentVariant.media ? (
+            <ProductMedia
+              media={currentVariant.media}
               className="detail-card-art"
             />
           ) : (

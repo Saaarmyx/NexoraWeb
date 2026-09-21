@@ -1,4 +1,5 @@
 import Card from '../../atoms/Card/Card'
+import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './TextImageCard.css'
 
@@ -9,6 +10,7 @@ function TextImageCard({
   secondaryDescription,
   video,
   videoAlt = '',
+  poster,
   videoPosition = 'right',
 }) {
   return (
@@ -30,13 +32,10 @@ function TextImageCard({
       </div>
 
       <div className="text-image-card-media">
-        <video
-          src={video}
+        <ProductMedia
+          media={{ type: 'video', src: video, poster, alt: videoAlt }}
+          loading="eager"
           className="text-image-card-video"
-          autoPlay
-          muted
-          playsInline
-          aria-label={videoAlt}
         />
       </div>
     </Card>

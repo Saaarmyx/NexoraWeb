@@ -1,15 +1,15 @@
+import ProductMedia from '../ProductMedia/ProductMedia'
+
 import './VideoHero.css'
 
-function VideoHero({ video, title, description }) {
+function VideoHero({ video, poster, title, description }) {
   return (
     <section className="video-hero">
-      <video
+      <ProductMedia
+        media={{ type: 'video', src: video, poster }}
+        decorative
+        loading="eager"
         className="video-hero-video"
-        src={video}
-        autoPlay
-        muted
-        playsInline
-        aria-hidden="true"
       />
 
       <div className="video-hero-overlay">

@@ -6,39 +6,22 @@ import Ecosystem from '../pages/Ecosystem/Ecosystem'
 import Downloads from '../pages/Downloads/Downloads'
 import Events from '../pages/Events/Events'
 import LegalPage from '../pages/Legal/LegalPage'
-import NCodePage from '../features/ncode/NCodePage'
-import NPhotosPage from '../features/nphotos/NPhotosPage'
-import NQRPage from '../features/nqr/NQRPage'
-import { products } from '../features/products'
-import getProductPath from '../utils/productRoutes'
+import { ProductPage } from '../features/products'
 
 import ComingSoon from '../pages/ComingSoon/ComingSoon'
 
 function AppRoutes() {
-  const isFeatured = (slug) => products.some((product) => product.slug === slug && product.featured)
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/products/:slug" element={<ProductPage />} />
       <Route path="/ecosystem" element={<Ecosystem />} />
       <Route path="/downloads" element={<Downloads />} />
       <Route path="/events" element={<Events />} />
       <Route path="/privacy" element={<LegalPage type="privacy" />} />
       <Route path="/accessibility" element={<LegalPage type="accessibility" />} />
       <Route path="/security" element={<LegalPage type="security" />} />
-      <Route
-        path={getProductPath({ slug: 'ncode' })}
-        element={isFeatured('ncode') ? <NCodePage /> : <ComingSoon />}
-      />
-      <Route
-        path={getProductPath({ slug: 'nphotos' })}
-        element={isFeatured('nphotos') ? <NPhotosPage /> : <ComingSoon />}
-      />
-      <Route
-        path={getProductPath({ slug: 'nqr' })}
-        element={isFeatured('nqr') ? <NQRPage /> : <ComingSoon />}
-      />
       <Route path="*" element={<ComingSoon />} />
     </Routes>
   )
