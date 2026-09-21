@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { FiMenu, FiX, FiUser } from 'react-icons/fi'
-import { FaTelegramPlane } from 'react-icons/fa'
+
+import { Icon } from '../../ui'
 
 import './Header.css'
 
@@ -83,7 +83,7 @@ function Header() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaTelegramPlane className="header-icon" />
+            <Icon name="telegram" className="header-icon" />
           </a>
 
           <button
@@ -91,7 +91,7 @@ function Header() {
             className="header-action header-action--account"
             aria-label="Abrir cuenta"
           >
-            <FiUser className="header-icon" />
+            <Icon name="user" className="header-icon" />
           </button>
 
           <button
@@ -101,11 +101,10 @@ function Header() {
             aria-expanded={isMobileMenuOpen}
             onClick={handleMobileMenuToggle}
           >
-            {isMobileMenuOpen ? (
-              <FiX className="header-icon" />
-            ) : (
-              <FiMenu className="header-icon" />
-            )}
+            <Icon
+              name={isMobileMenuOpen ? 'close' : 'menu'}
+              className="header-icon"
+            />
           </button>
         </div>
       </div>

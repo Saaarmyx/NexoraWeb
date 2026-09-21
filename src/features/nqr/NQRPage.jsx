@@ -1,5 +1,6 @@
 import { products } from '../products'
 import useProductTheme from '../../hooks/useProductTheme'
+import { Reveal } from '../../components/ui'
 import {
   CollageCard,
   DetailCard,
@@ -10,23 +11,35 @@ import {
 
 import { nqrFeatures, nqrHero, nqrLinks, nqrPerformance, nqrViews } from './nqr.data'
 
+const REVEAL_STAGGER_STEP = 90
+
 function NQRPage() {
   const product = products.find((item) => item.slug === 'nqr')
 
-  useProductTheme(product?.theme)
+  useProductTheme(product?.theme, product?.accent)
 
   return (
     <section className="section">
       <div className="container">
-        <VideoHero {...nqrHero} />
+        <Reveal>
+          <VideoHero {...nqrHero} />
+        </Reveal>
 
-        <section className="nqr-section">
+        <Reveal as="section" delay={REVEAL_STAGGER_STEP} className="nqr-section">
           <CollageCard {...nqrFeatures} />
-        </section>
+        </Reveal>
 
-        <DetailCard {...nqrViews} />
-        <TextImageCard {...nqrPerformance} />
-        <ProductLinksCard {...nqrLinks} />
+        <Reveal delay={REVEAL_STAGGER_STEP * 2}>
+          <DetailCard {...nqrViews} />
+        </Reveal>
+
+        <Reveal delay={REVEAL_STAGGER_STEP * 3}>
+          <TextImageCard {...nqrPerformance} />
+        </Reveal>
+
+        <Reveal delay={REVEAL_STAGGER_STEP * 4}>
+          <ProductLinksCard {...nqrLinks} />
+        </Reveal>
       </div>
     </section>
   )

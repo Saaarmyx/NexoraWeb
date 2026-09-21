@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import Card from '../../atoms/Card/Card'
+import ProductArt from '../../illustrations/ProductArt'
 
 import './DetailCard.css'
 
@@ -19,11 +20,21 @@ function DetailCard({ title, description, variants = [] }) {
 
       {currentVariant && (
         <div className="detail-card-preview">
-          <img
-            src={currentVariant.image}
-            alt={currentVariant.alt || ''}
-            className="detail-card-image"
-          />
+          {currentVariant.art ? (
+            <ProductArt
+              product={currentVariant.art.product}
+              variant={currentVariant.art.variant || 'spot'}
+              tone={currentVariant.art.tone || 'brand'}
+              title={currentVariant.alt}
+              className="detail-card-art"
+            />
+          ) : (
+            <img
+              src={currentVariant.image}
+              alt={currentVariant.alt || ''}
+              className="detail-card-image"
+            />
+          )}
         </div>
       )}
 
@@ -40,9 +51,15 @@ function DetailCard({ title, description, variants = [] }) {
             >
               <span
                 className="detail-card-variant-color"
-                style={{
-                  backgroundColor: variant.color,
-                }}
+                style={
+                  variant.token
+                    ? {
+                        backgroundColor: `var(--${variant.token})`,
+                      }
+                    : {
+                        backgroundColor: variant.color,
+                      }
+                }
               />
             </button>
           ))}

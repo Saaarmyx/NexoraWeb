@@ -13,7 +13,7 @@ import { ncodeFeatures, ncodeHero, ncodeLinks, ncodePerformance, ncodeThemes } f
 function NCodePage() {
   const product = products.find((item) => item.slug === 'ncode')
 
-  useProductTheme(product?.theme)
+  useProductTheme(product?.theme, product?.accent)
 
   return (
     <section className="section">

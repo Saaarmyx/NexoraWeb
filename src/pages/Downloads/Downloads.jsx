@@ -1,20 +1,21 @@
 import { useState } from 'react'
-import { FiCode, FiCloud, FiImage, FiMonitor, FiShare2, FiGrid } from 'react-icons/fi'
 
 import { products } from '../../features/products'
 import Badge from '../../components/atoms/Badge/Badge'
 import Button from '../../components/atoms/Button/Button'
 import Card from '../../components/atoms/Card/Card'
+import Icon from '../../components/atoms/Icon/Icon'
+import ProductArt from '../../components/illustrations/ProductArt'
 
 import './Downloads.css'
 
-const productIcons = {
-  ncloud: FiCloud,
-  ncode: FiCode,
-  nphotos: FiImage,
-  nqr: FiGrid,
-  os: FiMonitor,
-  nconnect: FiShare2,
+const productIconNames = {
+  ncloud: 'cloud',
+  ncode: 'code',
+  nphotos: 'image',
+  nqr: 'grid',
+  os: 'monitor',
+  nconnect: 'share',
 }
 
 const downloadLinks = {
@@ -27,7 +28,7 @@ function Downloads() {
   const [selectedSlug, setSelectedSlug] = useState(() => featuredProducts[0]?.slug)
   const selectedProduct =
     featuredProducts.find((product) => product.slug === selectedSlug) || featuredProducts[0]
-  const SelectedIcon = productIcons[selectedProduct.slug] || FiCloud
+  const selectedIconName = productIconNames[selectedProduct.slug] || 'cloud'
   const downloadUrl = downloadLinks[selectedProduct.slug]
 
   return (
@@ -60,7 +61,7 @@ function Downloads() {
         </Card>
         <nav className="downloads-product-nav" aria-label="Productos Nexora">
           {featuredProducts.map((product) => {
-            const Icon = productIcons[product.slug] || FiCloud
+            const iconName = productIconNames[product.slug] || 'cloud'
             const isSelected = selectedProduct.slug === product.slug
 
             return (
@@ -71,7 +72,7 @@ function Downloads() {
                 onClick={() => setSelectedSlug(product.slug)}
                 aria-pressed={isSelected}
               >
-                <Icon className="downloads-product-tab-icon" aria-hidden="true" />
+                <Icon name={iconName} className="downloads-product-tab-icon" />
                 <span>{product.name}</span>
               </button>
             )
@@ -80,12 +81,20 @@ function Downloads() {
 
         <Card variant="surface" radius="2xl" className="downloads-product-card">
           <div className="downloads-product-card-media">
-            <img src={selectedProduct.image} alt={selectedProduct.name} />
+            {selectedProduct.art ? (
+              <ProductArt
+                product={selectedProduct.art.product}
+                variant={selectedProduct.art.variant || 'hero'}
+                title={selectedProduct.name}
+              />
+            ) : (
+              <img src={selectedProduct.image} alt={selectedProduct.name} />
+            )}
           </div>
 
           <div className="downloads-product-card-content">
             <div className="downloads-product-card-icon">
-              <SelectedIcon aria-hidden="true" />
+              <Icon name={selectedIconName} />
             </div>
 
             <Badge>{selectedProduct.availability}</Badge>

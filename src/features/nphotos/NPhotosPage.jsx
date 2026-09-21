@@ -19,7 +19,7 @@ import {
 function NPhotosPage() {
   const product = products.find((item) => item.slug === 'nphotos')
 
-  useProductTheme(product?.theme)
+  useProductTheme(product?.theme, product?.accent)
 
   return (
     <section className="section">
