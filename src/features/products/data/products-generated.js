@@ -83,7 +83,7 @@ export const products = [
     "art": {
       "product": "ncode"
     },
-    "image": "/images/ncode/banner_ncode.png",
+    "image": "/images/products/banners/banner-ncode.svg",
     "downloads": [
       {
         "platform": "github",
@@ -95,7 +95,7 @@ export const products = [
       "seo": {
         "title": "NCode · Nexora",
         "description": "Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.",
-        "ogImage": "/images/ncode/banner_ncode.png"
+        "ogImage": "/images/products/banners/banner-ncode.svg"
       },
       "sections": [
         {
