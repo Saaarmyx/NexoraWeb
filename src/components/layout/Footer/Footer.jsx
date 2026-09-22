@@ -42,7 +42,11 @@ const footerColumns = [
   },
   {
     title: 'Valores de Nexora',
-    links: [{ label: 'Privacidad', to: '/privacy' }],
+    links: [
+      { label: 'Privacidad', to: '/privacy' },
+      { label: 'Accesibilidad', to: '/accessibility' },
+      { label: 'Seguridad', to: '/security' },
+    ],
   },
   {
     title: 'Acerca de Nexora',
