@@ -4,7 +4,7 @@ import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './LaunchHero.css'
 
-function LaunchHero({ description, buttonText, buttonTo = '/launches', image, video, poster }) {
+function LaunchHero({ description = '', buttonText = '', buttonTo = '/launches', image = '', video = '', poster = '' }) {
   return (
     <Card className="launch-hero-card">
       {video && (

@@ -4,8 +4,8 @@ import ProductMedia from '../ProductMedia/ProductMedia'
 import './ComingSoonHero.css'
 
 function ComingSoonHero({
-  video,
-  poster,
+  video = '',
+  poster = '',
   title = 'ESTAMOS TRABAJANDO EN ESTO',
   description = 'Esta parte de Nexora llegará pronto.',
   buttonText = 'Volver al inicio',

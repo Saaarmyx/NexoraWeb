@@ -3,7 +3,7 @@ import Icon from '../../ui/Icon/Icon'
 
 import './FeatureGrid.css'
 
-function FeatureGrid({ items }) {
+function FeatureGrid({ items = [] }) {
   return (
     <div className="feature-grid">
       {items.map(({ icon, title, description }) => (

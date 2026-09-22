@@ -46,8 +46,14 @@ function ProductSection({ section }) {
       })
   }, [section])
 
-  if (!Component || !section) {
-    return <div className="section-error">Error loading section</div>
+  // Guard: section must exist and have a type
+  if (!section || !section.type) {
+    return <div className="section-error">Invalid section data</div>
+  }
+
+  // Guard: component not loaded yet
+  if (!Component) {
+    return <div className="section-error">Loading section: {section.type}</div>
   }
 
   if (section.type === 'custom') {
@@ -62,7 +68,8 @@ function ProductSection({ section }) {
 
   let content
   try {
-    const props = section.props || {}
+    // Ensure props is an object, never null
+    const props = section.props && typeof section.props === 'object' ? section.props : {}
     content = <Component {...props} />
   } catch (err) {
     console.error('Error rendering section:', section?.type, err)

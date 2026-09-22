@@ -2,7 +2,7 @@ import Button from '../../ui/Button/Button'
 
 import './Hero.css'
 
-function Hero({ eyebrow, title, description, buttonText, buttonTo }) {
+function Hero({ eyebrow = '', title = '', description = '', buttonText = '', buttonTo = '' }) {
   return (
     <section className="hero">
       <div className="hero-content">

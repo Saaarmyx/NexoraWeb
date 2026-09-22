@@ -3,7 +3,7 @@ import Button from '../../ui/Button/Button'
 
 import './CtaSection.css'
 
-function CtaSection({ title, description, buttonText, buttonTo }) {
+function CtaSection({ title = '', description = '', buttonText = '', buttonTo = '' }) {
   return (
     <section className="cta-section">
       <Card radius="2xl" className="cta-section-card">

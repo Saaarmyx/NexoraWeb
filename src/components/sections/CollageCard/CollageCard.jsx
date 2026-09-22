@@ -3,7 +3,7 @@ import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './CollageCard.css'
 
-function CollageCard({ title, description, images = [] }) {
+function CollageCard({ title = '', description = '', images = [] }) {
   return (
     <Card variant="surface" radius="2xl" className="collage-card">
       <div className="collage-card-header">
