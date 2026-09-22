@@ -1,6 +1,6 @@
 const nfiles = {
   slug: 'nfiles',
-  name: 'NFiles',
+  name: 'NFILES',
   tagline: 'Administrador de archivos ligero y minimalista.',
   description:
     'Un administrador de archivos pensado para ser rápido, simple y funcionar bien en todo tu ecosistema. Organiza, busca y mueve tus archivos sin fricción.',
@@ -58,8 +58,7 @@ const nfiles = {
         type: 'cta',
         props: {
           title: 'NFILES LLEGARÁ PRÓXIMAMENTE',
-          description:
-            'Únete a la comunidad para ser de los primeros en probarlo.',
+          description: 'Únete a la comunidad para ser de los primeros en probarlo.',
           buttonText: 'Unirse a la comunidad',
           buttonTo: 'https://discord.gg/XnMBBBa26k',
         },

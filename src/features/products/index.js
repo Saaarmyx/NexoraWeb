@@ -1,7 +1,7 @@
 export { default as ProductCard } from '../../components/product/ProductCard/ProductCard'
 export { default as ProductFeatured } from '../../components/product/ProductFeatured/ProductFeatured'
 export { default as ProductHero } from '../../components/product/ProductHero/ProductHero'
-export { default as ProductLinksCard } from '../../components/shared/ProductLinksCard/ProductLinksCard'
+export { default as ProductLinksCard } from '../../components/sections/ProductLinksCard/ProductLinksCard'
 export { default as ProductPage } from './ProductPage'
 export { getProductsSync } from './data/products'
 export { productStatuses, statusMeta, getStatusMeta } from './statusMeta'

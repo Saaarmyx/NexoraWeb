@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Card from '../../atoms/Card/Card'
+import Card from '../../ui/Card/Card'
 import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './DetailCard.css'

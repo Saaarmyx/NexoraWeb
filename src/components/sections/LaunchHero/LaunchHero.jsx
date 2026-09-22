@@ -1,5 +1,5 @@
-import Card from '../../atoms/Card/Card'
-import Button from '../../atoms/Button/Button'
+import Card from '../../ui/Card/Card'
+import Button from '../../ui/Button/Button'
 import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './LaunchHero.css'

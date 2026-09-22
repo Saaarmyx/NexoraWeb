@@ -1,6 +1,6 @@
-import Card from '../../atoms/Card/Card'
-import Badge from '../../atoms/Badge/Badge'
-import Button from '../../atoms/Button/Button'
+import Card from '../../ui/Card/Card'
+import Badge from '../../ui/Badge/Badge'
+import Button from '../../ui/Button/Button'
 import ProductArt from '../../illustrations/ProductArt'
 import { getStatusMeta } from '../../../features/products/statusMeta'
 

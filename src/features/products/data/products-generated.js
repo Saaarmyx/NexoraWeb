@@ -70,7 +70,7 @@ export const products = [
   },
   {
     "slug": "ncode",
-    "name": "NCode",
+    "name": "NCODE",
     "tagline": "Programar nunca fue tan fácil.",
     "description": "Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.",
     "status": "beta",
@@ -615,7 +615,7 @@ export const products = [
   },
   {
     "slug": "nfiles",
-    "name": "NFiles",
+    "name": "NFILES",
     "tagline": "Administrador de archivos ligero y minimalista.",
     "description": "Un administrador de archivos pensado para ser rápido, simple y funcionar bien en todo tu ecosistema. Organiza, busca y mueve tus archivos sin fricción.",
     "status": "soon",

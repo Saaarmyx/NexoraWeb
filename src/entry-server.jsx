@@ -8,7 +8,7 @@ import './styles/base.css'
 import './styles/motion.css'
 import './styles/responsive.css'
 
-import { getProducts } from './features/products/data/products'
+import { getProducts } from './features/products'
 
 let products = []
 

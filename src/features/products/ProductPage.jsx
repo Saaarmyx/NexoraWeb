@@ -7,7 +7,7 @@ import { Reveal } from '../../components/ui'
 import { Hero } from '../../components/sections'
 import ProductArt from '../../components/illustrations/ProductArt'
 import NotFound from '../../pages/NotFound/NotFound'
-import ErrorBoundary from '../../components/shared/ErrorBoundary/ErrorBoundary'
+import ErrorBoundary from '../../components/sections/ErrorBoundary/ErrorBoundary'
 import { getProductsSync } from './data/products'
 import { resolveSectionComponent } from './sectionRegistry'
 

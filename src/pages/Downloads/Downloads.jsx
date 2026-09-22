@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
 import { getProductsSync, getStatusMeta } from '../../features/products'
-import Badge from '../../components/atoms/Badge/Badge'
-import Button from '../../components/atoms/Button/Button'
-import Card from '../../components/atoms/Card/Card'
-import Icon from '../../components/atoms/Icon/Icon'
+import Badge from '../../components/ui/Badge/Badge'
+import Button from '../../components/ui/Button/Button'
+import Card from '../../components/ui/Card/Card'
+import Icon from '../../components/ui/Icon/Icon'
 import ProductArt from '../../components/illustrations/ProductArt'
 import { getProductIconName } from '../../components/illustrations/productMotifs'
 

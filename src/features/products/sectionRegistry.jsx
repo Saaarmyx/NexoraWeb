@@ -1,19 +1,19 @@
 import sectionTypes from './sectionTypes'
 
 const componentLoaders = {
-  hero: () => import('../../components/shared/VideoHero/VideoHero'),
-  featureGrid: () => import('../../components/shared/FeatureGrid/FeatureGrid'),
-  textImage: () => import('../../components/shared/TextImageCard/TextImageCard'),
-  detailCards: () => import('../../components/shared/DetailCard/DetailCard'),
-  collage: () => import('../../components/shared/CollageCard/CollageCard'),
-  links: () => import('../../components/shared/ProductLinksCard/ProductLinksCard'),
-  cta: () => import('../../components/shared/CtaSection/CtaSection'),
+  hero: () => import('../../components/sections/VideoHero/VideoHero'),
+  featureGrid: () => import('../../components/sections/FeatureGrid/FeatureGrid'),
+  textImage: () => import('../../components/sections/TextImageCard/TextImageCard'),
+  detailCards: () => import('../../components/sections/DetailCard/DetailCard'),
+  collage: () => import('../../components/sections/CollageCard/CollageCard'),
+  links: () => import('../../components/sections/ProductLinksCard/ProductLinksCard'),
+  cta: () => import('../../components/sections/CtaSection/CtaSection'),
 }
 
 const heroVariantLoaders = {
-  video: () => import('../../components/shared/VideoHero/VideoHero'),
-  launch: () => import('../../components/shared/LaunchHero/LaunchHero'),
-  simple: () => import('../../components/shared/Hero/Hero'),
+  video: () => import('../../components/sections/VideoHero/VideoHero'),
+  launch: () => import('../../components/sections/LaunchHero/LaunchHero'),
+  simple: () => import('../../components/sections/Hero/Hero'),
 }
 
 async function resolveSectionComponent(section) {

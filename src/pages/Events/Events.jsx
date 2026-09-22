@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
 import { getProductsSync, getStatusMeta } from '../../features/products'
-import Badge from '../../components/atoms/Badge/Badge'
-import Button from '../../components/atoms/Button/Button'
-import Card from '../../components/atoms/Card/Card'
+import Badge from '../../components/ui/Badge/Badge'
+import Button from '../../components/ui/Button/Button'
+import Card from '../../components/ui/Card/Card'
 import ProductArt from '../../components/illustrations/ProductArt'
 import getProductPath from '../../utils/productRoutes'
 

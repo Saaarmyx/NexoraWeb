@@ -41,17 +41,21 @@
   --color-songs-accent: #ec4899;
   --color-finance-accent: #10b981;
   --color-code-accent: #2563eb;
-  --color-calculator-accent: #64748b;
+  --color-calculator-accent: #eab308;
   --color-browser-accent: #0ea5e9;
   --color-share-accent: #a855f7;
   --color-cloud-accent: #14b8a6;
   --color-mail-accent: #f97316;
-  --color-photos-accent: #f43f5e;
+  --color-photos-accent: #ec4899;
   --color-calendar-accent: #ef4444;
   --color-closet-accent: #8b5cf6;
   --color-bank-accent: #047857;
   --color-os-accent: #111827;
   --color-qr-accent: #8b5cf6;
+
+  /* Peligro / danger */
+  --color-danger: #b91c1c;
+  --color-danger-fg: #f87171;
 
   /* Nuevos productos (Fase 2) */
   --color-files-accent: #22c55e;
@@ -62,9 +66,13 @@
   /* Tipografía */
 
   --font-family-base:
-    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    var(--font-body), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  --font-family-heading: 'Gliker', 'Inter', system-ui, sans-serif;
+  --font-display: 'Gliker', 'Inter', system-ui, sans-serif;
+
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --font-family-heading: var(--font-display);
 
   --font-family-mono: 'Montserrat', 'Fira Code', 'JetBrains Mono', Consolas, monospace;
 

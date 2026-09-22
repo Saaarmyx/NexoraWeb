@@ -1,10 +1,12 @@
-/* Nexora - Fuentes locales (@font-face) */
+/* Nexora - Fuentes (@font-face) */
+/* Dos kits: pro (Gliker) y open (Inter, Fredoka). */
+/* El kit activo se controla con VITE_FONT_SET (default: 'pro'). */
+
+/* ── Kit pro (propietario) ─────────────────────────────────── */
 
 @font-face {
   font-family: 'Gliker';
-
-  src: url('/fonts/Gliker-Regular.woff2') format('woff2');
-
+  src: url('/fonts/pro/Gliker-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -12,9 +14,81 @@
 
 @font-face {
   font-family: 'Gliker';
+  src: url('/fonts/pro/Gliker-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  src: url('/fonts/Gliker-Bold.woff2') format('woff2');
+/* ── Kit open (libre) ──────────────────────────────────────── */
 
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/open/Inter-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/open/Inter-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/open/Inter-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/open/Inter-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fredoka';
+  src: url('/fonts/open/Fredoka-Variable.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/fonts/open/JetBrainsMono-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/fonts/open/JetBrainsMono-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/fonts/open/JetBrainsMono-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrainsMono';
+  src: url('/fonts/open/JetBrainsMono-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

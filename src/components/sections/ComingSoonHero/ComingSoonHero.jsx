@@ -1,4 +1,4 @@
-import Button from '../../atoms/Button/Button'
+import Button from '../../ui/Button/Button'
 import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './ComingSoonHero.css'

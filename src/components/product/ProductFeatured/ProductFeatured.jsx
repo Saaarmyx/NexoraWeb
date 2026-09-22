@@ -1,4 +1,4 @@
-import Button from '../../atoms/Button/Button'
+import Button from '../../ui/Button/Button'
 import ProductArt from '../../illustrations/ProductArt'
 import getProductPath from '../../../utils/productRoutes'
 import { getStatusMeta } from '../../../features/products/statusMeta'

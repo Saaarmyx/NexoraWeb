@@ -1,4 +1,4 @@
-import Icon from '../atoms/Icon/Icon'
+import Icon from '../ui/Icon/Icon'
 import { productMotifIcons } from './productMotifs'
 import { getProductsSync } from '../../features/products'
 

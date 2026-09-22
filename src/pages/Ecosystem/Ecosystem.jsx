@@ -1,6 +1,6 @@
 import { VideoHero } from '../../components/sections'
 import { getProductsSync } from '../../features/products'
-import Card from '../../components/atoms/Card/Card'
+import Card from '../../components/ui/Card/Card'
 import ProductArt from '../../components/illustrations/ProductArt'
 
 import './Ecosystem.css'

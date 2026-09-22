@@ -1,6 +1,6 @@
 const ncode = {
   slug: 'ncode',
-  name: 'NCode',
+  name: 'NCODE',
   tagline: 'Programar nunca fue tan fácil.',
   description:
     'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
@@ -68,8 +68,7 @@ const ncode = {
         type: 'detailCards',
         props: {
           title: 'MIRALO A TU MANERA',
-          description:
-            'Personaliza tu espacio de trabajo y adapta el editor a tu forma de crear.',
+          description: 'Personaliza tu espacio de trabajo y adapta el editor a tu forma de crear.',
           variants: [
             {
               name: 'Claro',

@@ -1,5 +1,5 @@
-import Card from '../../atoms/Card/Card'
-import Icon from '../../atoms/Icon/Icon'
+import Card from '../../ui/Card/Card'
+import Icon from '../../ui/Icon/Icon'
 
 import './ProductLinksCard.css'
 

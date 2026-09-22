@@ -1,4 +1,4 @@
-import Card from '../../components/atoms/Card/Card'
+import Card from '../../components/ui/Card/Card'
 
 import './LegalPage.css'
 
