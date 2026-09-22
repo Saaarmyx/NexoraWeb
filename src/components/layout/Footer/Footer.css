@@ -23,7 +23,7 @@
 
 .footer-nav-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 
   gap: var(--spacing-xl) var(--spacing-lg);
 
