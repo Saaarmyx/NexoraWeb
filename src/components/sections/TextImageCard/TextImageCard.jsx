@@ -4,13 +4,13 @@ import ProductMedia from '../ProductMedia/ProductMedia'
 import './TextImageCard.css'
 
 function TextImageCard({
-  title = '',
-  description = '',
-  subtitle = '',
-  secondaryDescription = '',
-  video = '',
+  title,
+  description,
+  subtitle,
+  secondaryDescription,
+  video,
   videoAlt = '',
-  poster = '',
+  poster,
   videoPosition = 'right',
 }) {
   return (

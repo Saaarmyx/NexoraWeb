@@ -4,5 +4,5 @@ export { default as ProductHero } from '../../components/product/ProductHero/Pro
 export { default as ProductPage } from './ProductPage'
 export { getProductsSync } from './data/products'
 export { productStatuses, statusMeta, getStatusMeta } from './statusMeta'
-export { sectionTypes, resolveSectionComponent } from './sectionRegistry'
+export { sectionTypes, resolveSectionComponent, getLazySectionComponent } from './sectionRegistry'
 export { default as validateProduct } from './validateProduct'

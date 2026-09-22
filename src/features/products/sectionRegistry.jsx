@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import sectionTypes from './sectionTypes'
 
 const componentLoaders = {
@@ -32,4 +33,29 @@ async function resolveSectionComponent(section) {
   return mod.default
 }
 
-export { sectionTypes, resolveSectionComponent }
+// Cache de lazy components keyed por type/variante de sección. React.lazy es
+// el mecanismo correcto de React para componentes asíncronos: la resolución
+// del `import()` la administra React y las props llegan al componente tal cual
+// se declaran en el elemento (nunca se invoca la función del componente como
+// si fuera un updater de estado).
+const lazySectionComponents = new Map()
+
+function getLazySectionComponent(section) {
+  const type = section?.type
+  if (!type || !sectionTypes.includes(type)) {
+    return null
+  }
+
+  const key = type === 'hero' ? `hero:${section.variant || 'video'}` : type
+
+  if (!lazySectionComponents.has(key)) {
+    const lazyComponent = lazy(() =>
+      resolveSectionComponent(section).then((Component) => ({ default: Component })),
+    )
+    lazySectionComponents.set(key, lazyComponent)
+  }
+
+  return lazySectionComponents.get(key)
+}
+
+export { sectionTypes, resolveSectionComponent, getLazySectionComponent }

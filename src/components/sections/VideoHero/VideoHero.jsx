@@ -2,7 +2,7 @@ import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './VideoHero.css'
 
-function VideoHero({ video = '', poster = '', title = '', description = '' }) {
+function VideoHero({ video, poster, title, description }) {
   return (
     <section className="video-hero">
       <ProductMedia

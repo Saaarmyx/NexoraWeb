@@ -16,7 +16,7 @@ const baseProduct = {
   downloads: [],
   page: {
     seo: { title: 'NCode', description: 'Un entorno de desarrollo.' },
-    sections: [{ type: 'hero', props: { title: 'NCode' } }],
+    sections: [{ type: 'hero', props: { video: '/videos/ncode/hero.mp4', title: 'NCode' } }],
   },
 }
 
@@ -150,7 +150,7 @@ describe('validateProduct', () => {
       ...baseProduct,
       page: {
         seo: { title: 'NCode', description: 'Un entorno de desarrollo.' },
-        sections: [{ type: 'collage', props: { images: [{ src: 'x' }] } }],
+        sections: [{ type: 'collage', props: { title: 'C', images: [{ src: 'x' }] } }],
       },
     }
     expect(() => validateProduct(p)).toThrow('images[0] debe declarar')
@@ -161,10 +161,76 @@ describe('validateProduct', () => {
       ...baseProduct,
       page: {
         seo: { title: 'NCode', description: 'Un entorno de desarrollo.' },
-        sections: [{ type: 'collage', props: { images: [{ src: 'x', alt: 'img' }] } }],
+        sections: [{ type: 'collage', props: { title: 'C', images: [{ src: 'x', alt: 'img' }] } }],
       },
     }
     expect(() => validateProduct(p)).not.toThrow()
+  })
+
+  it('rechaza hero sin video', () => {
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'hero', props: { title: 'NCode' } }],
+      },
+    }
+    expect(() => validateProduct(p)).toThrow("la sección 'hero' del producto 'ncode' no tiene 'video'")
+  })
+
+  it('rechaza collage sin images', () => {
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'collage', props: { title: 'C' } }],
+      },
+    }
+    expect(() => validateProduct(p)).toThrow("la sección 'collage' del producto 'ncode' no tiene 'images'")
+  })
+
+  it('rechaza detailCards sin variants', () => {
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'detailCards', props: { title: 'D' } }],
+      },
+    }
+    expect(() => validateProduct(p)).toThrow("la sección 'detailCards' del producto 'ncode' no tiene 'variants'")
+  })
+
+  it('rechaza textImage sin titulo (title)', () => {
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'textImage', props: { video: '/videos/t.mp4' } }],
+      },
+    }
+    expect(() => validateProduct(p)).toThrow("la sección 'textImage' del producto 'ncode' no tiene 'title'")
+  })
+
+  it('rechaza links sin links', () => {
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'links', props: { title: 'L' } }],
+      },
+    }
+    expect(() => validateProduct(p)).toThrow("la sección 'links' del producto 'ncode' no tiene 'links'")
+  })
+
+  it('rechaza cta sin buttonText', () => {
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'cta', props: { title: 'C', buttonTo: 'https://x.dev' } }],
+      },
+    }
+    expect(() => validateProduct(p)).toThrow("la sección 'cta' del producto 'ncode' no tiene 'buttonText'")
   })
 
   it('acepta page sin definir', () => {

@@ -4,6 +4,17 @@ import sectionTypes from './sectionTypes'
 const mediaTypes = ['video', 'image', 'art']
 const accentPattern = /^color-[\w-]+-accent$/
 
+// Campos obligatorios por tipo de sección, según lo que renderiza cada componente.
+const sectionRequiredProps = {
+  hero: ['video', 'title'],
+  featureGrid: ['items'],
+  textImage: ['title', 'video'],
+  detailCards: ['title', 'variants'],
+  collage: ['title', 'images'],
+  links: ['title', 'links'],
+  cta: ['title', 'buttonText', 'buttonTo'],
+}
+
 function fail(slug, message) {
   throw new Error(`[validateProduct] ${slug || '(sin slug)'}: ${message}`)
 }
@@ -52,6 +63,22 @@ function validateSection(slug, section, index) {
 
   if (!section.props || typeof section.props !== 'object') {
     fail(slug, `${context} debe declarar un objeto 'props'`)
+  }
+
+  const requiredProps = sectionRequiredProps[section.type]
+  if (requiredProps) {
+    for (const field of requiredProps) {
+      const value = section.props[field]
+      const missing =
+        value === undefined ||
+        value === null ||
+        value === '' ||
+        (Array.isArray(value) && value.length === 0)
+
+      if (missing) {
+        fail(slug, `la sección '${section.type}' del producto '${slug}' no tiene '${field}'`)
+      }
+    }
   }
 
   if (section.type === 'collage') {

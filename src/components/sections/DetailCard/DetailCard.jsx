@@ -5,7 +5,7 @@ import ProductMedia from '../ProductMedia/ProductMedia'
 
 import './DetailCard.css'
 
-function DetailCard({ title = '', description = '', variants = [] }) {
+function DetailCard({ title, description, variants = [] }) {
   const [activeVariant, setActiveVariant] = useState(0)
 
   const currentVariant = variants[activeVariant]
