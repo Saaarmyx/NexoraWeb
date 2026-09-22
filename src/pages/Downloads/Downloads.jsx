@@ -16,7 +16,9 @@ function getPrimaryDownload(product) {
 
 function Downloads() {
   const products = getProductsSync()
-  const featuredProducts = products.filter((product) => product.featured)
+  const featuredProducts = products.filter(
+    (product) => product.featured && (product.status === 'released' || product.status === 'beta'),
+  )
   const [selectedSlug, setSelectedSlug] = useState(() => featuredProducts[0]?.slug)
   const selectedProduct =
     featuredProducts.find((product) => product.slug === selectedSlug) || featuredProducts[0]

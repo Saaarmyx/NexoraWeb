@@ -4,7 +4,7 @@ const nphotos = {
   tagline: 'Tus momentos, organizados y disponibles en todo tu ecosistema.',
   description:
     'Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.',
-  status: 'beta',
+  status: 'soon',
   platforms: [],
   version: null,
   theme: 'light',

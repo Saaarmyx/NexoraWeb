@@ -4,7 +4,7 @@ const ncode = {
   tagline: 'Programar nunca fue tan fácil.',
   description:
     'Un entorno de desarrollo pensado para crear, probar y administrar tus proyectos desde un solo lugar.',
-  status: 'beta',
+  status: 'soon',
   platforms: [],
   version: null,
   theme: 'dark',

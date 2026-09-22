@@ -65,29 +65,31 @@ function Footer() {
     <footer className="footer-wrapper">
       <div className="footer-container">
         <div className="footer-nav-grid">
-          {footerColumns.map((column) => (
-            <div className="footer-column" key={column.title}>
-              <h4 className="footer-title">{column.title}</h4>
+          {footerColumns
+            .filter((column) => column.links.length > 0)
+            .map((column) => (
+              <div className="footer-column" key={column.title}>
+                <h4 className="footer-title">{column.title}</h4>
 
-              {column.links.map((link) =>
-                link.to ? (
-                  <Link key={link.label} to={link.to} className="footer-link">
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="footer-link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.label}
-                  </a>
-                ),
-              )}
-            </div>
-          ))}
+                {column.links.map((link) =>
+                  link.to ? (
+                    <Link key={link.label} to={link.to} className="footer-link">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className="footer-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  ),
+                )}
+              </div>
+            ))}
         </div>
 
         <div className="footer-bottom">
