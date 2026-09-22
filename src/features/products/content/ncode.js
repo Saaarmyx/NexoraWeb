@@ -10,7 +10,7 @@ const ncode = {
   theme: 'dark',
   accent: 'color-code-accent',
   featured: true,
-  order: 20,
+  order: 1,
   art: { product: 'ncode' },
   image: '/images/products/banners/banner-ncode.svg',
   downloads: [

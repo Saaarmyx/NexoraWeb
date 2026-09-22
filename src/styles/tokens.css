@@ -41,27 +41,44 @@
   --color-songs-accent: #db2777;
   --color-finance-accent: #059669;
   --color-code-accent: #2563eb;
-  --color-calculator-accent: #a16207;
+  --color-calculator-accent: #84cc16;
   --color-browser-accent: #0284c7;
   --color-share-accent: #7c3aed;
   --color-cloud-accent: #0d9488;
-  --color-mail-accent: #ea580c;
+  --color-mail-accent: #0ea5e9;
   --color-photos-accent: #db2777;
-  --color-calendar-accent: #dc2626;
+  --color-calendar-accent: #be185d;
   --color-closet-accent: #7c3aed;
   --color-bank-accent: #047857;
-  --color-os-accent: #374151;
-  --color-qr-accent: #7c3aed;
+  --color-os-accent: #111827;
+  --color-qr-accent: #8b5cf6;
 
   /* Peligro / danger */
   --color-danger: #b91c1c;
   --color-danger-fg: #f87171;
 
   /* Nuevos productos (Fase 2) */
-  --color-files-accent: #16a34a;
-  --color-calculator-accent: #a16207;
+  --color-files-accent: #15803d;
+  --color-calculator-accent: #84cc16;
   --color-recorder-accent: #c026d3;
-  --color-passwords-accent: #4338ca;
+  --color-passwords-accent: #4f46e5;
+
+  /* Nuevos productos (Fase 3) */
+  --color-clock-accent: #a16207;
+  --color-people-accent: #0e7490;
+  --color-cam-accent: #57534e;
+  --color-music-accent: #c2410c;
+  --color-books-accent: #4d7c0f;
+  --color-wallet-accent: #312e81;
+  --color-chat-accent: #0369a1;
+  --color-call-accent: #22c55e;
+  --color-settings-accent: #64748b;
+  --color-store-accent: #6d28d9;
+  --color-meet-accent: #06b6d4;
+  --color-flow-accent: #0f766e;
+  --color-notes-accent: #eab308;
+  --color-voice-accent: #d946ef;
+  --color-keyboard-accent: #334155;
 
   /* Tipografía */
 

@@ -1,6 +1,6 @@
 const os = {
   slug: 'os',
-  name: 'Nexa',
+  name: 'NEXA',
   tagline: 'Construido alrededor de ti.',
   description:
     'Un sistema operativo diseñado para funcionar en conjunto con todo tu ecosistema. Más simple, más rápido y construido alrededor de ti.',
@@ -10,16 +10,16 @@ const os = {
   theme: 'dark',
   accent: 'color-os-accent',
   featured: false,
-  order: 50,
+  order: 22,
   art: { product: 'os' },
-  image: '/images/products/banners/banner-nexa.svg',
+  image: '/images/products/icons/icon-nexora.svg',
   downloads: [],
   page: {
     seo: {
       title: 'Nexa · Nexora',
       description:
         'Un sistema operativo diseñado para funcionar en conjunto con todo tu ecosistema. Más simple, más rápido y construido alrededor de ti.',
-      ogImage: '/images/products/banners/banner-nexa.svg',
+      ogImage: '/images/products/icons/icon-nexora.svg',
     },
     sections: [
       {
@@ -49,8 +49,7 @@ const os = {
             {
               icon: 'user-shield',
               title: 'TÚ TIENES EL CONTROL',
-              description:
-                'Sin telemetría oculta, sin cuentas forzadas. Tu hardware, tus reglas.',
+              description: 'Sin telemetría oculta, sin cuentas forzadas. Tu hardware, tus reglas.',
             },
           ],
         },
@@ -59,8 +58,7 @@ const os = {
         type: 'cta',
         props: {
           title: 'NEXA LLEGARÁ PRÓXIMAMENTE',
-          description:
-            'Únete a la comunidad para ser de los primeros en probarlo.',
+          description: 'Únete a la comunidad para ser de los primeros en probarlo.',
           buttonText: 'Unirse a la comunidad',
           buttonTo: 'https://discord.gg/XnMBBBa26k',
         },

@@ -9,16 +9,17 @@ const nfiles = {
   version: null,
   theme: 'light',
   accent: 'color-files-accent',
-  featured: false,
-  order: 70,
+  featured: true,
+  order: 5,
   art: { product: 'nfiles' },
+  image: '/images/products/icons/icon-nfiles.svg',
   downloads: [],
   page: {
     seo: {
       title: 'NFiles · Nexora',
       description:
         'Un administrador de archivos ligero y minimalista para organizar, buscar y mover tus archivos sin fricción.',
-      ogImage: '/images/products/banner_nfiles.png',
+      ogImage: '/images/products/icons/icon-nfiles.svg',
     },
     sections: [
       {

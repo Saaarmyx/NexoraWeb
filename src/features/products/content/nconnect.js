@@ -10,16 +10,16 @@ const nconnect = {
   theme: 'light',
   accent: 'color-share-accent',
   featured: false,
-  order: 60,
+  order: 24,
   art: { product: 'nconnect' },
-  image: '/images/products/banners/banner-nconnect.svg',
+  image: '/images/products/icons/icon-nconnect.svg',
   downloads: [],
   page: {
     seo: {
       title: 'NConnect · Nexora',
       description:
         'Conecta tus dispositivos Nexora de forma instantánea. Comparte archivos, continúa tareas y mantén todo sincronizado.',
-      ogImage: '/images/products/banners/banner-nconnect.svg',
+      ogImage: '/images/products/icons/icon-nconnect.svg',
     },
     sections: [
       {
@@ -59,8 +59,7 @@ const nconnect = {
         type: 'cta',
         props: {
           title: 'CONNECT LLEGARÁ PRÓXIMAMENTE',
-          description:
-            'Únete a la comunidad para ser de los primeros en probarlo.',
+          description: 'Únete a la comunidad para ser de los primeros en probarlo.',
           buttonText: 'Unirse a la comunidad',
           buttonTo: 'https://discord.gg/XnMBBBa26k',
         },

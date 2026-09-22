@@ -10,16 +10,16 @@ const ncloud = {
   theme: 'light',
   accent: 'color-cloud-accent',
   featured: false,
-  order: 10,
+  order: 23,
   art: { product: 'ncloud' },
-  image: '/images/products/banners/banner-ncloud.svg',
+  image: '/images/products/icons/icon-ncloud.svg',
   downloads: [],
   page: {
     seo: {
       title: 'NEXA Cloud · Nexora',
       description:
         'Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora.',
-      ogImage: '/images/products/banners/banner-ncloud.svg',
+      ogImage: '/images/products/icons/icon-ncloud.svg',
     },
     sections: [
       {
@@ -43,8 +43,7 @@ const ncloud = {
             {
               icon: 'shield-alt',
               title: 'PRIVACIDAD POR DISEÑO',
-              description:
-                'Tus datos se cifran en tránsito y en reposo. Solo tú tienes acceso.',
+              description: 'Tus datos se cifran en tránsito y en reposo. Solo tú tienes acceso.',
             },
             {
               icon: 'hdd',
@@ -59,8 +58,7 @@ const ncloud = {
         type: 'cta',
         props: {
           title: 'NEXA CLOUD LLEGARÁ PRÓXIMAMENTE',
-          description:
-            'Únete a la comunidad para ser de los primeros en probarlo.',
+          description: 'Únete a la comunidad para ser de los primeros en probarlo.',
           buttonText: 'Unirse a la comunidad',
           buttonTo: 'https://discord.gg/XnMBBBa26k',
         },

@@ -1,6 +1,6 @@
 const ncalculator = {
   slug: 'ncalculator',
-  name: 'NCalculator',
+  name: 'NCALC',
   tagline: 'Calculadora simple y potente.',
   description:
     'Una calculadora diseñada para lo esencial: operaciones básicas, científicas y conversiones, con una interfaz limpia y sin distracciones.',
@@ -9,16 +9,17 @@ const ncalculator = {
   version: null,
   theme: 'light',
   accent: 'color-calculator-accent',
-  featured: false,
-  order: 80,
+  featured: true,
+  order: 3,
   art: { product: 'ncalculator' },
+  image: '/images/products/icons/icon-ncalculator.svg',
   downloads: [],
   page: {
     seo: {
       title: 'NCalculator · Nexora',
       description:
         'Calculadora simple y potente: operaciones básicas, científicas y conversiones en una interfaz limpia.',
-      ogImage: '/images/products/banner_ncalculator.png',
+      ogImage: '/images/products/icons/icon-ncalculator.svg',
     },
     sections: [
       {
@@ -42,14 +43,12 @@ const ncalculator = {
             {
               icon: 'history',
               title: 'HISTORIAL DE CÁLCULOS',
-              description:
-                'Revisa, copia y reutiliza resultados anteriores. Sin perder el hilo.',
+              description: 'Revisa, copia y reutiliza resultados anteriores. Sin perder el hilo.',
             },
             {
               icon: 'exchange-alt',
               title: 'CONVERSIONES',
-              description:
-                'Unidades, divisas y más. Valores de referencia integrados.',
+              description: 'Unidades, divisas y más. Valores de referencia integrados.',
             },
           ],
         },
@@ -58,8 +57,7 @@ const ncalculator = {
         type: 'cta',
         props: {
           title: 'NCALCULATOR LLEGARÁ PRÓXIMAMENTE',
-          description:
-            'Únete a la comunidad para ser de los primeros en probarla.',
+          description: 'Únete a la comunidad para ser de los primeros en probarla.',
           buttonText: 'Unirse a la comunidad',
           buttonTo: 'https://discord.gg/XnMBBBa26k',
         },

@@ -10,7 +10,7 @@ const nqr = {
   theme: 'light',
   accent: 'color-qr-accent',
   featured: true,
-  order: 40,
+  order: 25,
   art: { product: 'nqr', variant: 'hero' },
   image: '/images/products/banners/banner-nqr.svg',
   downloads: [

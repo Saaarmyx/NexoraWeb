@@ -1,6 +1,6 @@
 const npasswords = {
   slug: 'npasswords',
-  name: 'NPasswords',
+  name: 'NPASSWORDS',
   tagline: 'Gestor de contraseñas local-first.',
   description:
     'Un gestor de contraseñas que mantiene tus claves en tu dispositivo. Cifrado local, sincronización opcional y sin dependencias de la nube obligatorias.',
@@ -9,16 +9,17 @@ const npasswords = {
   version: null,
   theme: 'dark',
   accent: 'color-passwords-accent',
-  featured: false,
-  order: 100,
+  featured: true,
+  order: 12,
   art: { product: 'npasswords' },
+  image: '/images/products/icons/icon-npasswords.svg',
   downloads: [],
   page: {
     seo: {
       title: 'NPasswords · Nexora',
       description:
         'Gestor de contraseñas local-first. Tus claves en tu dispositivo, cifrado local, sincronización opcional.',
-      ogImage: '/images/products/banner_npasswords.png',
+      ogImage: '/images/products/icons/icon-npasswords.svg',
     },
     sections: [
       {
@@ -48,8 +49,7 @@ const npasswords = {
             {
               icon: 'share',
               title: 'SINCRONIZACIÓN OPCIONAL',
-              description:
-                'Usa Nexora Cloud o tu propio WebDAV. Tú decides dónde viven tus datos.',
+              description: 'Usa Nexora Cloud o tu propio WebDAV. Tú decides dónde viven tus datos.',
             },
           ],
         },
@@ -58,8 +58,7 @@ const npasswords = {
         type: 'cta',
         props: {
           title: 'NPASSWORDS LLEGARÁ PRÓXIMAMENTE',
-          description:
-            'Únete a la comunidad para ser de los primeros en probarlo.',
+          description: 'Únete a la comunidad para ser de los primeros en probarlo.',
           buttonText: 'Unirse a la comunidad',
           buttonTo: 'https://discord.gg/XnMBBBa26k',
         },
