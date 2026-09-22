@@ -2,7 +2,7 @@ const productStatuses = ['released', 'beta', 'soon']
 
 const statusMeta = {
   released: {
-    label: 'Disponible',
+    label: 'Version oficial',
     badgeTone: 'neutral',
     isLaunchActive: true,
     canDownload: true,

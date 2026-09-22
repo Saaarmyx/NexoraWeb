@@ -23,7 +23,7 @@
 
 .footer-nav-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 2fr 1fr 1fr;
 
   gap: var(--spacing-xl) var(--spacing-lg);
 
@@ -55,11 +55,14 @@
   font-size: var(--font-size-xs);
   line-height: var(--line-height-compact);
 
-  transition: color var(--transition-fast);
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .footer-link:hover {
   color: var(--color-text-heading);
+  transform: translateX(2px);
 }
 
 .footer-bottom {
@@ -70,6 +73,8 @@
   gap: var(--spacing-sm);
 
   padding-top: var(--spacing-md);
+
+  border-top: var(--border-width-thin) solid var(--color-light-border);
 
   color: var(--color-text-muted);
 

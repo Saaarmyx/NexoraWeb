@@ -1,32 +1,15 @@
 import { Link } from 'react-router-dom'
-import { getProductsSync } from '../../../features/products'
-import getProductPath from '../../../utils/productRoutes'
 
 import './Footer.css'
 
-const products = getProductsSync()
-
-const featuredProductLinks = products
-  .filter((product) => product.featured)
-  .map((product) => ({
-    label: product.name,
-    to: getProductPath(product),
-  }))
-
 const footerColumns = [
   {
-    title: 'Descubrir',
+    title: 'Explorar',
     links: [
-      ...featuredProductLinks,
       { label: 'Productos', to: '/products' },
       { label: 'Ecosistema', to: '/ecosystem' },
-      { label: 'Dónde descargar', to: '/downloads' },
-    ],
-  },
-  {
-    title: 'Ecosistema',
-    links: [
       { label: 'Eventos', to: '/events' },
+      { label: 'Dónde descargar', to: '/downloads' },
       { label: 'Soporte', to: '/support' },
     ],
   },

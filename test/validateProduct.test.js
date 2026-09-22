@@ -11,7 +11,7 @@ const baseProduct = {
   version: null,
   theme: 'light',
   accent: 'color-code-accent',
-  featured: false,
+  featured: true,
   order: 1,
   downloads: [],
   page: {
@@ -26,7 +26,9 @@ describe('validateProduct', () => {
   })
 
   it('rechaza producto no objeto', () => {
-    expect(() => validateProduct(null)).toThrow('[validateProduct] (sin slug): el producto debe ser un objeto')
+    expect(() => validateProduct(null)).toThrow(
+      '[validateProduct] (sin slug): el producto debe ser un objeto',
+    )
   })
 
   it('rechaza slug vacío', () => {
@@ -111,11 +113,14 @@ describe('validateProduct', () => {
 
   it('rechaza download href no string ni null', () => {
     const p = { ...baseProduct, downloads: [{ platform: 'github', label: 'Descargar', href: 123 }] }
-    expect(() => validateProduct(p)).toThrow("downloads[0].href debe ser texto o null")
+    expect(() => validateProduct(p)).toThrow('downloads[0].href debe ser texto o null')
   })
 
   it('acepta download href null', () => {
-    const p = { ...baseProduct, downloads: [{ platform: 'github', label: 'Descargar', href: null }] }
+    const p = {
+      ...baseProduct,
+      downloads: [{ platform: 'github', label: 'Descargar', href: null }],
+    }
     expect(() => validateProduct(p)).not.toThrow()
   })
 
@@ -136,12 +141,24 @@ describe('validateProduct', () => {
   })
 
   it('rechaza section con type desconocido', () => {
-    const p = { ...baseProduct, page: { seo: { title: 'NCode', description: 'x' }, sections: [{ type: 'unknown', props: {} }] } }
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'unknown', props: {} }],
+      },
+    }
     expect(() => validateProduct(p)).toThrow('sections[0] tiene type desconocido')
   })
 
   it('rechaza section custom sin loader', () => {
-    const p = { ...baseProduct, page: { seo: { title: 'NCode', description: 'x' }, sections: [{ type: 'custom', props: {} }] } }
+    const p = {
+      ...baseProduct,
+      page: {
+        seo: { title: 'NCode', description: 'x' },
+        sections: [{ type: 'custom', props: {} }],
+      },
+    }
     expect(() => validateProduct(p)).toThrow("de type 'custom' debe declarar 'loader' como función")
   })
 
@@ -175,7 +192,9 @@ describe('validateProduct', () => {
         sections: [{ type: 'hero', props: { title: 'NCode' } }],
       },
     }
-    expect(() => validateProduct(p)).toThrow("la sección 'hero' del producto 'ncode' no tiene 'video'")
+    expect(() => validateProduct(p)).toThrow(
+      "la sección 'hero' del producto 'ncode' no tiene 'video'",
+    )
   })
 
   it('rechaza collage sin images', () => {
@@ -186,7 +205,9 @@ describe('validateProduct', () => {
         sections: [{ type: 'collage', props: { title: 'C' } }],
       },
     }
-    expect(() => validateProduct(p)).toThrow("la sección 'collage' del producto 'ncode' no tiene 'images'")
+    expect(() => validateProduct(p)).toThrow(
+      "la sección 'collage' del producto 'ncode' no tiene 'images'",
+    )
   })
 
   it('rechaza detailCards sin variants', () => {
@@ -197,7 +218,9 @@ describe('validateProduct', () => {
         sections: [{ type: 'detailCards', props: { title: 'D' } }],
       },
     }
-    expect(() => validateProduct(p)).toThrow("la sección 'detailCards' del producto 'ncode' no tiene 'variants'")
+    expect(() => validateProduct(p)).toThrow(
+      "la sección 'detailCards' del producto 'ncode' no tiene 'variants'",
+    )
   })
 
   it('rechaza textImage sin titulo (title)', () => {
@@ -208,7 +231,9 @@ describe('validateProduct', () => {
         sections: [{ type: 'textImage', props: { video: '/videos/t.mp4' } }],
       },
     }
-    expect(() => validateProduct(p)).toThrow("la sección 'textImage' del producto 'ncode' no tiene 'title'")
+    expect(() => validateProduct(p)).toThrow(
+      "la sección 'textImage' del producto 'ncode' no tiene 'title'",
+    )
   })
 
   it('rechaza links sin links', () => {
@@ -219,7 +244,9 @@ describe('validateProduct', () => {
         sections: [{ type: 'links', props: { title: 'L' } }],
       },
     }
-    expect(() => validateProduct(p)).toThrow("la sección 'links' del producto 'ncode' no tiene 'links'")
+    expect(() => validateProduct(p)).toThrow(
+      "la sección 'links' del producto 'ncode' no tiene 'links'",
+    )
   })
 
   it('rechaza cta sin buttonText', () => {
@@ -230,7 +257,9 @@ describe('validateProduct', () => {
         sections: [{ type: 'cta', props: { title: 'C', buttonTo: 'https://x.dev' } }],
       },
     }
-    expect(() => validateProduct(p)).toThrow("la sección 'cta' del producto 'ncode' no tiene 'buttonText'")
+    expect(() => validateProduct(p)).toThrow(
+      "la sección 'cta' del producto 'ncode' no tiene 'buttonText'",
+    )
   })
 
   it('acepta page sin definir', () => {
