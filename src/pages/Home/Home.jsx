@@ -18,7 +18,7 @@ function Home() {
             </>
           }
           buttonText="Explorar Nexora"
-          buttonTo="/products"
+          buttonTo="/events"
           video="/videos/landing/hero_lanzamientos.mp4"
         />
         {featuredProducts.map((product) => (
