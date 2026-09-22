@@ -37,31 +37,31 @@
   --color-ui-accent: var(--color-primary);
   --color-theme-accent: var(--color-primary);
 
-  --color-rename-accent: #eab308;
-  --color-songs-accent: #ec4899;
-  --color-finance-accent: #10b981;
+  --color-rename-accent: #a16207;
+  --color-songs-accent: #db2777;
+  --color-finance-accent: #059669;
   --color-code-accent: #2563eb;
-  --color-calculator-accent: #eab308;
-  --color-browser-accent: #0ea5e9;
-  --color-share-accent: #a855f7;
-  --color-cloud-accent: #14b8a6;
-  --color-mail-accent: #f97316;
-  --color-photos-accent: #ec4899;
-  --color-calendar-accent: #ef4444;
-  --color-closet-accent: #8b5cf6;
+  --color-calculator-accent: #a16207;
+  --color-browser-accent: #0284c7;
+  --color-share-accent: #7c3aed;
+  --color-cloud-accent: #0d9488;
+  --color-mail-accent: #ea580c;
+  --color-photos-accent: #db2777;
+  --color-calendar-accent: #dc2626;
+  --color-closet-accent: #7c3aed;
   --color-bank-accent: #047857;
-  --color-os-accent: #111827;
-  --color-qr-accent: #8b5cf6;
+  --color-os-accent: #374151;
+  --color-qr-accent: #7c3aed;
 
   /* Peligro / danger */
   --color-danger: #b91c1c;
   --color-danger-fg: #f87171;
 
   /* Nuevos productos (Fase 2) */
-  --color-files-accent: #22c55e;
-  --color-calculator-accent: #eab308;
-  --color-recorder-accent: #d946ef;
-  --color-passwords-accent: #4f46e5;
+  --color-files-accent: #16a34a;
+  --color-calculator-accent: #a16207;
+  --color-recorder-accent: #c026d3;
+  --color-passwords-accent: #4338ca;
 
   /* Tipografía */
 
@@ -202,8 +202,8 @@ body[data-theme='light'] {
   --color-text-primary: #1d1d1f;
   --color-text-secondary: #424245;
   --color-text-heading: #1d1d1f;
-  --color-text-body: #a1a1a6;
-  --color-text-muted: #86868b;
+  --color-text-body: #6e6e73;
+  --color-text-muted: #52525b;
   --color-text-link: var(--color-primary);
 
   --color-light-border: rgba(0, 0, 0, 0.08);
@@ -230,7 +230,7 @@ body[data-theme='dark'] {
   --color-text-secondary: #d2d2d7;
   --color-text-heading: #ffffff;
   --color-text-body: #a1a1a6;
-  --color-text-muted: #6e6e73;
+  --color-text-muted: #3f3f46;
   --color-text-link: var(--color-primary);
 
   --color-light-border: rgba(255, 255, 255, 0.1);

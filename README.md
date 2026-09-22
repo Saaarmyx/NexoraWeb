@@ -1,256 +1,196 @@
 # NexoraWeb
 
-Sitio web del ecosistema **Nexora Labs**: presenta los productos de Nexora (Nexora Cloud,
-NCode, NPhotos, NQR, NEXA OS, NConnect), el modelo de ecosistema conectado y sus lanzamientos. Construido
-como una single-page app con rutas propias por sección, sin TypeScript y sin frameworks de CSS.
+Sitio web del ecosistema **Nexora Labs**: presenta los productos de Nexora (NCode,
+NPhotos, NQR, NEXA Cloud, NConnect, NFiles, NCalculator, NRecorder, NPasswords, NEXA OS),
+el modelo de ecosistema conectado y sus lanzamientos. Construido como una single-page app
+con rutas dinámicas por producto, sin TypeScript y sin frameworks de CSS.
 
 ## Stack
 
 - React 19
 - Vite 8
 - JavaScript (sin TypeScript)
-- React Router DOM 7
+- React Router 7
 - Font Awesome (iconografía, solo vía `Icon`)
 - CSS plano (sin Tailwind, sin Bootstrap, sin CSS-in-JS)
+- Vitest + Playwright (tests)
 
 ## Estructura del proyecto
-
-La aplicación expone módulos por responsabilidad. Los archivos `index.js` funcionan como puntos
-de entrada estables para evitar imports profundos y permitir mover componentes internamente.
 
 ```text
 NexoraWeb/
 ├── public/
-│   ├── fonts/            # Gliker (headings) en .woff2
+│   ├── fonts/            # Gliker (headings) + Inter/Fredoka/JetBrains Mono
 │   ├── images/            # banners de producto y assets de referencia
-│   ├── icons/              # iconografía de producto (variantes black/white)
-│   └── videos/              # videos de fondo usados en hero/coming-soon
+│   └── videos/            # videos de fondo usados en hero/coming-soon
 │
 ├── src/
 │   ├── components/
-│   │   ├── ui/              # API pública de componentes básicos reutilizables
-│   │   ├── atoms/           # componentes genéricos reutilizables en todo el proyecto
-│   │   │   ├── Badge/         # etiqueta de estado/disponibilidad
-│   │   │   ├── Button/        # botón (renderiza <Link>, <a> o <button> según props)
-│   │   │   └── Card/           # superficie base genérica (variant, radius, isInteractive)
-│   │   │
-│   │   ├── layout/           # estructura global de la aplicación, presente en toda página
-│   │   │   ├── Header/         # header sticky, navegación, menú móvil
-│   │   │   └── Footer/          # footer con columnas de enlaces
-│   │   │
-│   │   ├── product/          # piezas de UI específicas del sistema de productos
-│   │   │   ├── ProductCard/     # tarjeta de producto para grillas de catálogo
-│   │   │   ├── ProductFeatured/  # producto destacado en formato ancho
-│   │   │   └── ProductHero/       # spotlight de un producto individual (Home)
-│   │   │
-│   │   └── shared/           # secciones reutilizables entre páginas, no ligadas a un producto
-│   │       ├── CollageCard/       # tarjeta collage de imágenes con título + descripción
-│   │       ├── ComingSoonHero/  # hero de video para rutas todavía no construidas
-│   │       ├── CtaSection/       # banner de llamada a la acción genérico
-│   │       ├── DetailCard/        # tarjeta de detalle con variantes (imagen + color)
-│   │       ├── FeatureGrid/       # grilla de tarjetas icono + título + descripción
-│   │       ├── Hero/               # hero genérico con eyebrow/título/CTA
-│   │       ├── LaunchHero/          # banner de lanzamiento controlado por props (video o imagen)
-│   │       ├── ProductLinksCard/   # tarjeta de enlaces de producto (comunidad, descarga)
-│   │       ├── TextImageCard/       # tarjeta texto + imagen/video
-│   │       └── VideoHero/           # hero de video para páginas de producto
-│   │   ├── sections/         # API pública de las secciones compartidas
-│   │
-│   ├── app/
-│   │   └── routes.jsx        # configuración central de rutas
-│   │
+│   │   ├── ui/            # API pública de componentes básicos (Badge, Button, Card, Icon, Reveal)
+│   │   ├── layout/        # estructura global (Header, Footer)
+│   │   ├── product/       # piezas de UI específicas del sistema de productos
+│   │   │   ├── ProductCard/
+│   │   │   ├── ProductFeatured/
+│   │   │   └── ProductHero/
+│   │   ├── illustrations/ # ProductArt + productMotifs (iconos por producto)
+│   │   └── sections/      # API pública de secciones compartidas
+│   │       ├── ErrorBoundary/
+│   │       ├── CollageCard/
+│   │       ├── ComingSoonHero/
+│   │       ├── CtaSection/
+│   │       ├── DetailCard/
+│   │       ├── FeatureGrid/
+│   │       ├── Hero/
+│   │       ├── LaunchHero/
+│   │       ├── ProductLinksCard/
+│   │       ├── TextImageCard/
+│   │       └── VideoHero/
 │   ├── features/
-│   │   ├── products/         # catálogo y API de componentes de productos
-│   │   ├── ncode/            # página y contenido específico de NCode
-│   │   ├── nphotos/          # página y contenido específico de NPhotos
-│   │   └── nqr/              # página y contenido específico de NQR
+│   │   └── products/      # catálogo, datos, validación, rutas dinámicas
+│   │       ├── content/   # archivos por slug (ncloud.js, ncode.js, etc.)
+│   │       ├── data/      # products-generated.js (auto-generado)
+│   │       ├── ProductPage.jsx  # template único para todos los productos
+│   │       ├── sectionRegistry.jsx # resolve secciones con lazy imports
+│   │       ├── validateProduct.js  # validación de productos
+│   │       ├── statusMeta.js       # estados (released/beta/soon)
+│   │       └── index.js
 │   ├── pages/
-│   │   ├── Home/            # "/"
-│   │   ├── Products/         # "/products"
-│   │   ├── Ecosystem/         # "/ecosystem"
-│   │   ├── ComingSoon/          # ruta comodín "*"
-│   │   ├── Downloads/           # "/downloads"
-│   │   ├── Events/              # "/events"
-│   │   └── Legal/               # privacidad, accesibilidad y seguridad
-│   │
-│   ├── data/                # reexportaciones de compatibilidad
-│   │   └── products.js       # reexportación del catálogo del dominio
-│   │
+│   │   ├── Home/
+│   │   ├── Products/
+│   │   ├── Downloads/
+│   │   ├── Events/
+│   │   └── Legal/
 │   ├── styles/
-│   │   ├── tokens.css        # fuente de verdad del sistema de diseño (colores, tipografía, radios...)
-│   │   ├── base.css            # estructura global, contenedores, utilidades
-│   │   ├── responsive.css      # ajustes responsive globales
-│   │   ├── fonts.css             # @font-face de Gliker
-│   │   └── reset.css               # reset base
-│   │
-│   ├── App.jsx               # composición global: BrowserRouter, Header, rutas y Footer
-│   └── main.jsx                # punto de entrada, monta <App /> y estilos base
+│   │   ├── tokens.css        # fuente de verdad del sistema de diseño
+│   │   ├── fonts.css         # @font-face de todos los kits tipográficos
+│   │   ├── base.css
+│   │   └── reset.css
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── entry-server.jsx
 │
+├── scripts/
+│   ├── generate-products.mjs  # genera products-generated.js en build
+│   ├── postbuild-fonts.mjs    # limpia dist/fonts/ según VITE_FONT_SET
+│   └── wcag-contrast.mjs      # checker de contraste WCAG 2.1
+│
+├── test/                    # tests unitarios con Vitest
+│   ├── validateProduct.test.js
+│   ├── statusMeta.test.js
+│   ├── sectionRegistry.test.js
+│   └── smoke.test.js
+├── e2e/                     # tests de e2e con Playwright
+│   ├── all-products.spec.js
+│   └── product-pages.spec.js
+├── docs/
+│   └── FONTS.md
 ├── index.html
 ├── package.json
-├── package-lock.json
+├── vitest.config.js
 └── vite.config.js
 ```
 
 ## Componentes
 
-- **ui/**: punto de entrada público para bloques mínimos, genéricos y sin conocimiento de negocio
-  (`Button`, `Card`, `Badge`, `Icon`, `Reveal`). Los archivos internos todavía viven en `atoms/` como detalle de
-  implementación. `Icon` es el único punto de acceso a iconografía (Font Awesome Free, solid +
-  brands): ningún otro componente importa paquetes de iconos directamente.
-- **layout/**: piezas que envuelven toda la aplicación y se renderizan una sola vez desde
-  `App.jsx` (`Header`, `Footer`).
-- **features/products/**: fuente de datos y API de componentes que reciben un objeto `product`
-  (`ProductCard`, `ProductFeatured`, `ProductHero`).
-- **features/ncode/**, **features/nphotos/**, **features/nqr/**: composición y contenido de cada
-  página dedicada de producto (`NCodePage`, `NPhotosPage`, `NQRPage`), con su propio tema.
-- **sections/**: punto de entrada para secciones reutilizables entre rutas, sin acoplarse a un
-  producto concreto (`Hero`, `LaunchHero`, `VideoHero`, `CollageCard`, `DetailCard`,
-  `TextImageCard`, `FeatureGrid`, `CtaSection`, `ProductLinksCard`, `ComingSoonHero`).
-- **app/**: configuración de navegación separada de la composición global de `App.jsx`.
+- **ui/**: punto de entrada público para bloques mínimos (`Button`, `Card`, `Badge`, `Icon`, `Reveal`).
+  `Icon` es el único punto de acceso a iconografía (Font Awesome Free, solid + brands).
+- **layout/**: `Header`, `Footer` — presentes en toda la aplicación.
+- **features/products/**: fuente de datos y template único para todos los productos.
+  Cada producto se define en `content/<slug>.js` y se renderiza con `ProductPage`.
+- **sections/**: secciones reutilizables entre rutas (`Hero`, `LaunchHero`, `VideoHero`,
+  `CollageCard`, `DetailCard`, `TextImageCard`, `FeatureGrid`, `CtaSection`,
+  `ProductLinksCard`, `ComingSoonHero`, `ErrorBoundary`).
+- **illustrations/**: `ProductArt` y `productMotifs` para iconos tematizados por producto.
 
 ## Páginas
 
-| Ruta                      | Página       | Descripción                                                   |
-| ------------------------- | ------------ | ------------------------------------------------------------- |
-| `/`                       | `Home`       | Lanzamiento destacado + spotlight de cada producto `featured` |
-| `/products`               | `Products`   | Producto destacado + grilla con el resto del catálogo         |
-| `/products/ncode`         | `NCodePage`    | Página dedicada del producto NCode, con su propio tema        |
-| `/products/nphotos`       | `NPhotosPage`  | Página dedicada del producto NPhotos, con su propio tema      |
-| `/products/nqr`           | `NQRPage`      | Página dedicada del producto NQR (generador QR), en beta      |
-| `/ecosystem`              | `Ecosystem`  | Modelo de ecosistema conectado                                |
-| `/downloads`              | `Downloads`  | Productos Nexora y disponibilidad de descargas                |
-| `/events`                 | `Events`     | Lanzamientos y novedades                                      |
-| `/privacy`                | `LegalPage`  | Privacidad                                                    |
-| `/accessibility`          | `LegalPage`  | Accesibilidad                                                 |
-| `/security`               | `LegalPage`  | Seguridad                                                     |
-| `/support`                | `ComingSoon` | Placeholder de soporte                                        |
-| `*` (cualquier otra ruta) | `ComingSoon` | Placeholder de video para secciones aún no construidas        |
+| Ruta                      | Página       | Descripción                                   |
+| ------------------------- | ------------ | --------------------------------------------- |
+| `/`                       | `Home`       | Lanzamiento destacado + spotlight             |
+| `/products`               | `Products`   | Grilla del catálogo completo                  |
+| `/products/:slug`         | `ProductPage`| Template único para todos los productos        |
+| `/ecosystem`              | `Ecosystem`  | Modelo de ecosistema conectado                |
+| `/downloads`              | `Downloads`  | Productos Nexora y descargas                  |
+| `/events`                 | `Events`     | Lanzamientos y novedades                     |
+| `/privacy`, `/accessibility`, `/security` | `LegalPage` | Privacidad, accesibilidad, seguridad |
+| `*` (cualquier otra ruta) | `ComingSoon` | Placeholder de video                          |
 
 ## Sistema de productos
 
-`src/features/products/data/products.js` es la fuente única de verdad del catálogo. `Home`,
-`Products`, `Ecosystem`, `Events`, `Downloads` y las páginas dedicadas (`NCodePage`, `NPhotosPage`,
-`NQRPage`) acceden a los productos a través de `features/products`. El archivo
-`src/data/products.js` solo conserva una reexportación de compatibilidad. Cada producto tiene:
+Cada producto se define en `src/features/products/content/<slug>.js`. El catálogo se
+genera automáticamente en build mediante `scripts/generate-products.mjs`, produciendo
+`src/features/products/data/products-generated.js`.
 
-- `slug` — identificador usado en la URL (`/products/:slug`) y como `key` en listas.
+Cada producto tiene:
+
+- `slug` — identificador para la URL (`/products/:slug`).
 - `name` — nombre mostrado del producto.
-- `description` — texto descriptivo usado en las distintas tarjetas/heroes.
-- `availability` — estado de disponibilidad mostrado en un `Badge`/texto (p. ej. "En beta").
-- `image` — ruta del banner en `public/images/`.
-- `theme` — `'light'` o `'dark'`; determina el tema visual de la sección/página del producto.
-- `accent` — nombre de token de acento (p. ej. `'color-qr-accent'`); se expone como
-  `--color-theme-accent` mientras la página del producto está montada.
-- `art` — ilustración del catálogo (`{ product, variant }`); los componentes la resuelven con
-  `ProductArt` en vez de un PNG.
-- `featured` — si es `true`, el producto aparece en el spotlight de `Home` y en el catálogo de
-  `Products`.
+- `description` — texto descriptivo.
+- `status` — `'released'`, `'beta'` o `'soon'` (ver `statusMeta`).
+- `image` — ruta del banner SVG en `public/images/products/banners/`.
+- `theme` — `'light'` o `'dark'`.
+- `accent` — nombre de token de acento (p. ej. `'color-code-accent'`).
+- `art` — ilustración del catálogo (`{ product, variant }`).
+- `featured` — si es `true`, aparece en spotlight y catálogo.
+- `sections` — array de secciones para el template `ProductPage`.
+- `downloads` — array de enlaces de descarga.
 
-`NCode`, `NPhotos` y `NQR` obtienen su propio producto buscándolo por `slug` en ese mismo catálogo:
-
-```js
-const product = products.find((item) => item.slug === 'nqr')
-```
-
-NCode y NQR están en beta (`availability: 'En beta'`), por lo que `Events` los muestra como
-lanzamientos activos y `Downloads` habilita su acción (`DESCARGAR` o `ABRIR`).
-
-Para añadir un producto nuevo solo hace falta agregar un objeto más a `products.js`; ningún
+Para añadir un producto nuevo solo hace falta agregar un archivo en `content/`; ningún
 componente necesita cambiar.
 
 ## Sistema de temas
 
-El campo `theme` de cada producto (`'light'` o `'dark'`) determina el tema visual de su sección o
-página:
-
-- En `Home`, `ProductHero` recibe `theme={product.theme}` y aplica la clase
-  `product-hero-card--{theme}` correspondiente.
-- En `features/ncode/NCodePage.jsx`, `features/nphotos/NPhotosPage.jsx` y
-  `features/nqr/NQRPage.jsx`, el hook `useProductTheme` lee `product.theme` y lo escribe en `document.body.dataset.theme`
-  mientras la página está montada, restaurándolo a `'light'` al desmontarse. El segundo argumento
-  (`product.accent`) expone el acento del producto como `--color-theme-accent` y lo retira al salir,
-  así ilustraciones y detalles heredan el color del producto sin props.
+El campo `theme` de cada producto (`'light'` o `'dark'`) determina el tema visual de su
+sección o página. `ProductPage` aplica el tema al montarse y lo restaura al desmontarse.
 
 ## Ilustraciones
 
-`src/components/illustrations/` es la librería de ilustraciones tematizadas. Cada pieza es el icono
-Font Awesome del producto teñido con el `accent` de su propia app (leído del catálogo, así es correcto
-en cualquier página), sin fondos ni decoraciones:
-
-```jsx
-<ProductArt product="nqr" variant="spot" tone="brand" />
-```
-
-- `product` — motivo (`ncode`, `nphotos`, `nqr`, `ncloud`, `nconnect`, `os`); desconocido cae a `nqr`.
-- `variant` — `'spot'` (1:1) o `'hero'` (16:9).
-- `tone` — tratamiento del icono: `'brand'` (acento de su app), `'ink'` (texto), `'paper'`
-  (blanco) o `'midnight'` (atenuado).
-- `DetailCard` acepta `art: { product, variant, tone }` por variante en vez de `image`.
-- Las tarjetas de catálogo (`ProductHero`, `ProductFeatured`, `ProductCard`), `Ecosystem`, `Events` y
-  `Downloads` usan `product.art` cuando existe y caen a `image` si no.
+`src/components/illustrations/` contiene `ProductArt` y `productMotifs`. Cada producto
+tiene un mapeo a un icono Font Awesome (`productMotifs.js`). Los componentes usan
+`ProductArt` para renderizar ilustraciones tematizadas con el `accent` de su propia app.
 
 ## Motion
 
-`src/styles/motion.css` concentra todos los keyframes; ningún componente define los suyos. Escala en
-`tokens.css`: `--motion-duration-*`, `--motion-stagger-step`, `--ease-out`.
-
-- `Reveal` (desde `components/ui`) anima la entrada on-scroll con `IntersectionObserver`; `delay`
-  en ms en pasos de `--motion-stagger-step` (90). Los bloques con `Reveal` quedan fuera del
-  `page-enter` global automáticamente.
+- `Reveal` (desde `components/ui`) anima la entrada on-scroll con `IntersectionObserver`.
 - Toda animación respeta `prefers-reduced-motion`.
 
 ## Assets
 
-Todos los assets públicos (fuentes, imágenes, iconos y videos) viven en `public/` y Vite los sirve
-tal cual desde la raíz del sitio. Se referencian con rutas absolutas directamente en el JSX o en
-`data/products.js`, por ejemplo:
-
-```jsx
-<img src="/images/ncode/banner_ncode.png" alt="NCode" />
-```
-
-No se importan como módulos de JS ni se mueven a `src/assets/`.
+Todos los assets públicos (fuentes, imágenes, videos) viven en `public/` y Vite los sirve
+desde la raíz del sitio. Los banners de producto son SVG en `public/images/products/banners/`.
 
 ## Desarrollo
 
-Comandos disponibles en `package.json`:
-
 ```bash
-npm install        # instalar dependencias
-npm run dev         # entorno de desarrollo con HMR
-npm run build         # build de producción en dist/
-npm run preview         # sirve el build de producción localmente
-npm run lint              # oxlint sobre el proyecto
+npm install                          # instalar dependencias
+npm run dev                          # entorno de desarrollo con HMR
+npm run build                        # build de producción en dist/
+npm run preview                      # sirve el build de producción localmente
+npm run lint                         # oxlint sobre el proyecto
+npm run test                         # vitest run (unitarios)
+npm run generate:products            # regenera products-generated.js
+npm run check                        # lint + test + build
 ```
+
+## Tests
+
+- **Unitarios** (Vitest): `npm run test` — validación de productos, estado, secciones y smoke test.
+- **E2E** (Playwright): `npx playwright test` — render de todos los productos y parity visual.
+- **WCAG**: `node scripts/wcag-contrast.mjs` — verifica ratios de contraste WCAG 2.1.
 
 ## Convenciones
 
 - JavaScript puro, sin TypeScript.
 - Componentes en PascalCase, cada uno en su propia carpeta junto a su `.css`.
-- No existe `App.css`: los estilos de `App.jsx` viven en `src/styles/base.css`.
-- Los componentes básicos se consumen desde `components/ui` y las secciones desde
-  `components/sections`; se evitan imports profundos desde las páginas.
-- Los datos específicos de una funcionalidad viven junto a ella en `features/`; el catálogo
-  mantiene una reexportación de compatibilidad en `data/products.js`.
+- Los componentes básicos se consumen desde `components/ui` y las secciones desde `components/sections`.
+- Los datos específicos de un producto viven en `content/<slug>.js`; el catálogo se genera en build.
 - Los assets viven en `public/`, nunca en `src/assets/`.
+- Los colores hex solo se definen en `src/styles/tokens.css`.
 
 ## Principios
 
-- **Reutilización**: preferir extender un componente existente (`Card`, `Button`, `FeatureGrid`)
-  antes que crear uno nuevo para el mismo propósito.
-- **Separación de responsabilidades**: `atoms/` no sabe de productos, `product/` no sabe de
-  layout, `data/` no sabe de React.
-- **Componentes pequeños**: cada componente resuelve una sola responsabilidad visual.
-- **Tokens de diseño**: todo color, radio, tipografía o espaciado nuevo debe apoyarse primero en
-  `src/styles/tokens.css` antes de hardcodear un valor. Ningún hex fuera de `tokens.css`: los datos
-  (`*.data.js`) referencian colores por nombre de token (`token: 'color-primary'`), nunca con hex.
-- **Scrims**: los overlays de legibilidad sobre imagen/video usan la escala `--color-scrim-*`; no se
-  escriben gradientes `rgba()` sueltos por componente.
-- **No duplicar estilos**: si dos componentes necesitan el mismo patrón visual, ese patrón debe
-  vivir en un token o en un componente compartido, no copiarse.
-- **`Card` genérico**: `Card` sigue siendo una superficie base (`variant`, `radius`,
-  `isInteractive`); la lógica específica de producto vive en los componentes de `product/` que lo
-  envuelven, no en `Card` mismo.
-- **`Button` genérico**: `Button` sigue siendo el único átomo de acción del proyecto, reutilizado
-  por `product/` y `shared/` sin variantes paralelas.
+- **Reutilización**: preferir extender un componente existente antes que crear uno nuevo.
+- **Separación de responsabilidades**: `ui/` no sabe de productos, `product/` no sabe de layout.
+- **Tokens de diseño**: todo color, radio, tipografía o espaciado nuevo debe apoyarse en `tokens.css`.
+- **Lazy loading**: las secciones se cargan con `import()` dinámico vía `sectionRegistry`.
+- **ErrorBoundary**: cada sección en `ProductPage` está envuelta en un `ErrorBoundary`.

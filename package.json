@@ -7,6 +7,7 @@
     "dev": "node scripts/generate-products.mjs && vite",
     "build": "node scripts/generate-products.mjs && vite build",
     "lint": "oxlint",
+    "test": "vitest run",
     "preview": "vite preview",
     "generate:products": "node scripts/generate-products.mjs",
     "postbuild": "node scripts/postbuild-fonts.mjs",
@@ -30,6 +31,7 @@
     "esbuild": "^0.28.2",
     "jsdom": "^30.1.0",
     "oxlint": "^1.81.0",
-    "vite": "^8.3.0"
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
   }
 }
