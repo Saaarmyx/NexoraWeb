@@ -36,28 +36,23 @@ function ProductSection({ section }) {
   const [Component, setComponent] = useState(null)
 
   useEffect(() => {
-    console.log('Loading section:', section.type)
+    if (!section || !section.type) return
     resolveSectionComponent(section)
       .then((comp) => {
-        console.log('Loaded section:', section.type, comp?.name)
         setComponent(comp)
       })
       .catch((err) => {
-        console.error('Error loading section component:', section.type, err)
+        console.error('Error loading section component:', section?.type, err)
       })
   }, [section])
 
-  if (!Component) {
-    return <div className="section-error">Error loading section: {section.type}</div>
+  if (!Component || !section) {
+    return <div className="section-error">Error loading section</div>
   }
 
   if (section.type === 'custom') {
     const content = <CustomSection loader={section.loader} sectionProps={section.props} />
-
-    if (!section.reveal) {
-      return <>{content}</>
-    }
-
+    if (!section.reveal) return <>{content}</>
     return (
       <Reveal delay={section.revealDelay ?? 0} className={section.revealClassName || ''}>
         {content}
@@ -67,11 +62,11 @@ function ProductSection({ section }) {
 
   let content
   try {
-    console.log('Rendering section:', section.type, section.props)
-    content = <Component {...section.props} />
+    const props = section.props || {}
+    content = <Component {...props} />
   } catch (err) {
-    console.error('Error rendering section:', section.type, err)
-    content = <div className="section-error">Error rendering section: {section.type}</div>
+    console.error('Error rendering section:', section?.type, err)
+    content = <div className="section-error">Error rendering section: {section?.type}</div>
   }
 
   if (!section.reveal) {
