@@ -22,7 +22,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding: var(--spacing-3xl);
+  padding: var(--spacing-xl);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.08) 70%);
 }
 

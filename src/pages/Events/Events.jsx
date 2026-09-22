@@ -16,15 +16,11 @@ function Events() {
     <section className="section events-page">
       <div className="container">
         <section className="events-hero">
-          <img
-            className="events-hero-image"
-            src="/images/hero/hero_lanzamientos.png"
-            alt="Nexora presenta sus próximos lanzamientos"
-          />
+          <img className="events-hero-image" src="/images/hero/banner-nexora.svg" />
 
           <div className="events-hero-overlay">
             <div className="events-hero-content">
-              <h1>NEXORA PRESENTA</h1>
+              <h1>xPRESENTA</h1>
 
               <p>
                 Nuevas ideas, productos y experiencias diseñadas para ampliar la forma en la que
