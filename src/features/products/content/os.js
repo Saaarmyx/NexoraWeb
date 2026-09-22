@@ -12,14 +12,14 @@ const os = {
   featured: false,
   order: 50,
   art: { product: 'os' },
-  image: '/images/products/banner_nexa.png',
+  image: '/images/products/banners/banner-nexa.svg',
   downloads: [],
   page: {
     seo: {
       title: 'Nexa · Nexora',
       description:
         'Un sistema operativo diseñado para funcionar en conjunto con todo tu ecosistema. Más simple, más rápido y construido alrededor de ti.',
-      ogImage: '/images/products/banner_nexa.png',
+      ogImage: '/images/products/banners/banner-nexa.svg',
     },
     sections: [
       {

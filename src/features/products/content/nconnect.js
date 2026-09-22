@@ -12,14 +12,14 @@ const nconnect = {
   featured: false,
   order: 60,
   art: { product: 'nconnect' },
-  image: '/images/products/banner_nconnect.png',
+  image: '/images/products/banners/banner-nconnect.svg',
   downloads: [],
   page: {
     seo: {
       title: 'NConnect · Nexora',
       description:
         'Conecta tus dispositivos Nexora de forma instantánea. Comparte archivos, continúa tareas y mantén todo sincronizado.',
-      ogImage: '/images/products/banner_nconnect.png',
+      ogImage: '/images/products/banners/banner-nconnect.svg',
     },
     sections: [
       {

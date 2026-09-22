@@ -12,14 +12,14 @@ const ncloud = {
   featured: false,
   order: 10,
   art: { product: 'ncloud' },
-  image: '/images/products/banner_ncloud.png',
+  image: '/images/products/banners/banner-ncloud.svg',
   downloads: [],
   page: {
     seo: {
       title: 'NEXA Cloud · Nexora',
       description:
         'Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora.',
-      ogImage: '/images/products/banner_ncloud.png',
+      ogImage: '/images/products/banners/banner-ncloud.svg',
     },
     sections: [
       {

@@ -17,13 +17,13 @@ export const products = [
     "art": {
       "product": "ncloud"
     },
-    "image": "/images/products/banner_ncloud.png",
+    "image": "/images/products/banners/banner-ncloud.svg",
     "downloads": [],
     "page": {
       "seo": {
         "title": "NEXA Cloud · Nexora",
         "description": "Tu información, tus archivos y tus datos en un solo lugar. Sincroniza todo tu ecosistema Nexora.",
-        "ogImage": "/images/products/banner_ncloud.png"
+        "ogImage": "/images/products/banners/banner-ncloud.svg"
       },
       "sections": [
         {
@@ -113,19 +113,19 @@ export const products = [
             "description": "Un entorno pensado para acompañarte desde la primera línea de código hasta el resultado final.",
             "images": [
               {
-                "src": "/images/ncode/ncode-crea.png",
+                "src": "/images/ncode/ncode-crea.svg",
                 "alt": "NCode",
                 "title": "CREA",
                 "description": "Convierte tus ideas en código."
               },
               {
-                "src": "/images/ncode/ncode-simula.png",
+                "src": "/images/ncode/ncode-simula.svg",
                 "alt": "Simulación de un proyecto en NCode",
                 "title": "SIMULA",
                 "description": "Comprueba cómo funciona antes de terminar."
               },
               {
-                "src": "/images/ncode/ncode-depura.png",
+                "src": "/images/ncode/ncode-depura.svg",
                 "alt": "Depuración de un proyecto en NCode",
                 "title": "DEPURA",
                 "description": "Encuentra el problema y resuélvelo."
@@ -228,13 +228,13 @@ export const products = [
     "art": {
       "product": "nphotos"
     },
-    "image": "/images/nphotos/banner_nphotos.png",
+    "image": "/images/products/banners/banner-nphotos.svg",
     "downloads": [],
     "page": {
       "seo": {
         "title": "Photos · Nexora",
         "description": "Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.",
-        "ogImage": "/images/nphotos/banner_nphotos.png"
+        "ogImage": "/images/products/banners/banner-nphotos.svg"
       },
       "sections": [
         {
@@ -252,19 +252,19 @@ export const products = [
             "description": "Una biblioteca pensada para organizar tus fotos y videos y mantenerlos cerca en cada dispositivo.",
             "images": [
               {
-                "src": "/images/nphotos/nphotos-organiza.png",
+                "src": "/images/nphotos/nphotos-organiza.svg",
                 "alt": "Organización de la biblioteca en NPhotos",
                 "title": "ORGANIZA",
                 "description": "Encuentra tus fotos y videos sin perder tiempo buscando."
               },
               {
-                "src": "/images/nphotos/nphotos-respalda.png",
+                "src": "/images/nphotos/nphotos-respalda.svg",
                 "alt": "Respaldo de NPhotos en Nexora Cloud",
                 "title": "RESPALDA",
                 "description": "Tu biblioteca se mantiene conectada con Nexora Cloud."
               },
               {
-                "src": "/images/nphotos/nphotos-comparte.png",
+                "src": "/images/nphotos/nphotos-comparte.svg",
                 "alt": "Recuerdos compartidos entre dispositivos Nexora",
                 "title": "COMPARTE",
                 "description": "Tus recuerdos viajan contigo entre tus dispositivos."
@@ -352,7 +352,7 @@ export const products = [
       "product": "nqr",
       "variant": "hero"
     },
-    "image": "/images/nqr/banner_nqr.png",
+    "image": "/images/products/banners/banner-nqr.svg",
     "downloads": [
       {
         "platform": "github",
@@ -364,7 +364,7 @@ export const products = [
       "seo": {
         "title": "NQR · Nexora",
         "description": "Genera códigos QR al instante: enlaces, textos, redes Wi-Fi y más, listos para compartir desde cualquier dispositivo.",
-        "ogImage": "/images/nqr/banner_nqr.png"
+        "ogImage": "/images/products/banners/banner-nqr.svg"
       },
       "sections": [
         {
@@ -386,19 +386,19 @@ export const products = [
             "description": "Una herramienta pensada para convertir enlaces, textos y conexiones en códigos listos para escanear.",
             "images": [
               {
-                "src": "/images/nqr/nqr-crea.png",
+                "src": "/images/nqr/nqr-crea.svg",
                 "alt": "Creación de un código QR en NQR",
                 "title": "CREA",
                 "description": "Genera códigos QR al instante desde cualquier dispositivo."
               },
               {
-                "src": "/images/nqr/nqr-personaliza.png",
+                "src": "/images/nqr/nqr-personaliza.svg",
                 "alt": "Personalización de un código QR en NQR",
                 "title": "PERSONALIZA",
                 "description": "Adapta tus códigos a lo que quieres compartir."
               },
               {
-                "src": "/images/nqr/nqr-comparte.png",
+                "src": "/images/nqr/nqr-comparte.svg",
                 "alt": "Código QR compartido en el ecosistema Nexora",
                 "title": "COMPARTE",
                 "description": "Tus códigos viajan contigo por todo el ecosistema Nexora."
@@ -496,13 +496,13 @@ export const products = [
     "art": {
       "product": "os"
     },
-    "image": "/images/products/banner_nexa.png",
+    "image": "/images/products/banners/banner-nexa.svg",
     "downloads": [],
     "page": {
       "seo": {
         "title": "Nexa · Nexora",
         "description": "Un sistema operativo diseñado para funcionar en conjunto con todo tu ecosistema. Más simple, más rápido y construido alrededor de ti.",
-        "ogImage": "/images/products/banner_nexa.png"
+        "ogImage": "/images/products/banners/banner-nexa.svg"
       },
       "sections": [
         {
@@ -562,13 +562,13 @@ export const products = [
     "art": {
       "product": "nconnect"
     },
-    "image": "/images/products/banner_nconnect.png",
+    "image": "/images/products/banners/banner-nconnect.svg",
     "downloads": [],
     "page": {
       "seo": {
         "title": "NConnect · Nexora",
         "description": "Conecta tus dispositivos Nexora de forma instantánea. Comparte archivos, continúa tareas y mantén todo sincronizado.",
-        "ogImage": "/images/products/banner_nconnect.png"
+        "ogImage": "/images/products/banners/banner-nconnect.svg"
       },
       "sections": [
         {

@@ -12,7 +12,7 @@ const nqr = {
   featured: true,
   order: 40,
   art: { product: 'nqr', variant: 'hero' },
-  image: '/images/nqr/banner_nqr.png',
+  image: '/images/products/banners/banner-nqr.svg',
   downloads: [
     {
       platform: 'github',
@@ -25,7 +25,7 @@ const nqr = {
       title: 'NQR · Nexora',
       description:
         'Genera códigos QR al instante: enlaces, textos, redes Wi-Fi y más, listos para compartir desde cualquier dispositivo.',
-      ogImage: '/images/nqr/banner_nqr.png',
+      ogImage: '/images/products/banners/banner-nqr.svg',
     },
     sections: [
       {
@@ -48,19 +48,19 @@ const nqr = {
             'Una herramienta pensada para convertir enlaces, textos y conexiones en códigos listos para escanear.',
           images: [
             {
-              src: '/images/nqr/nqr-crea.png',
+              src: '/images/nqr/nqr-crea.svg',
               alt: 'Creación de un código QR en NQR',
               title: 'CREA',
               description: 'Genera códigos QR al instante desde cualquier dispositivo.',
             },
             {
-              src: '/images/nqr/nqr-personaliza.png',
+              src: '/images/nqr/nqr-personaliza.svg',
               alt: 'Personalización de un código QR en NQR',
               title: 'PERSONALIZA',
               description: 'Adapta tus códigos a lo que quieres compartir.',
             },
             {
-              src: '/images/nqr/nqr-comparte.png',
+              src: '/images/nqr/nqr-comparte.svg',
               alt: 'Código QR compartido en el ecosistema Nexora',
               title: 'COMPARTE',
               description: 'Tus códigos viajan contigo por todo el ecosistema Nexora.',

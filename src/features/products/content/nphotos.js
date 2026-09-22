@@ -12,14 +12,14 @@ const nphotos = {
   featured: true,
   order: 30,
   art: { product: 'nphotos' },
-  image: '/images/nphotos/banner_nphotos.png',
+  image: '/images/products/banners/banner-nphotos.svg',
   downloads: [],
   page: {
     seo: {
       title: 'Photos · Nexora',
       description:
         'Tus fotos y videos organizados automáticamente, respaldados en Nexora Cloud y disponibles en todos tus dispositivos.',
-      ogImage: '/images/nphotos/banner_nphotos.png',
+      ogImage: '/images/products/banners/banner-nphotos.svg',
     },
     sections: [
       {
@@ -38,19 +38,19 @@ const nphotos = {
             'Una biblioteca pensada para organizar tus fotos y videos y mantenerlos cerca en cada dispositivo.',
           images: [
             {
-              src: '/images/nphotos/nphotos-organiza.png',
+              src: '/images/nphotos/nphotos-organiza.svg',
               alt: 'Organización de la biblioteca en NPhotos',
               title: 'ORGANIZA',
               description: 'Encuentra tus fotos y videos sin perder tiempo buscando.',
             },
             {
-              src: '/images/nphotos/nphotos-respalda.png',
+              src: '/images/nphotos/nphotos-respalda.svg',
               alt: 'Respaldo de NPhotos en Nexora Cloud',
               title: 'RESPALDA',
               description: 'Tu biblioteca se mantiene conectada con Nexora Cloud.',
             },
             {
-              src: '/images/nphotos/nphotos-comparte.png',
+              src: '/images/nphotos/nphotos-comparte.svg',
               alt: 'Recuerdos compartidos entre dispositivos Nexora',
               title: 'COMPARTE',
               description: 'Tus recuerdos viajan contigo entre tus dispositivos.',

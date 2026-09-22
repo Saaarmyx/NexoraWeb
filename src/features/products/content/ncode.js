@@ -44,19 +44,19 @@ const ncode = {
             'Un entorno pensado para acompañarte desde la primera línea de código hasta el resultado final.',
           images: [
             {
-              src: '/images/ncode/ncode-crea.png',
+              src: '/images/ncode/ncode-crea.svg',
               alt: 'NCode',
               title: 'CREA',
               description: 'Convierte tus ideas en código.',
             },
             {
-              src: '/images/ncode/ncode-simula.png',
+              src: '/images/ncode/ncode-simula.svg',
               alt: 'Simulación de un proyecto en NCode',
               title: 'SIMULA',
               description: 'Comprueba cómo funciona antes de terminar.',
             },
             {
-              src: '/images/ncode/ncode-depura.png',
+              src: '/images/ncode/ncode-depura.svg',
               alt: 'Depuración de un proyecto en NCode',
               title: 'DEPURA',
               description: 'Encuentra el problema y resuélvelo.',
