@@ -1,44 +1,24 @@
-import Icon from '../ui/Icon/Icon'
-import { productMotifIcons } from './productMotifs'
 import { getProductsSync } from '../../features/products'
 
 import './ProductArt.css'
 
-const toneColors = {
-  brand: null,
-  ink: 'var(--color-text-heading)',
-  paper: 'var(--color-white)',
-  midnight: 'var(--color-text-muted)',
+function getBannerSrc(product) {
+  const products = getProductsSync()
+  const entry = products.find((item) => item.slug === product)
+  return entry?.image || `/images/products/banners/banner-${product}.svg`
 }
 
-function ProductArt({
-  product = 'nqr',
-  variant = 'spot',
-  tone = 'brand',
-  title,
-  className = '',
-}) {
-  const iconName = productMotifIcons[product] || productMotifIcons.nqr
-  const products = getProductsSync()
-  const productEntry = products.find((item) => item.slug === product)
-  const accentToken = productEntry?.accent || 'color-theme-accent'
-  const color = toneColors[tone] || `var(--${accentToken})`
+function ProductArt({ product = 'nqr', variant = 'spot', title, className = '' }) {
+  const src = getBannerSrc(product)
 
   return (
-    <div
-      role="img"
-      aria-label={title || `Ilustración de ${product}`}
-      style={{ color }}
-      className={
-        `product-art product-art--${variant} product-art--tone-${tone} ${className}`.trim()
-      }
-    >
-      <span className="product-art-motif">
-        <Icon name={iconName} size="1em" />
-      </span>
-
-      {product === 'nqr' && <span className="product-art-scan" aria-hidden="true" />}
-    </div>
+    <img
+      className={`product-art product-art--${variant} ${className}`.trim()}
+      src={src}
+      alt={title || `Ilustración de ${product}`}
+      loading="lazy"
+      decoding="async"
+    />
   )
 }
 

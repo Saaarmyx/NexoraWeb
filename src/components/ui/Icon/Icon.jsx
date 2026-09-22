@@ -3,20 +3,9 @@ import {
   faBars,
   faXmark,
   faUser,
-  faCode,
-  faCloud,
-  faImage,
-  faDesktop,
-  faShareNodes,
-  faQrcode,
-  faMicrochip,
-  faFile,
-  faCalculator,
-  faMicrophone,
-  faLock,
-  faDownload,
 } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord, faTelegramPlane } from '@fortawesome/free-brands-svg-icons'
+import { localIcons } from './localIcons'
 
 import './Icon.css'
 
@@ -24,23 +13,26 @@ const glyphs = {
   menu: faBars,
   close: faXmark,
   user: faUser,
-  code: faCode,
-  cloud: faCloud,
-  image: faImage,
-  monitor: faDesktop,
-  share: faShareNodes,
-  qr: faQrcode,
-  chip: faMicrochip,
-  file: faFile,
-  calculator: faCalculator,
-  record: faMicrophone,
-  lock: faLock,
-  download: faDownload,
   discord: faDiscord,
   telegram: faTelegramPlane,
 }
 
 function Icon({ name, size = 20, className = '', style, ...props }) {
+  const LocalIcon = localIcons[name]
+
+  if (LocalIcon) {
+    return (
+      <LocalIcon
+        width={size}
+        height={size}
+        className={`icon ${className}`.trim()}
+        style={style}
+        aria-hidden="true"
+        {...props}
+      />
+    )
+  }
+
   const glyph = glyphs[name]
 
   if (!glyph) {
